@@ -1,5 +1,7 @@
 # AcademySeed
 
+install git
+
 install nodejs
 
 add npm to path
