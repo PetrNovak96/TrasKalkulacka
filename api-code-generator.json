@@ -1,0 +1,9 @@
+{
+  "apiSpecPath": "apispec.yaml",
+  "generateMock": true,
+  "generateGateway": true,
+  "generateApiTest": false,
+  "mockOutputFolder": "/mock_server/generated/",
+  "gatewayOutputFolder": "/src/app/services/",
+  "apiTestOutputFolder": "/e2e/api-test/generated/"
+}

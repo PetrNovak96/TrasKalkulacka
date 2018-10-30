@@ -1,0 +1,39 @@
+swagger: '2.0'
+info:
+  description: Trask DevOps academy demo seed application
+  version: 1.0.0
+  title: Trask DevOps academy demo seed application
+  contact:
+    email: zmlcoch@trask.cz
+host: localhost
+basePath: /api
+tags:
+- name: demo
+schemes:
+- http
+paths:
+  /demo/demoEndPoint:
+    get:
+      tags:
+      - demo
+      operationId: demoEndPoint
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ApiResponse'
+        '400':
+          description: Something wrong
+definitions:
+  ApiResponse:
+    type: object
+    properties:
+      error:
+        type: string
+        enum:
+        - 'veryAccurateError'
+      data:
+        type: string
+

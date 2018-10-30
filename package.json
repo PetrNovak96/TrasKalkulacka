@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"ng serve --proxy-config=proxy.conf.json\" \"npm run mock\" \"ping 1.1.1.1 -n 15 -w 5000 >NUL && start chrome --auto-open-devtools-for-tabs http://localhost:4200/\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "mock": "nodemon",
+    "gapi": "generate-api"
   },
   "private": true,
   "dependencies": {
@@ -25,15 +27,16 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^6.0.0",
     "@angular-devkit/build-angular": "~0.6.1",
-    "typescript": "~2.7.2",
     "@angular/cli": "~6.0.1",
+    "@angular/compiler-cli": "^6.0.0",
     "@angular/language-service": "^6.0.0",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "api-code-generator": "file:../api-code-generator",
     "codelyzer": "~4.2.1",
+    "concurrently": "^4.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
@@ -41,8 +44,11 @@
     "karma-coverage-istanbul-reporter": "~1.4.2",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.5",
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
-    "tslint": "~5.9.1"
+    "tslint": "~5.9.1",
+    "typescript": "~2.7.2"
   }
 }
