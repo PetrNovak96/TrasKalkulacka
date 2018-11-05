@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
-import { ApiResponseError, ApiResponse } from './api-model';
+import { ApiResponseError, ApiResponse, PetrResponse } from './api-model';
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/index';
@@ -26,6 +26,21 @@ export class GatewayService {
     config?: any;
   }): Observable<ApiResponse> {
     let url = `${environment.apiBase}/demo/demoEndPoint`;
+    let queryParameters: any = {};
+    if (parameters.$queryParameters) {
+      queryParameters = parameters.$queryParameters;
+    }
+    return this.http.get(url, queryParameters) as any;
+  }
+
+  /**
+   *
+   */
+  public getDemoPetrEndPoint(parameters: {
+    $queryParameters?: any;
+    config?: any;
+  }): Observable<PetrResponse> {
+    let url = `${environment.apiBase}/demo/PetrEndPoint`;
     let queryParameters: any = {};
     if (parameters.$queryParameters) {
       queryParameters = parameters.$queryParameters;

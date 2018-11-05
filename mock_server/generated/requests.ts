@@ -1,6 +1,7 @@
 import {
   ApiResponseError,
-  ApiResponse
+  ApiResponse,
+  PetrResponse
 } from '../../src/app/services/api-model';
 export let commonResponses = {};
 
@@ -14,7 +15,13 @@ commonResponses['ApiResponse'] = () => {
     result: 'Not implemented ApiResponse'
   };
 };
+commonResponses['PetrResponse'] = () => {
+  return {
+    result: 'Not implemented PetrResponse'
+  };
+};
 
 export interface IResponsesObject {
   getDemoDemoEndPoint?: (req, res) => ApiResponse;
+  getDemoPetrEndPoint?: (req, res) => PetrResponse;
 }

@@ -9,6 +9,7 @@ host: localhost
 basePath: /api
 tags:
 - name: demo
+- name: petr
 schemes:
 - http
 paths:
@@ -26,6 +27,20 @@ paths:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Something wrong
+  /demo/PetrEndPoint:
+    get:
+      tags:
+      - petr
+      operationId: petrEndPoint
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/PetrResponse'
+        '400':
+          description: Something wrong
 definitions:
   ApiResponse:
     type: object
@@ -36,4 +51,9 @@ definitions:
         - 'veryAccurateError'
       data:
         type: string
+  PetrResponse:
+    type: object
+    properties:
+      interestRate:
+        type: number
 

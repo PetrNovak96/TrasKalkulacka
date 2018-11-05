@@ -34,6 +34,11 @@ const responseOverrides: IResponsesObject = {
       data: 'Moje namockovaná data',
       error: null,
     };
+  },
+  getDemoPetrEndPoint: (req, res) => {
+    return {
+      interestRate: 20
+    }
   }
 };
 

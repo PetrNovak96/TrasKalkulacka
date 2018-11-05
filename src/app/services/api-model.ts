@@ -4,3 +4,6 @@ export interface ApiResponse {
   error: ApiResponseError;
   data: string;
 }
+export interface PetrResponse {
+  interestRate: number;
+}

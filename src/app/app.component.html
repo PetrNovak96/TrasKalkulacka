@@ -1,0 +1,11 @@
+<div style="text-align:center">
+  <h1>{{interestRate}}</h1>
+  <input [(ngModel)]="interestRate" type="range" min="0" max="100" style="background-color: blue;"/>
+  <input type="button" (click)="nejakaFunkce($event)" value="Click me!"/>
+  <div *ngIf="this.ukaz">
+    <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/4LZABVZnI8g?rel=0&autoplay=1"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+  </div>
+</div>

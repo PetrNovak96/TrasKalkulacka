@@ -18,5 +18,14 @@ export class MockMethods {
       });
       res.send(responses.getDemoDemoEndPoint(req, res));
     });
+    /**
+     *
+     */
+    app.get(apiPath + '/demo/PetrEndPoint', (req: Request, res: any) => {
+      res.set({
+        'Content-Type': 'application/json'
+      });
+      res.send(responses.getDemoPetrEndPoint(req, res));
+    });
   }
 }
