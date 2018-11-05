@@ -1,31 +1,19 @@
-# AcademySeed
+# TrasKalkulačka
 
-install git
+Nejlepší úvěrová kalkulačka na světě vyvíjená pro Tatrask banku
 
-install nodejs
-
-add npm to path
-
-install WebStorm
-
-copy seed and api generator to your folder 
-
-run WebStorm
-
-open seed project
-
-open terminal
-
+## pokyny pro stáhnutí a zprovoznění
+_Předpokládá se, že máš nainstalovaný git, nodejs a npm._
+* na příkazové řádce ve složce, ve které chci mít projekt, napíšu:
+```
+git clone https://github.com/PetrNovak96/TrasKalkulacka
+```
+* potom zadám:
+```
 npm install
-
+```
+* potom zadám:
+```
 npm start
-
-check in browser
-
-edit apispec.yaml
-
-npm run gapi
-
-change front-end
-
-repeat edit apispec.yaml
+```
+* klient potom běží na ```http:localhost:4200/```
