@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PravaStranaComponent implements OnInit {
 
-  constructor() { }
+  public nabizimeVam: string;
+  public pojisteniInfo: string;
+  public doplnujiciInfo: string;
+
+  constructor() {
+
+  }
 
   ngOnInit() {
+    this.nabizimeVam = "Nabízíme Vám";
+    this.pojisteniInfo = "Pojištění Info";
+    this.doplnujiciInfo = "Doplňující Info";
   }
 
 }

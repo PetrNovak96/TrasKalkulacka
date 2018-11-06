@@ -11,6 +11,14 @@ import { ParametryComponent } from './komponenty/parametry/parametry.component';
 import { VyseUveruComponent } from './komponenty/vyse-uveru/vyse-uveru.component';
 import { DobaSplaceniComponent } from './komponenty/doba-splaceni/doba-splaceni.component';
 import { PojisteniComponent } from './komponenty/pojisteni/pojisteni.component';
+import { MesicniSplatkaComponent } from './komponenty/mesicni-splatka/mesicni-splatka.component';
+import { RPSNComponent } from './komponenty/rpsn/rpsn.component';
+import { CelkemComponent } from './komponenty/celkem/celkem.component';
+import { JmenoComponent } from './komponenty/jmeno/jmeno.component';
+import { PrijmeniComponent } from './komponenty/prijmeni/prijmeni.component';
+import { EmailComponent } from './komponenty/email/email.component';
+import { TelefonniCisloComponent } from './komponenty/telefonni-cislo/telefonni-cislo.component';
+import { DoplnujiciInfoComponent } from './komponenty/doplnujici-info/doplnujici-info.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,15 @@ import { PojisteniComponent } from './komponenty/pojisteni/pojisteni.component';
     ParametryComponent,
     VyseUveruComponent,
     DobaSplaceniComponent,
-    PojisteniComponent
+    PojisteniComponent,
+    MesicniSplatkaComponent,
+    RPSNComponent,
+    CelkemComponent,
+    JmenoComponent,
+    PrijmeniComponent,
+    EmailComponent,
+    TelefonniCisloComponent,
+    DoplnujiciInfoComponent
   ],
   imports: [
     BrowserModule,
