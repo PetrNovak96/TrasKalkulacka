@@ -1,0 +1,9 @@
+.app_center {
+  text-align: center;
+  width: 100%;
+}
+
+.app_strana {
+  float: left;
+  width: 50%;
+}

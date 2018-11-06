@@ -4,7 +4,7 @@ Nejlepší úvěrová kalkulačka na světě vyvíjená pro Tatrask banku
 ## Odkaz na SD
 [OneDrive](https://onedrive.live.com/?authkey=%21AOwb0pPkxexMT2Q&id=7D8ADDAA7DD1D2F2%21206754&cid=7D8ADDAA7DD1D2F2)
 
-## pokyny pro stáhnutí a zprovoznění
+## Pokyny pro stáhnutí a zprovoznění
 _Předpokládá se, že máš nainstalovaný git, nodejs a npm._
 * na příkazové řádce přejdi do složky, ve které chceš mít projekt
 ```

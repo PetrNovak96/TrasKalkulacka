@@ -9,7 +9,7 @@ import { GatewayService } from './services/gateway.service';
 export class AppComponent {
 
   public interestRate: number = 0;
-  public ukaz: boolean = false;
+  public zobrazFormular: boolean = false;
 
   constructor(public gateway: GatewayService) {
 
@@ -17,11 +17,4 @@ export class AppComponent {
       this.interestRate = data.interestRate;
     });
   }
-
-  nejakaFunkce(){
-    this.ukaz = !this.ukaz;
-  }
-
-
-
 }
