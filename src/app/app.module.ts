@@ -19,6 +19,10 @@ import { PrijmeniComponent } from './komponenty/prijmeni/prijmeni.component';
 import { EmailComponent } from './komponenty/email/email.component';
 import { TelefonniCisloComponent } from './komponenty/telefonni-cislo/telefonni-cislo.component';
 import { DoplnujiciInfoComponent } from './komponenty/doplnujici-info/doplnujici-info.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatTooltipModule } from '@angular/material';
+import {MatSliderModule} from '@angular/material/slider';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +47,9 @@ import { DoplnujiciInfoComponent } from './komponenty/doplnujici-info/doplnujici
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatTooltipModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
