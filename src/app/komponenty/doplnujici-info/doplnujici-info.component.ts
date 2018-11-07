@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-doplnujici-info',
-  template: `
-    <p>
-      doplnujici-info works!
-    </p>
-  `,
-  styles: []
+  selector: 'doplnujici-info',
+  templateUrl: './doplnujici-info.component.html',
+  styleUrls: ['./doplnujici-info.component.css']
 })
 export class DoplnujiciInfoComponent implements OnInit {
 

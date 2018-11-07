@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-prijmeni',
-  template: `
-    <p>
-      prijmeni works!
-    </p>
-  `,
-  styles: []
+  selector: 'prijmeni',
+  templateUrl: './prijmeni.component.html',
+  styleUrls: ['./prijmeni.component.css']
 })
 export class PrijmeniComponent implements OnInit {
 

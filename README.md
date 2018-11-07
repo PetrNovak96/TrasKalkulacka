@@ -25,15 +25,15 @@ mkdir traskalkulacka
 cd traskalkulacka
 ```
 
-* na příkazové řádce v této složce napiš:
+* na příkazové řádce v této složce napiš
 ```
 git clone https://github.com/PetrNovak96/TrasKalkulacka
 ```
-* potom zadej:
+* potom zadej
 ```
 npm install
 ```
-* a potom zadej:
+* a potom zadej
 ```
 npm start
 ```

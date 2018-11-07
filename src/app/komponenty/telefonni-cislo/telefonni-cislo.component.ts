@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-telefonni-cislo',
-  template: `
-    <p>
-      telefonni-cislo works!
-    </p>
-  `,
-  styles: []
+  selector: 'telefonni-cislo',
+  templateUrl: './telefonni-cislo.component.html',
+  styleUrls: ['./telefonni-cislo.component.css']
 })
 export class TelefonniCisloComponent implements OnInit {
 
