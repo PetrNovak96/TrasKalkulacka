@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'vyse-uveru',
@@ -16,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
              [max]="max"
       >
       <p>{{max + " " + jednotek}}</p>
-      <input type="text" [(ngModel)]="vyseUveru">
+      <input #textVyseUveru type="text" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
       <p>{{jednotek}}</p>
     </div>
   `,
@@ -31,6 +31,7 @@ export class VyseUveruComponent implements OnInit {
   public krok: number;
   public default: number;
   public jednotek: string;
+  @ViewChild('textVyseUveru') input;
 
   constructor() { }
 
@@ -41,6 +42,22 @@ export class VyseUveruComponent implements OnInit {
     this.min = 30000;
     this.max = 3300000;
     this.jednotek = "Kč";
+  }
+
+  ukNumberToString(neco: number){
+    return  neco.
+            toString().
+            replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+  }
+
+  fire(){
+    this.vyseUveru =  Number(
+                      this.
+                      input.
+                      nativeElement.
+                      value.
+                      toString().
+                      replace(/\s/g, ""));
   }
 
 }
