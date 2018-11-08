@@ -6,13 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <p>
       Doba splácení
     </p>
-    <img [matTooltip]="this.napoveda"
-         matTooltipPosition="right"
-         src="assets/otaznik.png"
-         alt="Nápověda"
-         width="15px"
-         height="15px"
-    >
+    <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
     <p>{{min + " " + jednotek}}</p>
     <input [(ngModel)]="dobaSplaceni"
            type="range"
@@ -23,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
     <p>{{max + " " + jednotek}}</p>
     <input type="text" [(ngModel)]="dobaSplaceni">
     <p>{{jednotek}}</p>
-    <p>{{thesaurus()}}</p>
+    <p>tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b></p>
   `,
   styleUrls: ['./doba-splaceni.component.css']
 })
@@ -48,15 +42,9 @@ export class DobaSplaceniComponent implements OnInit {
     this.jednotek = "měsíců";
   }
 
-  thesaurus(){
-
+  thesRoku(){
     let roku = Math.floor(this.dobaSplaceni/12);
-    let mesicu = this.dobaSplaceni % 12;
-
     let roky;
-    let a;
-    let mesice;
-
     switch (roku) {
       case 0: roky = ""; break;
       case 1: roky = roku + " rok"; break;
@@ -64,16 +52,26 @@ export class DobaSplaceniComponent implements OnInit {
       default: roky = roku + " let"; break;
     }
 
+    return roky;
+  }
+
+  thesA(){
+    let mesicu = this.dobaSplaceni % 12;
+    let roku = Math.floor(this.dobaSplaceni/12);
+    let a;
+    a = (mesicu!=0&&roku!=0)? " a " : "";
+    return a
+  }
+
+  thesMesicu(){
+    let mesicu = this.dobaSplaceni % 12;
+    let mesice;
     switch (mesicu) {
       case 0: mesice = ""; break;
       case 1: mesice = mesicu + " měsíc"; break;
       case 2: case 3: case 4: mesice = mesicu + " měsíce"; break;
       default: mesice = mesicu + " měsíců"; break;
     }
-
-    a = (mesicu!=0)? " a " : "";
-
-    return "tedy " + roky + a + mesice;
+    return mesice;
   }
-
 }

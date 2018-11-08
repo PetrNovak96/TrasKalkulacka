@@ -12,14 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MesicniSplatkaComponent implements OnInit {
 
-  public vysledek: string;
+  public vysledek: number;
   public jeVysledek: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.vysledek = "";
-    this.jeVysledek = false;
+    this.vysledek = 0;
+    this.jeVysledek = true;
   }
 
 }

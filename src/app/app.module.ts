@@ -22,6 +22,7 @@ import { DoplnujiciInfoComponent } from './komponenty/doplnujici-info/doplnujici
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material';
 import {MatSliderModule} from '@angular/material/slider';
+import { NapovedaComponent } from './komponenty/napoveda/napoveda.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {MatSliderModule} from '@angular/material/slider';
     PrijmeniComponent,
     EmailComponent,
     TelefonniCisloComponent,
-    DoplnujiciInfoComponent
+    DoplnujiciInfoComponent,
+    NapovedaComponent
   ],
   imports: [
     BrowserModule,

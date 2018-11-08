@@ -7,13 +7,7 @@ import { Component, OnInit } from '@angular/core';
       <p>
         Výše úvěru
       </p>
-      <img [matTooltip]="this.napoveda"
-           matTooltipPosition="right"
-           src="assets/otaznik.png"
-           alt="Nápověda"
-           width="15px"
-           height="15px"
-      >
+      <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
       <p>{{min + " " + jednotek}}</p>
       <input [(ngModel)]="vyseUveru"
              type="range"
