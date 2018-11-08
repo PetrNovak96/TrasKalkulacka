@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'telefonni-cislo',
-  templateUrl: './telefonni-cislo.component.html',
+  template: `
+    <p>
+      Telefonní číslo
+    </p>
+    <input type="tel" placeholder="+420 602 123 456">
+  `,
   styleUrls: ['./telefonni-cislo.component.css']
 })
 export class TelefonniCisloComponent implements OnInit {

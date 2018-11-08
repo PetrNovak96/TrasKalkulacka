@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'email',
-  templateUrl: './email.component.html',
+  template: `
+    <p>
+    Email
+    </p>
+    <input type="email" placeholder="@">
+  `,
   styleUrls: ['./email.component.css']
 })
 export class EmailComponent implements OnInit {

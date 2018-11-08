@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'jmeno',
-  templateUrl: './jmeno.component.html',
+  template: `
+    <p>
+      Jméno
+    </p>
+    <input type="text" placeholder="Petr">
+  `,
   styleUrls: ['./jmeno.component.css']
 })
 export class JmenoComponent implements OnInit {
