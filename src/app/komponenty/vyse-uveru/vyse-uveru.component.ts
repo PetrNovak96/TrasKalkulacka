@@ -14,16 +14,16 @@ import { Component, OnInit } from '@angular/core';
            width="15px"
            height="15px"
       >
-      <p>{{this.min + " " + this.jednotek}}</p>
-      <input [(ngModel)]="this.vyseUveru"
+      <p>{{min + " " + jednotek}}</p>
+      <input [(ngModel)]="vyseUveru"
              type="range"
-             [step]="this.krok"
-             [min]="this.min"
-             [max]="this.max"
+             [step]="krok"
+             [min]="min"
+             [max]="max"
       >
-      <p>{{this.max + " " + this.jednotek}}</p>
-      <input type="text" [(ngModel)]="this.vyseUveru">
-      <p>{{this.jednotek}}</p>
+      <p>{{max + " " + jednotek}}</p>
+      <input type="text" [(ngModel)]="vyseUveru">
+      <p>{{jednotek}}</p>
     </div>
   `,
   styleUrls: ['./vyse-uveru.component.css']
@@ -44,8 +44,8 @@ export class VyseUveruComponent implements OnInit {
     this.default = 1500000;
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
     this.vyseUveru = this.default;
-    this.min = 0;
-    this.max = 150000;
+    this.min = 30000;
+    this.max = 3300000;
     this.jednotek = "Kč";
   }
 

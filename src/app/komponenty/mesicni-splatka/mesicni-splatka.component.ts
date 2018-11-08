@@ -2,14 +2,24 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mesicni-splatka',
-  templateUrl: './mesicni-splatka.component.html',
+  template: `
+    <p>
+      Měsíční splátka
+    </p>
+    <p *ngIf="jeVysledek">{{vysledek + " Kč"}}</p>
+  `,
   styleUrls: ['./mesicni-splatka.component.css']
 })
 export class MesicniSplatkaComponent implements OnInit {
 
+  public vysledek: string;
+  public jeVysledek: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    this.vysledek = "";
+    this.jeVysledek = false;
   }
 
 }

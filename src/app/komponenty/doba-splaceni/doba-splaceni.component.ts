@@ -13,16 +13,16 @@ import { Component, OnInit } from '@angular/core';
          width="15px"
          height="15px"
     >
-    <p>{{this.min + " " + this.jednotek}}</p>
-    <input [(ngModel)]="this.dobaSplaceni"
+    <p>{{min + " " + jednotek}}</p>
+    <input [(ngModel)]="dobaSplaceni"
            type="range"
-           [step]="this.krok"
-           [min]="this.min"
-           [max]="this.max"
+           [step]="krok"
+           [min]="min"
+           [max]="max"
     >
-    <p>{{this.max + " " + this.jednotek}}</p>
-    <input type="text" [(ngModel)]="this.dobaSplaceni">
-    <p>{{this.jednotek}}</p>
+    <p>{{max + " " + jednotek}}</p>
+    <input type="text" [(ngModel)]="dobaSplaceni">
+    <p>{{jednotek}}</p>
     <p>{{thesaurus()}}</p>
   `,
   styleUrls: ['./doba-splaceni.component.css']
@@ -50,12 +50,12 @@ export class DobaSplaceniComponent implements OnInit {
 
   thesaurus(){
 
-    let mesicu = this.dobaSplaceni % 12;
     let roku = Math.floor(this.dobaSplaceni/12);
+    let mesicu = this.dobaSplaceni % 12;
 
     let roky;
-    let mesice;
     let a;
+    let mesice;
 
     switch (roku) {
       case 0: roky = ""; break;

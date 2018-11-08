@@ -2,14 +2,26 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'prava-strana',
-  templateUrl: './prava-strana.component.html',
+  template: `
+    <div>
+      <h2>{{this.nabizimeVam}}</h2>
+      <mesicni-splatka></mesicni-splatka>
+      <p *ngIf="jePojisteni">{{this.pojisteniInfo}}</p>
+      <p>U tohoto úvěru <b style="color: #00CC33">nepožadujeme</b> uvést jeho účel </p>
+      <p>a můžete ho kdykoliv předčasně</p>
+      <RPSN></RPSN>
+      <celkem></celkem>
+      <ng-content></ng-content>
+    </div>
+
+  `,
   styleUrls: ['./prava-strana.component.css']
 })
 export class PravaStranaComponent implements OnInit {
 
   public nabizimeVam: string;
   public pojisteniInfo: string;
-  public doplnujiciInfo: string;
+  public jePojisteni: boolean;
 
   constructor() {
 
@@ -17,8 +29,8 @@ export class PravaStranaComponent implements OnInit {
 
   ngOnInit() {
     this.nabizimeVam = "Nabízíme Vám";
-    this.pojisteniInfo = "Pojištění Info";
-    this.doplnujiciInfo = "Doplňující Info";
+    this.pojisteniInfo = "+ 150 Kč/ měsíčně pojištění proti neschopnosti splácet";
+    this.jePojisteni = true;
   }
 
 }
