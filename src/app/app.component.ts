@@ -3,7 +3,19 @@ import { GatewayService } from './services/gateway.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl:'./app.component.html' ,
+  template: `
+    <div class="app_center">
+      <div style="height: 50%;">
+        <leva-strana style="float: left;"></leva-strana>
+        <prava-strana style="float: left;">
+          <input type="button" value="Kontaktujte mě" [disabled]="zobrazFormular" (click)="this.zobrazFormular = !this.zobrazFormular">
+        </prava-strana>
+      </div>
+      <div style="height: 50%;">
+        <kontaktni-formular *ngIf="this.zobrazFormular"></kontaktni-formular>
+      </div>
+    </div>
+  `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
