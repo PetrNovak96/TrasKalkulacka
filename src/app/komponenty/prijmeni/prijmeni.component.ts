@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <p>
       Příjmení
     </p>
-    <input type="text"placeholder="Novák">
+    <input type="text" class="form-control" placeholder="Novák">
   `,
   styleUrls: ['./prijmeni.component.css']
 })
