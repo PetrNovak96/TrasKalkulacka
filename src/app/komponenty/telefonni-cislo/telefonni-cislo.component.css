@@ -1,0 +1,5 @@
+input[type=tel] {
+  width: 230px;
+  text-align: left;
+  margin-left: 100px;
+}
