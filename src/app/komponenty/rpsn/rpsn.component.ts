@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <p class="txtWhite">RPSN</p>
     <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-    <p *ngIf="jeVysledek">{{vysledek + " %"}}</p>
+    <p class="txtWhite" *ngIf="jeVysledek">{{vysledek + " %"}}</p>
   `,
   styleUrls: ['./rpsn.component.css']
 })
