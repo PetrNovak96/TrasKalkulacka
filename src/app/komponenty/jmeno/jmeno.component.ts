@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <p>
       Jméno
     </p>
-    <input type="text" placeholder="Petr">
+    <input type="text" class="form-control" placeholder="Petr">
   `,
   styleUrls: ['./jmeno.component.css']
 })
