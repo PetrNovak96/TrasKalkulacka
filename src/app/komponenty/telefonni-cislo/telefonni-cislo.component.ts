@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <p>
       Telefonní číslo
     </p>
-    <input type="tel" placeholder="+420 602 123 456">
+    <input type="tel" class="form-control" placeholder="+420 602 123 456">
   `,
   styleUrls: ['./telefonni-cislo.component.css']
 })
