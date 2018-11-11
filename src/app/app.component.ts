@@ -8,7 +8,7 @@ import { GatewayService } from './services/gateway.service';
       <div style="height: 50%;">
         <leva-strana style="float: left;"></leva-strana>
         <prava-strana style="float: left;">
-          <input type="button" class="btn btn-primary" value="Kontaktujte mě" [disabled]="zobrazFormular" (click)="this.zobrazFormular = !this.zobrazFormular">
+          <input type="button" class="btn btn-success" value="Kontaktujte mě" [disabled]="zobrazFormular" (click)="this.zobrazFormular = !this.zobrazFormular">
         </prava-strana>
       </div>
       <div style="height: 50%;">
