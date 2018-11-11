@@ -15,7 +15,7 @@ import { GatewayService } from './services/gateway.service';
         </div>
         <div class="col-md-5" style="background-color: #0B5499">
           <prava-strana>
-            <input type="button" class="btn btn-success" value="Kontaktujte mě" [disabled]="zobrazFormular" (click)="this.zobrazFormular = !this.zobrazFormular">
+            <input type="button" class="btn btn-success btn-lg" value="Kontaktujte mě" [disabled]="zobrazFormular" (click)="this.zobrazFormular = !this.zobrazFormular">
           </prava-strana>
         </div>
         <div class="col-md-1">
