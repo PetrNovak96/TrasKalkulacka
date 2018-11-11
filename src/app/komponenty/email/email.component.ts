@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <p>
     Email
     </p>
-    <input type="email" placeholder="@">
+    <input type="email" class="form-control" placeholder="@">
   `,
   styleUrls: ['./email.component.css']
 })
