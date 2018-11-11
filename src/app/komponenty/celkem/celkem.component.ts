@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'celkem',
   template: `
-    <p>
+    <p class="txtWhite">
       Zaplatíte celkem
     </p>
     <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-    <p *ngIf="jeVysledek">{{vysledek + " Kč"}}</p>
+    <p class="txtWhite" *ngIf="jeVysledek">{{vysledek + " Kč"}}</p>
   `,
   styleUrls: ['./celkem.component.css']
 })
