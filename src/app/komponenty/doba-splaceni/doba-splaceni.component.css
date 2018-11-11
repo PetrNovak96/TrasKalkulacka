@@ -1,3 +1,9 @@
 .modre {
   color: #0B5499;
 }
+
+input[type=text] {
+  width: 50%;
+  text-align: center;
+  margin-left: 100px;
+}

@@ -15,7 +15,7 @@ import { Component, OnInit } from '@angular/core';
            [max]="max"
     >
     <p>{{max + " " + jednotek}}</p>
-    <input type="text" [(ngModel)]="dobaSplaceni">
+    <input type="text" class="form-control" [(ngModel)]="dobaSplaceni">
     <p>{{jednotek}}</p>
     <p>tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b></p>
   `,
