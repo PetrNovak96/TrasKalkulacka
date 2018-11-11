@@ -11,10 +11,10 @@ import { GatewayService } from './services/gateway.service';
         <div class="col-md-1">
          </div>
         <div class="col-md-5">
-          <leva-strana style="float: left;"></leva-strana>
+          <leva-strana class="leftSide"></leva-strana>
         </div>
         <div class="col-md-5" style="background-color: #0B5499">
-          <prava-strana>
+          <prava-strana class="rightSide">
             <input type="button" class="btn btn-success btn-lg" value="Kontaktujte mě" [disabled]="zobrazFormular" (click)="this.zobrazFormular = !this.zobrazFormular">
           </prava-strana>
         </div>

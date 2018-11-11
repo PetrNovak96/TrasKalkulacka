@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
       <p *ngIf="jePojisteni">{{this.pojisteniInfo}}</p>
       <p>U tohoto úvěru <b style="color: #00CC33">nepožadujeme</b> uvést jeho účel </p>
       <p>a můžete ho kdykoliv předčasně splatit.</p>
-      <hr width="400px">
+      <hr color="white">
       <RPSN></RPSN>
       <celkem></celkem>
       <ng-content></ng-content>

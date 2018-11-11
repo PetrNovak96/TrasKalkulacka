@@ -5,15 +5,38 @@ h2 {
   font-size: 28px;
   font-weight: bold;
   font-family: sans-serif Verdana;
-  padding-bottom: 25px;
+  padding-bottom: 40px;
   padding-top: 30px;
+}
+
+hr {
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+  width: 400px;
+}
+
+.rightSide{
+  text-align: center;
+  font-weight: bold;
+}
+
+.leftSide{
+  text-align: center;
+  font-weight: bold;
 }
 
 .txtWhite {
   color:white;
+  font-weight: bold;
 }
 
 input[type=button] {
-  margin-bottom: 15px;
-  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-top: 35px;
 }
+
