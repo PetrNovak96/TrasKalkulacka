@@ -5,9 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <p class="txtWhite">
       Zaplatíte celkem
-    </p>
-    <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-    <p class="txtWhite" *ngIf="jeVysledek">{{vysledek + " Kč"}}</p>
+    <napoveda pozice="right" [tooltip]="napoveda"></napoveda> </p>
+    <p class="txtWhite" style="text-align: right" *ngIf="jeVysledek">{{vysledek + " Kč"}}</p>
   `,
   styleUrls: ['./celkem.component.css']
 })

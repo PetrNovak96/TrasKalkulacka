@@ -9,7 +9,7 @@ import { GatewayService } from './services/gateway.service';
       <div class="row">
         <div class="col-md-1">
          </div>
-        <div class="col-md-5" style="background-color: whitesmoke">
+        <div class="col-md-5" style="background-color: ghostwhite">
           <leva-strana class="leftSide"></leva-strana>
         </div>
         <div class="col-md-5" style="background-color: #0B5499">
@@ -24,7 +24,7 @@ import { GatewayService } from './services/gateway.service';
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10" style="background-color: whitesmoke">
           <kontaktni-formular *ngIf="this.zobrazFormular"></kontaktni-formular>
         </div>
         <div class="col-md-1">

@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'RPSN',
   template: `
-    <p class="txtWhite">RPSN</p>
-    <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-    <p class="txtWhite" *ngIf="jeVysledek">{{vysledek + " %"}}</p>
+    <p class="txtWhite">RPSN
+    <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+    <p class="txtWhite" style="text-align: right" *ngIf="jeVysledek">{{vysledek + " %"}}</p>
   `,
   styleUrls: ['./rpsn.component.css']
 })
