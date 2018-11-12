@@ -16,4 +16,8 @@ export class ModAplikaceService {
   public jeMobilniVerze(): boolean {
     return this.mobil;
   }
+
+  public getSirku(): number {
+    return window.innerWidth;
+  }
 }

@@ -5,18 +5,16 @@ import { ModAplikaceService } from './mod-aplikace-service';
 @Component({
   selector: 'app-root',
   template: `
-    <div class="app_center">
-      <h1 *ngIf="!jeMobil">Je desktop</h1>
-      <h1 *ngIf="jeMobil">Je mobil</h1>
-      <div style="height: 50%;">
-        <leva-strana style="float: left;"></leva-strana>
-        <prava-strana style="float: left;">
-          <input type="button" value="Kontaktujte mě" [disabled]="zobrazFormular" (click)="this.zobrazFormular = !this.zobrazFormular">
-        </prava-strana>
-      </div>
-      <div style="height: 50%;">
-        <kontaktni-formular *ngIf="this.zobrazFormular"></kontaktni-formular>
-      </div>
+    <div>
+      <table align="center" border="1">
+        <tr>
+          <td width="50%" style="text-align: center"><leva-strana></leva-strana></td>
+          <td width="50%" style="text-align: center"><prava-strana></prava-strana></td> 
+        </tr>
+        <tr>
+          <td width="100%" align="center" colspan="2"><kontaktni-formular></kontaktni-formular></td>
+        </tr>
+      </table>
     </div>
   `,
   styleUrls: ['./app.component.css']
