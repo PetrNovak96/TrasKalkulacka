@@ -7,4 +7,7 @@
   width: 8em;
   /*font-weight: bold;*/
 }
+html {
+  scroll-behavior: smooth;
+}
 

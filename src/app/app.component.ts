@@ -1,12 +1,11 @@
 import { Component, Injectable } from '@angular/core';
 import { GatewayService } from './services/gateway.service';
-import { ModAplikaceService } from './mod-aplikace-service';
+import { OknoAplikaceService } from './okno-aplikace-service';
 
 @Component({
   selector: 'app-root',
   template: `
     <div>
-      
       <!--  ____DESKTOPOVÁ VERZE____ -->
       <table *ngIf="!jeMobil" align="center">
         <tr>
@@ -31,7 +30,7 @@ import { ModAplikaceService } from './mod-aplikace-service';
         <tr>
           <td style="text-align: center; background-color: #0B5499; color: white;">
             <prava-strana>
-              <input class="tlacitko" type="button" value="Kontaktujte mě" (click)="zobrazFormular=true">
+              <input class="tlacitko" type="button" value="Kontaktujte mě" (click)="fireMobile()">
             </prava-strana>
           </td>
         </tr>
@@ -51,11 +50,17 @@ export class AppComponent {
   public jeMobil: boolean;
 
   constructor(public gateway: GatewayService,
-              private modAplikaceService: ModAplikaceService) {
+              private modAplikaceService: OknoAplikaceService) {
 
     this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
       this.interestRate = data.interestRate;
     });
     this.jeMobil = this.modAplikaceService.jeMobilniVerze();
+  }
+
+  fireMobile(){
+    this.zobrazFormular = true;
+
+    this.modAplikaceService.scrollO(100);
   }
 }
