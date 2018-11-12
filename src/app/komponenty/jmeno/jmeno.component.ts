@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <p>
       Jméno
+    <input type="text" class="form-control" placeholder="Petr">
     </p>
-    <input type="text" placeholder="Petr">
   `,
   styleUrls: ['./jmeno.component.css']
 })

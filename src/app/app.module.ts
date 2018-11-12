@@ -23,7 +23,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material';
 import {MatSliderModule} from '@angular/material/slider';
 import { NapovedaComponent } from './komponenty/napoveda/napoveda.component';
-import { OknoAplikaceService} from './okno-aplikace-service';
 
 
 @NgModule({
@@ -44,8 +43,7 @@ import { OknoAplikaceService} from './okno-aplikace-service';
     EmailComponent,
     TelefonniCisloComponent,
     DoplnujiciInfoComponent,
-    NapovedaComponent,
-
+    NapovedaComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +53,7 @@ import { OknoAplikaceService} from './okno-aplikace-service';
     MatTooltipModule,
     MatSliderModule
   ],
-  providers: [OknoAplikaceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template:`
     <p>
       Příjmení
+      <input type="text" class="form-control" placeholder="Novák">
     </p>
-    <input type="text"placeholder="Novák">
   `,
   styleUrls: ['./prijmeni.component.css']
 })

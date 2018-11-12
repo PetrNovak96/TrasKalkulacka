@@ -4,30 +4,20 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   selector: 'vyse-uveru',
   template: `
     <div>
-      <table align="center" width="400px">
-        <tr align="left">
-          <td align="left" width="20%">Výše úvěru</td>
-          <td align="left">
-            <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-          </td>
-          <td align="right"><input #textVyseUveru style="text-align: center" 
-                     type="text" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
-          </td>
-          <td align="right">{{jednotek}}</td>
-        </tr>
-        <tr>
-          <td colspan="4"><input width="50%" [(ngModel)]="vyseUveru"
-                     type="range"
-                     [step]="krok"
-                     [min]="min"
-                     [max]="max"
-          ></td>
-        </tr>
-        <tr>
-          <td align="left" colspan="2">{{min + " " + jednotek}}</td>
-          <td align="right" colspan="2">{{max + " " + jednotek}}</td>
-        </tr>
-      </table>
+      <p>
+        Výše úvěru
+      </p>
+      <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
+      <p>{{min + " " + jednotek}}</p>
+      <input [(ngModel)]="vyseUveru"
+             type="range"
+             [step]="krok"
+             [min]="min"
+             [max]="max"
+      >
+      <p>{{max + " " + jednotek}}</p>
+      <input #textVyseUveru type="text" class="form-control" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
+      <p>{{jednotek}}</p>
     </div>
   `,
   styleUrls: ['./vyse-uveru.component.css']
@@ -51,24 +41,23 @@ export class VyseUveruComponent implements OnInit {
     this.vyseUveru = this.default;
     this.min = 30000;
     this.max = 3300000;
-    this.krok = 10000;
     this.jednotek = "Kč";
   }
 
   ukNumberToString(neco: number){
     return  neco.
-            toString().
-            replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+    toString().
+    replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
   }
 
   fire(){
     this.vyseUveru =  Number(
-                      this.
-                      input.
-                      nativeElement.
-                      value.
-                      toString().
-                      replace(/\s/g, ""));
+      this.
+      input.
+      nativeElement.
+      value.
+      toString().
+      replace(/\s/g, ""));
   }
 
 }

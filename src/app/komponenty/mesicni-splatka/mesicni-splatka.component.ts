@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-@Component({
+@ Component({
   selector: 'mesicni-splatka',
   template: `
-    <p>
+    <p class="txtWhite">
       Měsíční splátka
     </p>
-    <p *ngIf="jeVysledek">{{vysledek + " Kč"}}</p>
+    <p class="txtWhite"  style="font-size: 28px; margin-bottom: 25px" *ngIf="jeVysledek">{{vysledek + " Kč"}}</p>
   `,
   styleUrls: ['./mesicni-splatka.component.css']
 })

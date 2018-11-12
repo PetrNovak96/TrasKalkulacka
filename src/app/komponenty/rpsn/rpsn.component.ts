@@ -3,13 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'RPSN',
   template: `
-    <table width="400px">
-      <tr>
-        <td width="10%" align="left">RPSN</td>
-        <td align="left"><napoveda pozice="right" [tooltip]="napoveda"></napoveda></td>
-        <td align="right" *ngIf="jeVysledek" >{{vysledek + " %"}}</td>
-      </tr>
-    </table>
+    <p class="txtWhite">RPSN
+    <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+    <p class="txtWhite" style="text-align: right" *ngIf="jeVysledek">{{vysledek + " %"}}</p>
   `,
   styleUrls: ['./rpsn.component.css']
 })
