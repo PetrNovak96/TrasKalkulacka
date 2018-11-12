@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <p>
       Telefonní číslo
-    </p>
     <input type="tel" class="form-control" placeholder="+420 602 123 456">
+    </p>
   `,
   styleUrls: ['./telefonni-cislo.component.css']
 })

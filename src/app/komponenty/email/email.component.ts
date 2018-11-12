@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <p>
     Email
-    </p>
     <input type="email" class="form-control" placeholder="@">
+    </p>
   `,
   styleUrls: ['./email.component.css']
 })
