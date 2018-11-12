@@ -16,7 +16,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
              [max]="max"
       >
       <p>{{max + " " + jednotek}}</p>
-      <input #textVyseUveru type="text" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
+      <input #textVyseUveru type="text" class="form-control" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
       <p>{{jednotek}}</p>
     </div>
   `,
@@ -46,18 +46,18 @@ export class VyseUveruComponent implements OnInit {
 
   ukNumberToString(neco: number){
     return  neco.
-            toString().
-            replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+    toString().
+    replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
   }
 
   fire(){
     this.vyseUveru =  Number(
-                      this.
-                      input.
-                      nativeElement.
-                      value.
-                      toString().
-                      replace(/\s/g, ""));
+      this.
+      input.
+      nativeElement.
+      value.
+      toString().
+      replace(/\s/g, ""));
   }
 
 }

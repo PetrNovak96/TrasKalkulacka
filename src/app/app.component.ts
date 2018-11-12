@@ -6,11 +6,10 @@ import { GatewayService } from './services/gateway.service';
   template: `
     
     <div class="container">
-      col-sm-3 col-md-6 col-lg-4
       <div class="row">
         <div class="col-md-1">
          </div>
-        <div class="col-md-5">
+        <div class="col-md-5" style="background-color: whitesmoke">
           <leva-strana class="leftSide"></leva-strana>
         </div>
         <div class="col-md-5" style="background-color: #0B5499">

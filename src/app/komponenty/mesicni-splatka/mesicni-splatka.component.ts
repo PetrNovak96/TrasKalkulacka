@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <p class="txtWhite">
       Měsíční splátka
     </p>
-    <p class="txtWhite" *ngIf="jeVysledek">{{vysledek + " Kč"}}</p>
+    <p class="txtWhite"  style="font-size: 28px" *ngIf="jeVysledek">{{vysledek + " Kč"}}</p>
   `,
   styleUrls: ['./mesicni-splatka.component.css']
 })

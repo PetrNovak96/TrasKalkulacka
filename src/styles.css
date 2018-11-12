@@ -2,11 +2,13 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 h2 {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   font-family: sans-serif Verdana;
   padding-bottom: 40px;
   padding-top: 30px;
+  font-weight: bold;
+  text-align: center;
 }
 
 hr {
@@ -32,11 +34,12 @@ hr {
 
 .txtWhite {
   color:white;
-  font-weight: bold;
 }
 
 input[type=button] {
   margin-bottom: 25px;
   margin-top: 35px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
