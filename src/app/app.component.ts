@@ -1,5 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import { GatewayService } from './services/gateway.service';
+import { ModAplikaceService } from './mod-aplikace-service';
 
 @Component({
   selector: 'app-root',
@@ -27,15 +28,12 @@ export class AppComponent {
   public zobrazFormular: boolean = false;
   public jeMobil: boolean;
 
-  constructor(public gateway: GatewayService) {
+  constructor(public gateway: GatewayService,
+              private modAplikaceService: ModAplikaceService) {
 
     this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
       this.interestRate = data.interestRate;
     });
-    if (window.innerWidth < 768) {
-      this.jeMobil = true;
-    } else {
-      this.jeMobil = false;
-    }
+    this.jeMobil = this.modAplikaceService.jeMobilniVerze();
   }
 }

@@ -8,14 +8,19 @@ import { Component, OnInit, ViewChild } from '@angular/core';
         Výše úvěru
       </p>
       <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-      <p>{{min + " " + jednotek}}</p>
-      <input [(ngModel)]="vyseUveru"
-             type="range"
-             [step]="krok"
-             [min]="min"
-             [max]="max"
-      >
-      <p>{{max + " " + jednotek}}</p>
+      <table>
+        <td><p>{{min + " " + jednotek}}</p></td>
+        <td><input [(ngModel)]="vyseUveru"
+                   type="range"
+                   [step]="krok"
+                   [min]="min"
+                   [max]="max"
+        ></td>
+        <td><p>{{max + " " + jednotek}}</p></td>
+      </table>
+      
+      
+      
       <input #textVyseUveru style="text-align: center" type="text" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
       <p>{{jednotek}}</p>
     </div>

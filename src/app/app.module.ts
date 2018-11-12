@@ -23,7 +23,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material';
 import {MatSliderModule} from '@angular/material/slider';
 import { NapovedaComponent } from './komponenty/napoveda/napoveda.component';
-
+import { ModAplikaceService} from './mod-aplikace-service';
 
 
 @NgModule({
@@ -55,7 +55,7 @@ import { NapovedaComponent } from './komponenty/napoveda/napoveda.component';
     MatTooltipModule,
     MatSliderModule
   ],
-  providers: [],
+  providers: [ModAplikaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
