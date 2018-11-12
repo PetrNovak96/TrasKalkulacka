@@ -16,7 +16,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
              [max]="max"
       >
       <p>{{max + " " + jednotek}}</p>
-      <input #textVyseUveru type="text" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
+      <input #textVyseUveru style="text-align: center" type="text" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
       <p>{{jednotek}}</p>
     </div>
   `,
@@ -41,6 +41,7 @@ export class VyseUveruComponent implements OnInit {
     this.vyseUveru = this.default;
     this.min = 30000;
     this.max = 3300000;
+    this.krok = 10000;
     this.jednotek = "Kč";
   }
 

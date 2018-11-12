@@ -15,7 +15,7 @@ import { Component, OnInit } from '@angular/core';
            [max]="max"
     >
     <p>{{max + " " + jednotek}}</p>
-    <input type="text" [(ngModel)]="dobaSplaceni">
+    <input type="text" style="text-align: center" [(ngModel)]="dobaSplaceni">
     <p>{{jednotek}}</p>
     <p>tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b></p>
   `,
@@ -39,6 +39,7 @@ export class DobaSplaceniComponent implements OnInit {
     this.dobaSplaceni = this.default;
     this.min = 24;
     this.max = 120;
+    this.krok = 1;
     this.jednotek = "měsíců";
   }
 

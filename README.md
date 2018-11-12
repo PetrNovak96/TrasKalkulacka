@@ -16,7 +16,7 @@ mkdir api_code_generator
 ```
 * do této složky rozbal obsah [zipu](https://drive.google.com/drive/folders/1eGnRHV7FwzU6C6XqZkEYgUcT7lAFdLIy).
 
-* na příkazové řádce v této složce napiš
+* na příkazové řádce napiš
 ```
 git clone https://github.com/PetrNovak96/TrasKalkulacka
 ```
