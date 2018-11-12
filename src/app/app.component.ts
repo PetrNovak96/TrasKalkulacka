@@ -6,13 +6,17 @@ import { ModAplikaceService } from './mod-aplikace-service';
   selector: 'app-root',
   template: `
     <div>
-      <table align="center" border="1">
+      <table align="center">
         <tr>
           <td width="50%" style="text-align: center"><leva-strana></leva-strana></td>
-          <td width="50%" style="text-align: center"><prava-strana></prava-strana></td> 
+          <td   width="50%" style="text-align: center; background-color: #0B5499; color: white;">
+            <prava-strana>
+              <input class="tlacitko" type="button" value="Kontaktujte mě" (click)="zobrazFormular=true">
+            </prava-strana>
+          </td> 
         </tr>
         <tr>
-          <td width="100%" align="center" colspan="2"><kontaktni-formular></kontaktni-formular></td>
+          <td *ngIf="zobrazFormular" width="100%" align="center" colspan="2"><kontaktni-formular></kontaktni-formular></td>
         </tr>
       </table>
     </div>
