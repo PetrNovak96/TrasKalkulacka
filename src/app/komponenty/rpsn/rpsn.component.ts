@@ -3,9 +3,19 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'RPSN',
   template: `
-    <p class="txtWhite">RPSN
-    <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
-    <p class="txtWhite" style="text-align: right" *ngIf="jeVysledek">{{vysledek + " %"}}</p>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-5" style="text-align: left">
+         <p class="txtWhite">RPSN
+          <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+      </div>
+      <div class="col-md-5" style="text-align: right">
+        <p class="txtWhite" style="text-align: right" *ngIf="jeVysledek">{{vysledek + " %"}}</p>
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
   `,
   styleUrls: ['./rpsn.component.css']
 })
