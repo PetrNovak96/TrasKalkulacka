@@ -24,7 +24,7 @@ import { GatewayService } from './services/gateway.service';
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10" style="background-color: whitesmoke">
+        <div class="col-md-10 formular" style="background-color: whitesmoke">
           <kontaktni-formular *ngIf="this.zobrazFormular"></kontaktni-formular>
         </div>
         <div class="col-md-1">
