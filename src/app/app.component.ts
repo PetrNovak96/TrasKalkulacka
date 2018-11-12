@@ -6,7 +6,9 @@ import { ModAplikaceService } from './mod-aplikace-service';
   selector: 'app-root',
   template: `
     <div>
-      <table align="center">
+      
+      <!--  ____DESKTOPOVÁ VERZE____ -->
+      <table *ngIf="!jeMobil" align="center">
         <tr>
           <td style="text-align: center"><leva-strana></leva-strana></td>
           <td style="text-align: center; background-color: #0B5499; color: white;">
@@ -14,6 +16,24 @@ import { ModAplikaceService } from './mod-aplikace-service';
               <input class="tlacitko" type="button" value="Kontaktujte mě" (click)="zobrazFormular=true">
             </prava-strana>
           </td> 
+        </tr>
+        <tr>
+          <td *ngIf="zobrazFormular" width="100%" align="center" colspan="2"><kontaktni-formular></kontaktni-formular></td>
+        </tr>
+      </table>
+
+      <!--  ____MOBILNÍ VERZE____ -->
+      <table *ngIf="jeMobil" align="center">
+        <tr>
+          <td style="text-align: center"><leva-strana></leva-strana></td>
+          
+        </tr>
+        <tr>
+          <td style="text-align: center; background-color: #0B5499; color: white;">
+            <prava-strana>
+              <input class="tlacitko" type="button" value="Kontaktujte mě" (click)="zobrazFormular=true">
+            </prava-strana>
+          </td>
         </tr>
         <tr>
           <td *ngIf="zobrazFormular" width="100%" align="center" colspan="2"><kontaktni-formular></kontaktni-formular></td>
