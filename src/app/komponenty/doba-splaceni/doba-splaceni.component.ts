@@ -3,21 +3,37 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'doba-splaceni',
   template: `
-    <p>
-      Doba splácení
-    </p>
-    <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-    <p>{{min + " " + jednotek}}</p>
-    <input [(ngModel)]="dobaSplaceni"
-           type="range"
-           [step]="krok"
-           [min]="min"
-           [max]="max"
-    >
-    <p>{{max + " " + jednotek}}</p>
-    <input type="text" style="text-align: center" [(ngModel)]="dobaSplaceni">
-    <p>{{jednotek}}</p>
-    <p>tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b></p>
+    <div>
+      <table align="center" width="400px">
+        <tr align="left">
+          <td align="left" width="25%">Doba splácení</td>
+          <td align="left">
+            <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
+          </td>
+          <td align="right"><input type="text" style="text-align: center" [(ngModel)]="dobaSplaceni">
+          </td>
+          <td align="right">{{jednotek}}</td>
+        </tr>
+        <tr>
+          <td align="right" colspan="4">
+            tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4"><input [(ngModel)]="dobaSplaceni"
+                                  type="range"
+                                  [step]="krok"
+                                  [min]="min"
+                                  [max]="max"
+          >
+          </td>
+        </tr>
+        <tr>
+          <td align="left" colspan="2">{{min + " " + jednotek}}</td>
+          <td align="right" colspan="2">{{max + " " + jednotek}}</td>
+        </tr>
+      </table>
+    </div>
   `,
   styleUrls: ['./doba-splaceni.component.css']
 })

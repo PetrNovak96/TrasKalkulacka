@@ -3,8 +3,18 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'pojisteni',
   template: `
-    <input type="checkbox" [(ngModel)]="odskrkle" />
-    <p>{{vysvetleni}}</p>
+    <table>
+      <tr align="left">
+        <td>
+          <input type="checkbox" [(ngModel)]="odskrkle" />
+        </td>
+        <td>
+          {{vysvetleni}}
+        </td>
+      </tr>
+    </table>
+    
+    <p></p>
   `,
   styleUrls: ['./pojisteni.component.css']
 })

@@ -4,25 +4,30 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   selector: 'vyse-uveru',
   template: `
     <div>
-      <p>
-        Výše úvěru
-      </p>
-      <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-      <table>
-        <td><p>{{min + " " + jednotek}}</p></td>
-        <td><input [(ngModel)]="vyseUveru"
-                   type="range"
-                   [step]="krok"
-                   [min]="min"
-                   [max]="max"
-        ></td>
-        <td><p>{{max + " " + jednotek}}</p></td>
+      <table align="center" width="400px">
+        <tr align="left">
+          <td align="left" width="20%">Výše úvěru</td>
+          <td align="left">
+            <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
+          </td>
+          <td align="right"><input #textVyseUveru style="text-align: center" 
+                     type="text" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
+          </td>
+          <td align="right">{{jednotek}}</td>
+        </tr>
+        <tr>
+          <td colspan="4"><input width="50%" [(ngModel)]="vyseUveru"
+                     type="range"
+                     [step]="krok"
+                     [min]="min"
+                     [max]="max"
+          ></td>
+        </tr>
+        <tr>
+          <td align="left" colspan="2">{{min + " " + jednotek}}</td>
+          <td align="right" colspan="2">{{max + " " + jednotek}}</td>
+        </tr>
       </table>
-      
-      
-      
-      <input #textVyseUveru style="text-align: center" type="text" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
-      <p>{{jednotek}}</p>
     </div>
   `,
   styleUrls: ['./vyse-uveru.component.css']

@@ -8,8 +8,8 @@ import { ModAplikaceService } from './mod-aplikace-service';
     <div>
       <table align="center">
         <tr>
-          <td width="50%" style="text-align: center"><leva-strana></leva-strana></td>
-          <td   width="50%" style="text-align: center; background-color: #0B5499; color: white;">
+          <td style="text-align: center"><leva-strana></leva-strana></td>
+          <td style="text-align: center; background-color: #0B5499; color: white;">
             <prava-strana>
               <input class="tlacitko" type="button" value="Kontaktujte mě" (click)="zobrazFormular=true">
             </prava-strana>
