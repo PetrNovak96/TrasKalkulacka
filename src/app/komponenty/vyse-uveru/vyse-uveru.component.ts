@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'vyse-uveru',
@@ -48,14 +48,15 @@ export class VyseUveruComponent implements OnInit {
   public min: number;
   public max: number;
   public krok: number;
-  public default: number;
+  @Input('defaultVyseUveru') public default: number;
   public jednotek: string;
   @ViewChild('textVyseUveru') input;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
-    this.default = 1500000;
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
     this.vyseUveru = this.default;
     this.min = 30000;

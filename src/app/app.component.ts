@@ -11,9 +11,15 @@ import { GatewayService } from './services/gateway.service';
          </div>
         <div class="col-md-5" style="background-color: ghostwhite; border-bottom-color: #0B5499; border-bottom-style: solid;  padding-bottom: 30px">
           <leva-strana class="leftSide">
-            <vyse-uveru (zmenaVyseUveruEvent)="zmenaVyseUveruEvent($event)"></vyse-uveru>
-            <doba-splaceni (zmenaDobySplaceniEvent)="zmenaDobySplaceniEvent($event)"></doba-splaceni>
-            <pojisteni></pojisteni>
+            <vyse-uveru [defaultVyseUveru]="defaultVyseUveru" 
+                        (zmenaVyseUveruEvent)="zmenaVyseUveruEvent($event)">
+            </vyse-uveru>
+            <doba-splaceni  [defaultDobaSplaceni]="defaultDobaSplaceni" 
+                            (zmenaDobySplaceniEvent)="zmenaDobySplaceniEvent($event)">
+            </doba-splaceni>
+            <pojisteni [defaultOdskrkle]="defaultJePojisteni"
+                       (zmenaOdskrknutiEvent)="zmenaOdskrknutiEvent($event)">
+            </pojisteni>
           </leva-strana>
         </div>
         <div class="col-md-5" style="background-color: #0B5499">
@@ -42,6 +48,10 @@ import { GatewayService } from './services/gateway.service';
 })
 export class AppComponent {
 
+  public defaultVyseUveru: number;
+  public defaultDobaSplaceni: number;
+  public defaultJePojisteni: boolean;
+
   public urokovaMira: number = 0;
 
   public vyseUveru: number;
@@ -61,9 +71,13 @@ export class AppComponent {
       this.urokovaMira = data.interestRate;
     });
 
-    this.rpsn = 5;
-    this.zaplatiCelkem = 150;
-    this.mesicniSplatka = 5;
+    this.defaultDobaSplaceni = 66;
+    this.defaultVyseUveru = 1500000;
+    this.defaultJePojisteni = false;
+
+    this.dobaSplaceni = this.defaultDobaSplaceni;
+    this.vyseUveru = this.defaultVyseUveru;
+    this.jePojisteni = this.defaultJePojisteni;
   }
 
   kontaktujteMeEvent(event){
@@ -76,5 +90,21 @@ export class AppComponent {
 
   zmenaDobySplaceniEvent(event){
     this.dobaSplaceni = event;
+  }
+
+  zmenaOdskrknutiEvent(event){
+    this.jePojisteni = event;
+  }
+
+  getMesicniSplatku(){
+
+  }
+
+  getRPSN(){
+
+  }
+
+  getZaplatiteCelkem(){
+
   }
 }

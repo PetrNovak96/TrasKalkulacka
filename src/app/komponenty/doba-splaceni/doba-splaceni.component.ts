@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'doba-splaceni',
@@ -47,20 +47,20 @@ export class DobaSplaceniComponent implements OnInit {
   public min: number;
   public max: number;
   public krok: number;
-  public default: number;
+  @Input('defaultDobaSplaceni') public default: number;
   public dobaSplaceni: number;
   @Output() zmenaDobySplaceniEvent = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
-    this.default = 66;
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
     this.dobaSplaceni = this.default;
     this.min = 24;
     this.max = 120;
     this.krok = 1;
     this.jednotek = "Měsíců";
+    this.fireEvent();
   }
 
   thesRoku(){
