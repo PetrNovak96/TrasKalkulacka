@@ -2,22 +2,32 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'doba-splaceni',
-  template: `
-    <p>
-      Doba splácení
-    </p>
-    <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-    <p>{{min + " " + jednotek}}</p>
-    <input [(ngModel)]="dobaSplaceni"
+  template: `    
+    <div class="row" style="margin-bottom: 35px; margin-top: 30px">
+      <div class="col-md-4">
+        <p>Doba splácení
+        <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" [(ngModel)]="dobaSplaceni">
+      </div>
+      <div class="col-md-2" style="text-align: left">
+        <p> {{jednotek}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>{{min + " " + jednotek}}</p>
+        <input [(ngModel)]="dobaSplaceni"
            type="range"
            [step]="krok"
            [min]="min"
            [max]="max"
-    >
-    <p>{{max + " " + jednotek}}</p>
-    <input type="text" class="form-control" [(ngModel)]="dobaSplaceni">
-    <p>{{jednotek}}</p>
-    <p>tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b></p>
+        >
+        <p>{{max + " " + jednotek}}</p>
+        <p>tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b></p>
+      </div>
+    </div>
   `,
   styleUrls: ['./doba-splaceni.component.css']
 })

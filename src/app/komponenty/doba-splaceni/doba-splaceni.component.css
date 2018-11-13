@@ -3,7 +3,9 @@
 }
 
 input[type=text] {
-  width: 50%;
+  width: 125px;
   text-align: center;
   margin-left: 100px;
 }
+
+
