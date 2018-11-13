@@ -55,6 +55,7 @@ export class AppComponent {
   public urokovaMira: number;
   public vyseUveru: number;
   public dobaSplaceni: number;
+  public poplatky: number;
   public jePojisteni: boolean;
 
   public zobrazFormular: boolean = false;
@@ -73,6 +74,7 @@ export class AppComponent {
     this.dobaSplaceni = this.defaultDobaSplaceni;
     this.vyseUveru = this.defaultVyseUveru;
     this.jePojisteni = this.defaultJePojisteni;
+    this.poplatky = 4900;
   }
 
   getMesicniSplatku(){
@@ -87,11 +89,17 @@ export class AppComponent {
 
   getRPSN(){
 
+    let r = this.urokovaMira;
     let U = this.vyseUveru;
-    let S = this.getMesicniSplatku();
-    let n = this.dobaSplaceni;
-    let r = (S/(U/n)) - 1;
-    return r;
+    let F = this.poplatky;
+    let S = this.urokovaMira;
+    let n = this.dobaSplaceni
+
+    let roky = this.dobaSplaceni/12;
+    let APR = ((U*r*roky)+F)
+                    /
+                (U*roky);
+    return APR;
   }
 
   getZaplatiteCelkem(){
