@@ -12,7 +12,7 @@ import { Component, Input, OnInit } from '@angular/core';
        <napoveda pozice="right" [tooltip]="napoveda"></napoveda> </p>
       </div>
       <div class="col-md-5" style="text-align: right">
-       <p class="txtWhite" style="text-align: right" >{{vysledek + " Kč"}}</p>
+       <p class="txtWhite" style="text-align: right" >{{numberToString(vysledek) + " Kč"}}</p>
       </div>
       <div class="col-md-1">
       </div>
@@ -29,6 +29,12 @@ export class CelkemComponent implements OnInit {
 
   ngOnInit() {
     this.napoveda = "Tady se musíme dohodnout co přesně tam napsat.";
+  }
+
+  numberToString(neco: number){
+    return  neco.
+    toString().
+    replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
   }
 
 }

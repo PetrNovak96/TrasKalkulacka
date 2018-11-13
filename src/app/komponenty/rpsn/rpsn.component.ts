@@ -11,7 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
           <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
       </div>
       <div class="col-md-5" style="text-align: right">
-        <p class="txtWhite" style="text-align: right" >{{vysledek + " %"}}</p>
+        <p class="txtWhite" style="text-align: right" >{{upravCislo(vysledek) + " %"}}</p>
       </div>
       <div class="col-md-1">
       </div>
@@ -28,6 +28,10 @@ export class RPSNComponent implements OnInit {
 
   ngOnInit() {
     this.napoveda = "Tady se musíme dohodnout co přesně tam napsat.";
+  }
+
+  upravCislo(neco: number) {
+    return this.vysledek.toFixed(2);
   }
 
 }

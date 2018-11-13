@@ -2,17 +2,18 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 
 @Component({
   selector: 'vyse-uveru',
-  template: `    
+  template: `
     <div class="row" style="margin-bottom: 25px; margin-top: 30px">
       <div class="col-md-4">
         <p>Výše úvěru
-        <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+          <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
+        </p>
       </div>
       <div class="col-md-6">
-        <input #textVyseUveru 
-               type="text" 
-               class="form-control" 
-               [value]="ukNumberToString(vyseUveru)" (change)="fireEvent($event)">
+        <input #textVyseUveru
+               type="text"
+               class="form-control"
+               [value]="this.numberToString(vyseUveru)" (change)="fireEvent($event)">
       </div>
       <div class="col-md-2" style="text-align: left">
         <p> {{jednotek}} </p>
@@ -24,13 +25,13 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
                type="range"
                [step]="krok"
                [min]="min"
-               [max]="max" 
+               [max]="max"
                (change)="fireEvent($event)"
         >
         <div class="row">
-         <div class="col-md-6" style="text-align: left; font-weight: normal">
-           <p>{{min + " " + jednotek}}</p>
-         </div>
+          <div class="col-md-6" style="text-align: left; font-weight: normal">
+            <p>{{min + " " + jednotek}}</p>
+          </div>
           <div class="col-md-6" style="text-align: right; font-weight: normal">
             <p>{{max + " " + jednotek}}</p>
           </div>
@@ -65,7 +66,7 @@ export class VyseUveruComponent implements OnInit {
     this.jednotek = "Kč";
   }
 
-  ukNumberToString(neco: number){
+  numberToString(neco: number){
     return  neco.
     toString().
     replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
