@@ -24,6 +24,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import { NapovedaComponent } from './komponenty/napoveda/napoveda.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

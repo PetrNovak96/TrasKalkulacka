@@ -13,11 +13,14 @@ import { GatewayService } from './services/gateway.service';
           <leva-strana class="leftSide">
             <vyse-uveru></vyse-uveru>
             <doba-splaceni></doba-splaceni>
+            <pojisteni></pojisteni>
           </leva-strana>
         </div>
         <div class="col-md-5" style="background-color: #0B5499">
           <prava-strana class="rightSide">
             <mesicni-splatka></mesicni-splatka>
+            <RPSN></RPSN>
+            <celkem></celkem>
           </prava-strana>
         </div>
         <div class="col-md-1">
@@ -39,7 +42,7 @@ import { GatewayService } from './services/gateway.service';
 })
 export class AppComponent {
 
-  public interestRate: number = 0;
+  public urokovaMira: number = 0;
   public vyseUveru: number;
   public dobaSplaceni: number;
   public mesicniSplatka: number;
@@ -53,7 +56,7 @@ export class AppComponent {
 
     //Mock server vrací úrokovou míru per anum
     this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
-      this.interestRate = data.interestRate;
+      this.urokovaMira = data.interestRate;
     });
   }
 }
