@@ -20,11 +20,12 @@ import { GatewayService } from './services/gateway.service';
             <pojisteni [defaultOdskrkle]="defaultJePojisteni"
                        (zmenaOdskrknutiEvent)="zmenaOdskrknutiEvent($event)">
             </pojisteni>
+            {{pomocna}}
           </leva-strana>
         </div>
         <div class="col-md-5" style="background-color: #0B5499">
           <prava-strana class="rightSide" (kontaktujteMeEvent)="kontaktujteMeEvent($event)">
-            <mesicni-splatka [mesicniSplatka]="this.mesicniSplatka"></mesicni-splatka>
+            <mesicni-splatka [mesicniSplatka]="getMesicniSplatku()"></mesicni-splatka>
             <RPSN [rpsn]="this.rpsn"></RPSN>
             <celkem [zaplatiteCelkem]="this.zaplatiCelkem"></celkem>
           </prava-strana>
@@ -52,15 +53,16 @@ export class AppComponent {
   public defaultDobaSplaceni: number;
   public defaultJePojisteni: boolean;
 
-  public urokovaMira: number = 0;
+  public urokovaMira: number;
 
   public vyseUveru: number;
   public dobaSplaceni: number;
   public jePojisteni: boolean;
 
-  public mesicniSplatka: number;
   public rpsn: number;
   public zaplatiCelkem: number;
+
+  public pomocna: number
 
   public zobrazFormular: boolean = false;
 
@@ -97,7 +99,12 @@ export class AppComponent {
   }
 
   getMesicniSplatku(){
-
+    let q = 1 + (this.urokovaMira/12);
+    let U = this.vyseUveru;
+    let n = this.dobaSplaceni;
+    let qNaN = Math.pow(q, n);
+    let S = U * ((qNaN*(q - 1))/(qNaN - 1))
+    return Math.ceil(S);
   }
 
   getRPSN(){
