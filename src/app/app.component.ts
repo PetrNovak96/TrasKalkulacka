@@ -94,6 +94,14 @@ export class AppComponent {
     return r;
   }
 
+  getZaplatiteCelkem(){
+
+    let S = this.getMesicniSplatku();
+    let n = this.dobaSplaceni;
+    let SUMA = S*n;
+    return Math.ceil(SUMA);
+  }
+
   kontaktujteMeEvent(event){
 
     this.zobrazFormular = event;
@@ -118,11 +126,5 @@ export class AppComponent {
 
 
 
-  getZaplatiteCelkem(){
 
-    let S = this.getMesicniSplatku();
-    let n = this.dobaSplaceni;
-    let SUMA = S*n;
-    return Math.ceil(SUMA);
-  }
 }

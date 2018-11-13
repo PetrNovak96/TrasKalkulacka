@@ -31,7 +31,10 @@ export class RPSNComponent implements OnInit {
   }
 
   upravCislo(neco: number) {
-    return this.vysledek.toFixed(2);
+    return  (neco * 100).
+            toFixed(2).
+            toString().
+            replace(/\./g, ",");
   }
 
 }
