@@ -55,6 +55,7 @@ export class DobaSplaceniComponent implements OnInit {
     this.dobaSplaceni = this.default;
     this.min = 24;
     this.max = 120;
+    this.krok = 1;
     this.jednotek = "Měsíců";
   }
 
