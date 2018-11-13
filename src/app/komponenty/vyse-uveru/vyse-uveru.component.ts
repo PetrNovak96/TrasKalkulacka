@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'vyse-uveru',
@@ -9,7 +9,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
         <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
       </div>
       <div class="col-md-6">
-        <input #textVyseUveru type="text" class="form-control" [value]="ukNumberToString(vyseUveru)" (change)="fire()">
+        <input #textVyseUveru 
+               type="text" 
+               class="form-control" 
+               [value]="ukNumberToString(vyseUveru)" (change)="fireEvent($event)">
       </div>
       <div class="col-md-2" style="text-align: left">
         <p> {{jednotek}} </p>
@@ -21,7 +24,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
                type="range"
                [step]="krok"
                [min]="min"
-               [max]="max"
+               [max]="max" 
+               (change)="fireEvent($event)"
         >
         <div class="row">
          <div class="col-md-6" style="text-align: left; font-weight: normal">
@@ -40,6 +44,7 @@ export class VyseUveruComponent implements OnInit {
 
   public napoveda: string;
   public vyseUveru: number;
+  @Output() zmenaVyseUveruEvent = new EventEmitter();
   public min: number;
   public max: number;
   public krok: number;
@@ -65,7 +70,7 @@ export class VyseUveruComponent implements OnInit {
     replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
   }
 
-  fire(){
+  fireEvent(){
     this.vyseUveru =  Number(
       this.
       input.
@@ -73,6 +78,7 @@ export class VyseUveruComponent implements OnInit {
       value.
       toString().
       replace(/\s/g, ""));
+    this.zmenaVyseUveruEvent.emit(this.vyseUveru);
   }
 
 }

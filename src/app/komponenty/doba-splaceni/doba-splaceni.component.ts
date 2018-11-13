@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'doba-splaceni',
@@ -9,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
         <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
       </div>
       <div class="col-md-6">
-        <input type="text" class="form-control" [(ngModel)]="dobaSplaceni">
+        <input type="text" 
+               class="form-control" 
+               [(ngModel)]="dobaSplaceni" (change)="fireEvent($event)">
       </div>
       <div class="col-md-2" style="text-align: left">
         <p> {{jednotek}} </p>
@@ -21,7 +23,8 @@ import { Component, OnInit } from '@angular/core';
            type="range"
            [step]="krok"
            [min]="min"
-           [max]="max"
+           [max]="max"  
+           (change)="fireEvent($event)"
         >
         <div class="row">
           <div class="col-md-6" style="text-align: left; font-weight: normal">
@@ -46,6 +49,7 @@ export class DobaSplaceniComponent implements OnInit {
   public krok: number;
   public default: number;
   public dobaSplaceni: number;
+  @Output() zmenaDobySplaceniEvent = new EventEmitter();
 
   constructor() { }
 
@@ -90,5 +94,9 @@ export class DobaSplaceniComponent implements OnInit {
       default: mesice = mesicu + " měsíců"; break;
     }
     return mesice;
+  }
+
+  fireEvent(){
+    this.zmenaDobySplaceniEvent.emit(this.dobaSplaceni);
   }
 }

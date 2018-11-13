@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'prava-strana',
@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
       <ng-content></ng-content>
       
       
-      <input type="button" class="btn btn-success btn-lg" value="Kontaktujte mě">
+      <input type="button" 
+             class="btn btn-success btn-lg" 
+             value="Kontaktujte mě"
+             [disabled]="zobrazFormular"
+             (click)="fireEvent($event);">
     </div>
 
   `,
@@ -19,6 +23,8 @@ export class PravaStranaComponent implements OnInit {
   public nabizimeVam: string;
   public pojisteniInfo: string;
   public jePojisteni: boolean;
+  public zobrazFormular: boolean;
+  @Output() kontaktujteMeEvent = new EventEmitter();
 
   constructor() {
 
@@ -28,6 +34,11 @@ export class PravaStranaComponent implements OnInit {
     this.nabizimeVam = "Nabízíme Vám";
     this.pojisteniInfo = "+ 150 Kč/ měsíčně pojištění proti neschopnosti splácet";
     this.jePojisteni = true;
+  }
+
+  fireEvent(){
+    this.zobrazFormular = true;
+    this.kontaktujteMeEvent.emit(true);
   }
 
 }
