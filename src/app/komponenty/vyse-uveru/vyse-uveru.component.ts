@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 @Component({
   selector: 'vyse-uveru',
   template: `    
-    <div class="row" style="margin-bottom: 35px; margin-top: 30px">
+    <div class="row" style="margin-bottom: 25px; margin-top: 30px">
       <div class="col-md-4">
         <p>Výše úvěru
         <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
@@ -17,14 +17,20 @@ import { Component, OnInit, ViewChild } from '@angular/core';
     </div>
     <div class="row">
       <div class="col-md-12">
-        <p>{{min + " " + jednotek}}</p>
         <input [(ngModel)]="vyseUveru"
                type="range"
                [step]="krok"
                [min]="min"
                [max]="max"
         >
-        <p>{{max + " " + jednotek}}</p>
+        <div class="row">
+         <div class="col-md-6" style="text-align: left; font-weight: normal">
+           <p>{{min + " " + jednotek}}</p>
+         </div>
+          <div class="col-md-6" style="text-align: right; font-weight: normal">
+            <p>{{max + " " + jednotek}}</p>
+          </div>
+        </div>
       </div>
     </div>
   `,
