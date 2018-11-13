@@ -10,11 +10,14 @@ import { GatewayService } from './services/gateway.service';
         <div class="col-md-1">
          </div>
         <div class="col-md-5" style="background-color: ghostwhite; border-bottom-color: #0B5499; border-bottom-style: solid;  padding-bottom: 30px">
-          <leva-strana class="leftSide"></leva-strana>
+          <leva-strana class="leftSide">
+            <vyse-uveru></vyse-uveru>
+            <doba-splaceni></doba-splaceni>
+          </leva-strana>
         </div>
         <div class="col-md-5" style="background-color: #0B5499">
           <prava-strana class="rightSide">
-            <input type="button" class="btn btn-success btn-lg" value="Kontaktujte mě" [disabled]="zobrazFormular" (click)="this.zobrazFormular = !this.zobrazFormular">
+            <mesicni-splatka></mesicni-splatka>
           </prava-strana>
         </div>
         <div class="col-md-1">
@@ -37,10 +40,18 @@ import { GatewayService } from './services/gateway.service';
 export class AppComponent {
 
   public interestRate: number = 0;
+  public vyseUveru: number;
+  public dobaSplaceni: number;
+  public mesicniSplatka: number;
+  public jePojisteni: boolean;
+  public RPSN: number;
+  public celkem: number;
+
   public zobrazFormular: boolean = false;
 
   constructor(public gateway: GatewayService) {
 
+    //Mock server vrací úrokovou míru per anum
     this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
       this.interestRate = data.interestRate;
     });

@@ -5,14 +5,14 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div>
       <h2 class="txtWhite">{{this.nabizimeVam}}</h2>
-      <mesicni-splatka></mesicni-splatka>
+      <ng-content></ng-content>
       <p *ngIf="jePojisteni">{{this.pojisteniInfo}}</p>
       <p>U tohoto úvěru <b style="color: #00CC33">nepožadujeme</b> uvést jeho účel </p>
       <p>a můžete ho kdykoliv předčasně splatit.</p>
       <hr color="white">
       <RPSN></RPSN>
       <celkem></celkem>
-      <ng-content></ng-content>
+      <input type="button" class="btn btn-success btn-lg" value="Kontaktujte mě">
     </div>
 
   `,
