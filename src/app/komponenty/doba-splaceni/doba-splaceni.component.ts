@@ -2,21 +2,25 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'doba-splaceni',
-  template: `    
-    <div class="row" style="margin-bottom: 25px; margin-top: 60px">
-      <div class="col-md-4">
-        <p>Doba splácení
-        <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
-      </div>
+  template: `
+    <div class="row" style="margin-bottom: 30px; margin-top: 30px">
       <div class="col-md-6">
+        <label for="doba-splaceni">Doba splácení</label>
+        <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
+      </div>
+      <div class="col-md-4">
         <input type="text" 
-               class="form-control" 
+               class="form-control"
+               id="doba-splaceni"
                [(ngModel)]="dobaSplaceni" (change)="fireEvent($event)">
       </div>
-      <div class="col-md-2" style="text-align: left">
-        <p> {{jednotek}} </p>
+      <div class="col-md-1">
+        <p> {{jednotek}}</p>
+      </div>
+      <div class="col-md-1">
       </div>
     </div>
+    
     <div class="row">
       <div class="col-md-12">
         <input [(ngModel)]="dobaSplaceni"

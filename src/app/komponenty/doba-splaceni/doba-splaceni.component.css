@@ -3,9 +3,10 @@
 }
 
 input[type=text] {
-  width: 125px;
+  max-width: 150px;
+  min-width: 100px;
   text-align: center;
-  margin-left: 100px;
 }
+
 
 

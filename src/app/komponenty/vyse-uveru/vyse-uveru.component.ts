@@ -2,23 +2,26 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 
 @Component({
   selector: 'vyse-uveru',
-  template: `
-    <div class="row" style="margin-bottom: 25px; margin-top: 30px">
-      <div class="col-md-4">
-        <p>Výše úvěru
-          <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-        </p>
-      </div>
-      <div class="col-md-6">
-        <input #textVyseUveru
+  template: `    
+    <div class="row" style="margin-bottom: 30px">
+          <div class="col-md-6">
+            <label for="vyse-uveru">Výše úvěru</label>
+            <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
+          </div>
+        <div class="col-md-4">
+          <input #textVyseUveru
                type="text"
+               id="vyse-uveru"
                class="form-control"
-               [value]="this.numberToString(vyseUveru)" (change)="fireEvent($event)">
-      </div>
-      <div class="col-md-2" style="text-align: left">
-        <p> {{jednotek}} </p>
-      </div>
+                    [value]="this.numberToString(vyseUveru)" (change)="fireEvent($event)">
+        </div>
+          <div class="col-md-1">
+            <p> {{jednotek}}</p>
+          </div>
+        <div class="col-md-1">
+        </div>
     </div>
+    
     <div class="row">
       <div class="col-md-12">
         <input [(ngModel)]="vyseUveru"
