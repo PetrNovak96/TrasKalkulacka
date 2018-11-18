@@ -97,6 +97,8 @@ export class VyseUveruComponent implements OnInit {
     this.vyseUveru =  Math.round(
       this.vyseUveru/1000
     )*1000;
+
+    this.zmenaVyseUveruEvent.emit(this.vyseUveru);
   }
 
   onRangeChangeEvent(){
