@@ -1,9 +1,12 @@
 # TrasKalkulačka
 
 Nejlepší úvěrová kalkulačka na světě vyvíjená pro Tatrask banku
+
+![alt](./promopic.png)
 ## Odkaz na SD
 [OneDrive](https://onedrive.live.com/?authkey=%21AOwb0pPkxexMT2Q&id=7D8ADDAA7DD1D2F2%21206754&cid=7D8ADDAA7DD1D2F2)
 
+[Google sheet](https://docs.google.com/spreadsheets/d/1VY2zbDqbavT3gcQdxqk1Drbregrhx6qyBpgRohd8NYE/edit#gid=1968327993)
 ## Pokyny pro stáhnutí a zprovoznění
 _Předpokládá se, že máš nainstalovaný git, nodejs a npm._
 * na příkazové řádce přejdi do složky, ve které chceš mít projekt

@@ -32,7 +32,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
                [step]="krok"
                [min]="min"
                [max]="max"
-               (change)="fireEvent($event)"
+               (change)="onRangeChangeEvent($event)"
         >
         <div class="row">
           <div class="col-md-6" style="text-align: left; font-weight: normal">
@@ -81,24 +81,8 @@ export class VyseUveruComponent implements OnInit {
     replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
   }
 
-  fireEvent(){
-
-    this.vyseUveru =  Math.round(
-      Number(
-          this.
-          input.
-          nativeElement.
-          value.
-          toString().
-          replace(/\s/g, "")
-      )/1000
-    )*1000;
-
-    this.input.nativeElement.value = this.numberToString(this.vyseUveru);
-    this.zmenaVyseUveruEvent.emit(this.vyseUveru);
-  }
-
   onInputEvent(){
+
     this.vyseUveru = Number(
         this.
         input.
@@ -109,9 +93,13 @@ export class VyseUveruComponent implements OnInit {
   }
 
   onChangeEvent(){
+
     this.vyseUveru =  Math.round(
       this.vyseUveru/1000
     )*1000;
+  }
+
+  onRangeChangeEvent(){
 
     this.zmenaVyseUveruEvent.emit(this.vyseUveru);
   }
