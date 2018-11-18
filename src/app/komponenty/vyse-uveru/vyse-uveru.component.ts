@@ -13,7 +13,9 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
                type="text"
                id="vyse-uveru"
                class="form-control"
-                    [value]="this.numberToString(this.vyseUveru)" (change)="fireEvent($event)">
+                    [value]="this.numberToString(this.vyseUveru)"
+                    (input)="onInputEvent($event)"
+                    (change)="onChangeEvent($event)">
         </div>
           <div class="col-md-1">
             <p> {{jednotek}}</p>
@@ -93,6 +95,24 @@ export class VyseUveruComponent implements OnInit {
     )*1000;
 
     this.input.nativeElement.value = this.numberToString(this.vyseUveru);
+    this.zmenaVyseUveruEvent.emit(this.vyseUveru);
+  }
+
+  onInputEvent(){
+    this.vyseUveru = Number(
+        this.
+        input.
+        nativeElement.
+        value.
+        toString().
+        replace(/\s/g, ""));
+  }
+
+  onChangeEvent(){
+    this.vyseUveru =  Math.round(
+      this.vyseUveru/1000
+    )*1000;
+
     this.zmenaVyseUveruEvent.emit(this.vyseUveru);
   }
 
