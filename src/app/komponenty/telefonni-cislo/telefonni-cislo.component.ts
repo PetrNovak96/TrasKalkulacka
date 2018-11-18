@@ -9,8 +9,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
            type="text" 
            class="form-control" 
            placeholder="+420 602 123 456" 
-           (click)="onClickEvent()" 
-           [(ngModel)]="this.telCislo">
+           (click)="onClickEvent($event)" 
+           [(ngModel)]="this.telCislo" (input)="onInputEvent($event)">
     </p>
   `,
   styleUrls: ['./telefonni-cislo.component.css']
@@ -18,7 +18,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class TelefonniCisloComponent implements OnInit {
 
   public telCislo: string;
-  public pomocna: number;
   @ViewChild('telCisloTextField') input;
 
   constructor() { }
@@ -33,9 +32,13 @@ export class TelefonniCisloComponent implements OnInit {
       let el = this.input.nativeElement;
       let newVal = "+420 ";
       el.value = newVal;
-      this.pomocna = newVal.length;
       el.setSelectionRange(newVal.length, newVal.length);
     }
+  }
+
+  onInputEvent(){
+    let el = this.input.nativeElement;
+    el.value = el.value.replace(/(\d{3})(\d)/g, "$1 $2");
   }
 
 }
