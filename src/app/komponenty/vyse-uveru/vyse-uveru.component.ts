@@ -13,10 +13,11 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
                type="text"
                id="vyse-uveru"
                class="form-control"
-                    [value]="this.numberToString(vyseUveru)" (change)="fireEvent($event)">
+                    [value]="this.numberToString(this.vyseUveru)" (change)="fireEvent($event)">
         </div>
           <div class="col-md-1">
             <p> {{jednotek}}</p>
+            <p>{{pomocna}}</p>
           </div>
         <div class="col-md-1">
         </div>
@@ -47,6 +48,9 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 export class VyseUveruComponent implements OnInit {
 
   public napoveda: string;
+
+  public pomocna: number;
+
   public vyseUveru: number;
   @Output() zmenaVyseUveruEvent = new EventEmitter();
   public min: number;
@@ -76,13 +80,19 @@ export class VyseUveruComponent implements OnInit {
   }
 
   fireEvent(){
-    this.vyseUveru =  Number(
-      this.
-      input.
-      nativeElement.
-      value.
-      toString().
-      replace(/\s/g, ""));
+
+    this.vyseUveru =  Math.round(
+      Number(
+          this.
+          input.
+          nativeElement.
+          value.
+          toString().
+          replace(/\s/g, "")
+      )/1000
+    )*1000;
+
+    this.input.nativeElement.value = this.numberToString(this.vyseUveru);
     this.zmenaVyseUveruEvent.emit(this.vyseUveru);
   }
 

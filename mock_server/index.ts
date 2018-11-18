@@ -37,7 +37,7 @@ const responseOverrides: IResponsesObject = {
   },
   getDemoPetrEndPoint: (req, res) => {
     return {
-      interestRate: 0.059
+      interestRate: 0.08
     }
   }
 };

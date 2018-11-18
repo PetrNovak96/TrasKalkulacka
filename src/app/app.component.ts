@@ -74,7 +74,7 @@ export class AppComponent {
     this.dobaSplaceni = this.defaultDobaSplaceni;
     this.vyseUveru = this.defaultVyseUveru;
     this.jePojisteni = this.defaultJePojisteni;
-    this.poplatky = 4900;
+    this.poplatky = 490;
   }
 
   getMesicniSplatku(){
@@ -83,22 +83,31 @@ export class AppComponent {
     let U = this.vyseUveru;
     let n = this.dobaSplaceni;
     let qNaN = Math.pow(q, n);
+
     let S = U * ((qNaN*(q - 1))/(qNaN - 1));
+
     return Math.ceil(S);
   }
 
   getRPSN(){
 
     let r = this.urokovaMira;
+    if(this.jePojisteni){
+      r = r - 0.01;
+    }
     let U = this.vyseUveru;
-    let F = this.poplatky;
-    let S = this.urokovaMira;
-    let n = this.dobaSplaceni
 
+    if(this.jePojisteni){
+      let pojisteni = U * 0.001;
+      U += pojisteni;
+    }
+    let F = this.poplatky;
     let roky = this.dobaSplaceni/12;
+
     let APR = ((U*r*roky)+F)
                     /
                 (U*roky);
+
     return APR;
   }
 
@@ -106,7 +115,14 @@ export class AppComponent {
 
     let S = this.getMesicniSplatku();
     let n = this.dobaSplaceni;
-    let SUMA = S*n;
+    let F = this.poplatky;
+    let pojisteni = 0;
+    if(this.jePojisteni) {
+      pojisteni = this.vyseUveru * 0.001;
+    }
+
+    let SUMA = S*n + F + pojisteni;
+
     return Math.ceil(SUMA);
   }
 
