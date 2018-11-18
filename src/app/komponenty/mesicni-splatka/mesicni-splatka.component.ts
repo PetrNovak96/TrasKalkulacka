@@ -19,16 +19,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MesicniSplatkaComponent implements OnInit {
 
   @Input('mesicniSplatka') public vysledek: number;
-  public jeVysledek: boolean;
-  public jePojisteni: boolean;
+  @Input() public jePojisteni: boolean;
   public pojisteniInfo: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.jeVysledek = false;
     this.pojisteniInfo = "+ 150 Kč/ měsíčně pojištění proti neschopnosti splácet";
-    this.jePojisteni = true;
   }
 
   numberToString(neco: number){

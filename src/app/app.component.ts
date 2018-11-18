@@ -24,7 +24,9 @@ import { GatewayService } from './services/gateway.service';
         </div>
         <div class="col-md-5" style="background-color: #0B5499">
           <prava-strana class="rightSide" (kontaktujteMeEvent)="kontaktujteMeEvent($event)">
-            <mesicni-splatka [mesicniSplatka]="getMesicniSplatku()"></mesicni-splatka>
+            <mesicni-splatka [mesicniSplatka]="getMesicniSplatku()"  
+                             [jePojisteni]="this.jePojisteni">
+            </mesicni-splatka>
             <RPSN [rpsn]="getRPSN()"></RPSN>
             <celkem [zaplatiteCelkem]="getZaplatiteCelkem()"></celkem>
           </prava-strana>
