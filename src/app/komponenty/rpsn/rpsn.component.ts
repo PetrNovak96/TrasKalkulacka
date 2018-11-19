@@ -3,17 +3,17 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'RPSN',
   template: `
-    <div *ngIf="(vysledek != undefined)" class="row">
-      <div class="col-md-1">
+    <div class="row">
+      <div class="col-md-1" *ngIf="(vysledek != undefined)">
       </div>
-      <div class="col-md-5" style="text-align: left">
-         <p class="txtWhite">RPSN
+      <div class="col-md-3" style="text-align: left">
+        <p class="txtWhite">RPSN
           <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
       </div>
-      <div class="col-md-5" style="text-align: right">
-        <p class="txtWhite" style="text-align: right" >{{upravCislo(vysledek) + " %"}}</p>
+      <div class="col-md-6" style="text-align: right">
+        <p class="txtWhite" >{{upravCislo(vysledek) + " %"}}</p>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-2">
       </div>
     </div>
   `,
