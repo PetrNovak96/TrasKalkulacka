@@ -12,14 +12,13 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
           <input #textVyseUveru
                type="text"
                id="vyse-uveru"
-               class="form-control"
-                    [value]="this.numberToString(this.vyseUveru)"
-                    (input)="onInputEvent($event)"
-                    (change)="onChangeEvent($event)">
+               class="form-control" 
+               [value]="this.numberToString(this.vyseUveru)"
+               (input)="onInputEvent($event)"
+               (change)="onChangeEvent($event)">
         </div>
           <div class="col-md-1">
             <p> {{jednotek}}</p>
-            <p>{{pomocna}}</p>
           </div>
         <div class="col-md-1">
         </div>
@@ -50,8 +49,6 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 export class VyseUveruComponent implements OnInit {
 
   public napoveda: string;
-
-  public pomocna: number;
 
   public vyseUveru: number;
   @Output() zmenaVyseUveruEvent = new EventEmitter();

@@ -10,7 +10,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
            class="form-control" 
            placeholder="+420 602 123 456" 
            (click)="onClickEvent($event)" 
-           [(ngModel)]="this.telCislo" (input)="onInputEvent($event)">
+           [(ngModel)]="this.telCislo" 
+           (input)="onInputEvent($event)">
     </p>
   `,
   styleUrls: ['./telefonni-cislo.component.css']
