@@ -1,3 +1,9 @@
 h2{
   margin-top:20px;
 }
+
+.doplnInfo {
+  height: 4em;
+  width: 25em;
+  resize: none;
+}
