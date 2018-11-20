@@ -69,6 +69,7 @@ export class AppComponent {
       this.urokovaMira = data.interestRate;
     });
 
+
     this.defaultDobaSplaceni = 66;
     this.defaultVyseUveru = 1500000;
     this.defaultJePojisteni = false;

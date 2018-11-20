@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -117,11 +117,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
           <p>
             Doplňující informace
           </p>
-          <textarea class="doplnInfo"
-                    maxlength="1000"
+          <textarea maxlength="1000"
                     [(ngModel)]="this.doplnujiciInfo"
+                    [ngClass]="{
+                     'doplnInfo': true,
+                     'form-control': true,
+                     'is-invalid': doplnInfoControl.invalid && doplnInfoControl.touched
+                    }"
                     formControlName="doplnInfo"
           ></textarea>
+          <p *ngIf="doplnInfoControl.invalid && doplnInfoControl.touched">
+
+            <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': !(doplnInfoControl.errors?.required)
+                }">
+              Vyplňte prosím toto pole.
+            </small>
+
+          </p>
           <p>Náš bankéř Vás bude kontaktovat do 24 hodin.</p>
         </div>
       </div>
@@ -150,7 +164,7 @@ export class KontaktniFormularComponent implements OnInit {
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
       email: ['', Validators.required],
-      prijmeni: ['', Validators.required],
+      prijmeni: ['', [Validators.required, this.emailValidator]],
       telCislo: ['', Validators.required],
       doplnInfo: ['', Validators.required]
     });
@@ -204,6 +218,15 @@ export class KontaktniFormularComponent implements OnInit {
 
   get doplnInfoControl(){
     return this.kontaktniUdaje.get('doplnInfo');
+  }
+
+  emailValidator(control: AbstractControl)
+    // :{[key: string] : any} | null
+  {
+
+    // const forbidden = /admin/.test(control.value)
+    return true;
+    //TODO: Custom validation https://www.youtube.com/watch?v=nm-x8gsqB2E&index=54&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ
   }
 
 }
