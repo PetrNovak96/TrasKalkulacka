@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -39,15 +39,26 @@ import { FormControl, FormGroup } from '@angular/forms';
           <p>
             Příjmení
             <input type="text"
-                   class="form-control"
+                   [ngClass]="{
+                     'form-control': true,
+                     'is-invalid': kontaktniUdaje.get('prijmeni').invalid && kontaktniUdaje.get('prijmeni').touched
+                   }"
                    placeholder="Novák"
                    formControlName="prijmeni">
+            <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': kontaktniUdaje.get('prijmeni').valid || kontaktniUdaje.get('prijmeni').untouched
+            }">
+              Vyplňte prosím toto pole
+            </small>
           </p>
           <p>
             Telefonní číslo
             <input #telCisloTextField
                    type="text"
-                   class="form-control"
+                   [ngClass]="{
+                     'form-control': true
+                   }"
                    placeholder="+420 602 123 456"
                    (click)="telOnClickEvent($event)"
                    [(ngModel)]="this.telCislo"
@@ -88,15 +99,17 @@ export class KontaktniFormularComponent implements OnInit {
 
   public doplnujiciInfo: string;
 
-  public kontaktniUdaje = new FormGroup({
-    jmeno: new FormControl(),
-    email: new FormControl(),
-    prijmeni: new FormControl(),
-    telCislo: new FormControl(),
-    doplnInfo: new FormControl()
-  })
+  public kontaktniUdaje: FormGroup;
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {
+    this.kontaktniUdaje = this.fb.group({
+      jmeno: ['', Validators.required],
+      email: ['', Validators.required],
+      prijmeni: ['', Validators.required],
+      telCislo: ['', Validators.required],
+      doplnInfo: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
     this.email = "";
