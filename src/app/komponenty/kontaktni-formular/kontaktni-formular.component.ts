@@ -17,20 +17,48 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
           <p>
             Jméno
             <input type="text"
-                   class="form-control"
+                   [ngClass]="{
+                     'form-control': true,
+                     'is-invalid': jmenoControl.invalid && jmenoControl.touched
+                   }"
                    placeholder="Petr"
                    formControlName="jmeno">
+            
+            <small *ngIf="jmenoControl.invalid && jmenoControl.touched">
+
+              <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': !(jmenoControl.errors?.required)
+                }">
+                Vyplňte prosím toto pole.
+              </small>
+
+            </small>
           </p>
           <p>
             Email
             <input #emailTextField
                    type="text"
                    [(ngModel)]="this.email"
-                   class="form-control"
+                   [ngClass]="{
+                     'form-control': true,
+                     'is-invalid': emailControl.invalid && emailControl.touched
+                   }"
                    placeholder="@"
                    (click)="this.EmailOnClickEvent()"
                    formControlName="email">
             
+            <small *ngIf="emailControl.invalid && emailControl.touched">
+
+              <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': !(emailControl.errors?.required)
+                }">
+                Vyplňte prosím toto pole.
+              </small>
+
+            </small>
+
           </p>
         </div>
         <div class="col-md-2">
@@ -41,15 +69,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
             <input type="text"
                    [ngClass]="{
                      'form-control': true,
-                     'is-invalid': kontaktniUdaje.get('prijmeni').invalid && kontaktniUdaje.get('prijmeni').touched
+                     'is-invalid': prijmeniControl.invalid && prijmeniControl.touched
                    }"
                    placeholder="Novák"
                    formControlName="prijmeni">
-            <small [ngClass]="{
+            
+            <small *ngIf="prijmeniControl.invalid && prijmeniControl.touched">
+              
+              <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': kontaktniUdaje.get('prijmeni').valid || kontaktniUdaje.get('prijmeni').untouched
-            }">
-              Vyplňte prosím toto pole
+                      'd-none': !(prijmeniControl.errors?.required)
+                }">
+                Vyplňte prosím toto pole. 
+              </small>
+              
             </small>
           </p>
           <p>
@@ -57,13 +90,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
             <input #telCisloTextField
                    type="text"
                    [ngClass]="{
-                     'form-control': true
+                     'form-control': true,
+                     'is-invalid': telCisloControl.invalid && telCisloControl.touched
                    }"
                    placeholder="+420 602 123 456"
                    (click)="telOnClickEvent($event)"
                    [(ngModel)]="this.telCislo"
                    (input)="telOnInputEvent($event)"
                    formControlName="telCislo">
+
+            <small *ngIf="telCisloControl.invalid && telCisloControl.touched">
+
+              <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': !(telCisloControl.errors?.required)
+                }">
+                Vyplňte prosím toto pole.
+              </small>
+
+            </small>
           </p>
         </div>
       </div>
@@ -139,6 +184,26 @@ export class KontaktniFormularComponent implements OnInit {
   telOnInputEvent(){
     let el = this.telInput.nativeElement;
     el.value = el.value.replace(/(\d{3})(\d)/g, "$1 $2");
+  }
+
+  get jmenoControl(){
+    return this.kontaktniUdaje.get('jmeno');
+  }
+
+  get prijmeniControl(){
+    return this.kontaktniUdaje.get('prijmeni');
+  }
+
+  get emailControl(){
+    return this.kontaktniUdaje.get('email');
+  }
+
+  get telCisloControl(){
+    return this.kontaktniUdaje.get('telCislo');
+  }
+
+  get doplnInfoControl(){
+    return this.kontaktniUdaje.get('doplnInfo');
   }
 
 }
