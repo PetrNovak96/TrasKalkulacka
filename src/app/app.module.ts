@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LevaStranaComponent } from './komponenty/leva-strana/leva-strana.component';
 import { PravaStranaComponent } from './komponenty/prava-strana/prava-strana.component';
 import { KontaktniFormularComponent } from './komponenty/kontaktni-formular/kontaktni-formular.component';
@@ -47,6 +47,7 @@ import { NapovedaComponent } from './komponenty/napoveda/napoveda.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
     MatTooltipModule,

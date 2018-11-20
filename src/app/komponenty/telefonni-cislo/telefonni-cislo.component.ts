@@ -18,6 +18,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class TelefonniCisloComponent implements OnInit {
 
+
   public telCislo: string;
   @ViewChild('telCisloTextField') input;
 
