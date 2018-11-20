@@ -13,7 +13,6 @@ import { PojisteniComponent } from './komponenty/pojisteni/pojisteni.component';
 import { MesicniSplatkaComponent } from './komponenty/mesicni-splatka/mesicni-splatka.component';
 import { RPSNComponent } from './komponenty/rpsn/rpsn.component';
 import { CelkemComponent } from './komponenty/celkem/celkem.component';
-import { DoplnujiciInfoComponent } from './komponenty/doplnujici-info/doplnujici-info.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material';
 import {MatSliderModule} from '@angular/material/slider';
@@ -33,7 +32,6 @@ import { NapovedaComponent } from './komponenty/napoveda/napoveda.component';
     MesicniSplatkaComponent,
     RPSNComponent,
     CelkemComponent,
-    DoplnujiciInfoComponent,
     NapovedaComponent
   ],
   imports: [
