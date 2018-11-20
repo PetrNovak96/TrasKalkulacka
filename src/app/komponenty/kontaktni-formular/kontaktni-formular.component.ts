@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -7,17 +7,19 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
     <div class="row">
       <div class="col-md-10">
         <h2 style="color:#0B5499">
-         
+          Kontaktní údaje
         </h2>
       </div>
     </div>
+    <form [formGroup]="this.kontaktniUdaje">
       <div class="row">
         <div class="col-md-4">
           <p>
             Jméno
             <input type="text"
                    class="form-control"
-                   placeholder="Petr">
+                   placeholder="Petr"
+                   formControlName="jmeno">
           </p>
           <p>
             Email
@@ -26,7 +28,9 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
                    [(ngModel)]="this.email"
                    class="form-control"
                    placeholder="@"
-                   (click)="this.EmailOnClickEvent()">
+                   (click)="this.EmailOnClickEvent()"
+                   formControlName="email">
+            
           </p>
         </div>
         <div class="col-md-2">
@@ -34,9 +38,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
         <div class="col-md-4">
           <p>
             Příjmení
-            <input type="text" 
-                   class="form-control" 
-                   placeholder="Novák">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Novák"
+                   formControlName="prijmeni">
           </p>
           <p>
             Telefonní číslo
@@ -46,7 +51,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
                    placeholder="+420 602 123 456"
                    (click)="telOnClickEvent($event)"
                    [(ngModel)]="this.telCislo"
-                   (input)="telOnInputEvent($event)">
+                   (input)="telOnInputEvent($event)"
+                   formControlName="telCislo">
           </p>
         </div>
       </div>
@@ -58,6 +64,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
           <textarea class="doplnInfo"
                     maxlength="1000"
                     [(ngModel)]="this.doplnujiciInfo"
+                    formControlName="doplnInfo"
           ></textarea>
           <p>Náš bankéř Vás bude kontaktovat do 24 hodin.</p>
         </div>
@@ -67,6 +74,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
           <input type="button" class="btn btn-success btn-lg" value="Odeslat">
         </div>
       </div>
+    </form>
   `,
   styleUrls: ['./kontaktni-formular.component.css']
 })
@@ -80,6 +88,13 @@ export class KontaktniFormularComponent implements OnInit {
 
   public doplnujiciInfo: string;
 
+  public kontaktniUdaje = new FormGroup({
+    jmeno: new FormControl(),
+    email: new FormControl(),
+    prijmeni: new FormControl(),
+    telCislo: new FormControl(),
+    doplnInfo: new FormControl()
+  })
 
   constructor() {}
 
