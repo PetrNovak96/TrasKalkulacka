@@ -3,26 +3,27 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 @Component({
   selector: 'vyse-uveru',
   template: `    
-    <div class="row" style="margin-bottom: 30px">
+    <div class="row" style="margin-bottom: 20px">
       <div class="col-md-12">
-      <table>
+       <table>
         <tr>
-          <td>
+          <td class="tableNazev">
             <p>Výše úvěru
             <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
           </td>
           <td class="tableInput">
-        
-          <input #textVyseUveru
+            <input #textVyseUveru
                type="text"
                id="vyse-uveru"
-               class="form-control" 
+               class="form-control"
                [value]="this.numberToString(this.vyseUveru)"
                (input)="onInputEvent($event)"
                (change)="onChangeEvent($event)">
-             {{jednotek}}
           </td>
-        </tr>
+          <td class="tableJednotka">
+            <p> {{jednotek}}</p>
+          </td>
+         </tr>
         </table>
       </div>
     </div>

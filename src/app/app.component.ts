@@ -9,8 +9,8 @@ import { GatewayService } from './services/gateway.service';
       <div class="row">
         <div class="col-md-1">
          </div>
-        <div class="col-md-5" style="background-color: ghostwhite; padding-bottom: 30px; box-shadow: 0px 6px 5px 0px #0B5499">
-          <leva-strana class="leftSide">
+        <div class="col-md-5 leftSide">
+          <leva-strana>
             <vyse-uveru [defaultVyseUveru]="defaultVyseUveru" 
                         (zmenaVyseUveruEvent)="zmenaVyseUveruEvent($event)">
             </vyse-uveru>
@@ -22,8 +22,8 @@ import { GatewayService } from './services/gateway.service';
             </pojisteni>
           </leva-strana>
         </div>
-        <div class="col-md-5" style="background-color: #0B5499">
-          <prava-strana class="rightSide" (kontaktujteMeEvent)="kontaktujteMeEvent($event)">
+        <div class="col-md-5 rightSide">
+          <prava-strana (kontaktujteMeEvent)="kontaktujteMeEvent($event)">
             <mesicni-splatka [mesicniSplatka]="getMesicniSplatku()"  
                              [jePojisteni]="this.jePojisteni">
             </mesicni-splatka>
@@ -38,7 +38,7 @@ import { GatewayService } from './services/gateway.service';
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10 formular" style="background-color: ghostwhite">
+        <div class="col-md-10 formular">
           <kontaktni-formular *ngIf="this.zobrazFormular"></kontaktni-formular>
         </div>
         <div class="col-md-1">

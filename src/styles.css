@@ -6,15 +6,28 @@
 .rightSide{
   text-align: center;
   font-weight: bold;
+  background-color: #0B5499;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .leftSide{
   text-align: center;
   font-weight: bold;
+  background-color: ghostwhite;
+  padding-bottom: 30px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, .5);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.formular {
+  padding-left: 50px;
+  background-color: ghostwhite
 }
 
 .pojisteni {
-  margin-top: 50px
+  margin-top: 20px
 }
 
 
@@ -41,15 +54,27 @@ hr {
 }
 
 table {
-  width: 100%;
+  max-width: 410px;
+}
+
+td {
+  vertical-align: bottom;
+  padding: 5px;
+}
+
+.tableNazev {
+  text-align: left;
+  width: 150px;
 }
 
 .tableJednotka {
   text-align: left;
+  width: 60px;
 }
 
 .tableInput {
-  text-align: right;
+  width: 200px;
+  padding-left: 50px;
 }
 
 .txtWhite {
