@@ -27,7 +27,8 @@
 }
 
 .pojisteni {
-  margin-top: 20px
+  margin-top: 20px;
+  font-weight: normal;
 }
 
 
@@ -65,11 +66,13 @@ td {
 .tableNazev {
   text-align: left;
   width: 150px;
+  font-weight: normal;
 }
 
 .tableJednotka {
   text-align: left;
   width: 60px;
+  font-weight: normal;
 }
 
 .tableInput {
@@ -77,6 +80,15 @@ td {
   padding-left: 50px;
 }
 
+.posuvnikJednotkyLeft{
+  text-align: left;
+  font-weight: 100;
+}
+
+.posuvnikJednotkyRight{
+  text-align: right;
+  font-weight: 100;
+}
 .txtWhite {
   color:white;
 }

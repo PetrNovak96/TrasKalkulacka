@@ -38,10 +38,10 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
                (change)="onRangeChangeEvent($event)"
         >
         <div class="row">
-          <div class="col-md-6" style="text-align: left; font-weight: normal">
+          <div class="col-md-6 posuvnikJednotkyLeft">
             <p>{{min + " " + jednotek}}</p>
           </div>
-          <div class="col-md-6" style="text-align: right; font-weight: normal">
+          <div class="col-md-6 posuvnikJednotkyRight">
             <p>{{max + " " + jednotek}}</p>
           </div>
         </div>
