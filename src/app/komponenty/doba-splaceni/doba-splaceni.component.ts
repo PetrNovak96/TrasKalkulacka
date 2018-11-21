@@ -25,6 +25,22 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
       </div>
     </div>
     
+    <div class="row prepocetDoba">
+      <div class="col-md-12">
+        <table>
+          <tr>
+            <td class="tableNazev">
+            </td>
+            <td class="tablePrepocetDoba">
+              <p>tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b></p>
+            </td>
+            <td class="tableJednotka">
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
     <div class="row">
       <div class="col-md-12">
         <input [(ngModel)]="dobaSplaceni"
@@ -42,7 +58,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
             <p>{{max + " " + jednotek}}</p>
           </div>
         </div>
-        <p>tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b></p>
       </div>
     </div>
   `,

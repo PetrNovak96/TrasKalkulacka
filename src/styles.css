@@ -32,6 +32,10 @@
   text-align: left;
 }
 
+.prepocetDoba{
+  margin-top: -20px;
+}
+
 
 /* tags */
 h2 {
@@ -72,6 +76,13 @@ td {
 .tableInput {
   width: 200px;
   padding-left: 50px;
+}
+
+.tablePrepocetDoba{
+  width: 200px;
+  padding-left: 50px;
+  text-align: left;
+  font-size: 13px;
 }
 
 .tableJednotka {
