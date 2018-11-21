@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/email.validator';
+import { telCisloValidator } from '../../shared/telCislo.validator';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -119,6 +120,13 @@ import { emailValidator } from '../../shared/email.validator';
                 Vyplňte prosím toto pole.
               </small>
 
+              <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': !(telCisloControl.errors?.nespravneCislo)
+                }">
+                Zadejte prosím telefonní číslo ve správném formátu.
+              </small>
+
             </small>
           </p>
         </div>
@@ -205,9 +213,10 @@ export class KontaktniFormularComponent implements OnInit {
       jmeno: ['', Validators.required],
       email: ['', [Validators.required, emailValidator]],
       prijmeni: ['', [Validators.required, ]],
-      telCislo: ['', Validators.required],
+      telCislo: ['', [Validators.required, telCisloValidator]],
       doplnInfo: ['', Validators.required]
     });
+    //TODO: submitting form data https://www.youtube.com/watch?v=bHcQx4hCF_0&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ&index=58
   }
 
   ngOnInit() {
@@ -215,8 +224,6 @@ export class KontaktniFormularComponent implements OnInit {
     this.telCislo = "";
     this.doplnujiciInfo = "";
   }
-
-  //Validators.pattern('([a-zA-Z0-9_.-]+)@([a-zA-Z0-9_.-]+)\\.([a-zA-Z]{2,5})')
 
   EmailOnClickEvent(){
 
