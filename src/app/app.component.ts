@@ -9,7 +9,7 @@ import { GatewayService } from './services/gateway.service';
       <div class="row">
         <div class="col-md-1">
          </div>
-        <div class="col-md-5" style="background-color: ghostwhite; border-bottom-color: #0B5499; border-bottom-style: solid;  padding-bottom: 30px">
+        <div class="col-md-5" style="background-color: ghostwhite; padding-bottom: 30px; box-shadow: 0px 6px 5px 0px #0B5499">
           <leva-strana class="leftSide">
             <vyse-uveru [defaultVyseUveru]="defaultVyseUveru" 
                         (zmenaVyseUveruEvent)="zmenaVyseUveruEvent($event)">
