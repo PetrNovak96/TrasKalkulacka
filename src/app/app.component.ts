@@ -65,9 +65,11 @@ export class AppComponent {
   constructor(public gateway: GatewayService) {
 
     //Mock server vrací úrokovou míru per anum
-    this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
-      this.urokovaMira = data.interestRate;
-    });
+    // this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
+    //   this.urokovaMira = data.interestRate;
+    // });
+    this.urokovaMira = 0.08;
+
 
 
     this.defaultDobaSplaceni = 66;

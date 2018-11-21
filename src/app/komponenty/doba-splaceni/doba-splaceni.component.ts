@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
           <tr>
             <td class="tableNazev">
               <p>Doba splácení
-              <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+              <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda></p>
             </td>
             <td class="tableInput">
              <input type="text" 
@@ -66,6 +66,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class DobaSplaceniComponent implements OnInit {
 
   public napoveda: string;
+  public barvaNapovedy: string;
   public jednotek: string;
   public min: number;
   public max: number;
@@ -78,6 +79,7 @@ export class DobaSplaceniComponent implements OnInit {
 
   ngOnInit() {
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
+    this.barvaNapovedy = "cerna";
     this.dobaSplaceni = this.default;
     this.min = 24;
     this.max = 120;

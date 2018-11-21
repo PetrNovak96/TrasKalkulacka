@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
         <tr>
           <td class="tableNazev">
             <p>Výše úvěru
-            <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+            <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda></p>
           </td>
           <td class="tableInput">
             <input #textVyseUveru
@@ -53,7 +53,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 export class VyseUveruComponent implements OnInit {
 
   public napoveda: string;
-
+  public barvaNapovedy: string;
   public vyseUveru: number;
   @Output() zmenaVyseUveruEvent = new EventEmitter();
   public min: number;
@@ -69,6 +69,7 @@ export class VyseUveruComponent implements OnInit {
 
   ngOnInit() {
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
+    this.barvaNapovedy = "cerna";
     this.vyseUveru = this.default;
     this.min = 30000;
     this.max = 3300000;
