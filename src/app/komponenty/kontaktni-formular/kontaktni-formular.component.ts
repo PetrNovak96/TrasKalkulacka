@@ -136,7 +136,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
             </small>
 
           </p>
-          <p>Náš bankéř Vás bude kontaktovat do 24 hodin.</p>
+          <p style="font-weight: bolder; margin-top: 15px">Náš bankéř Vás bude kontaktovat do 24 hodin.</p>
         </div>
       </div>
       <div class="row">

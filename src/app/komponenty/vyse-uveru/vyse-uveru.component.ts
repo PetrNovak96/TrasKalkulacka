@@ -4,11 +4,15 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
   selector: 'vyse-uveru',
   template: `    
     <div class="row" style="margin-bottom: 30px">
-          <div class="col-md-6">
-            <label for="vyse-uveru">Výše úvěru</label>
-            <napoveda pozice="right" [tooltip]="napoveda"></napoveda>
-          </div>
-        <div class="col-md-4">
+      <div class="col-md-12">
+      <table>
+        <tr>
+          <td>
+            <p>Výše úvěru
+            <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+          </td>
+          <td class="tableInput">
+        
           <input #textVyseUveru
                type="text"
                id="vyse-uveru"
@@ -16,12 +20,11 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
                [value]="this.numberToString(this.vyseUveru)"
                (input)="onInputEvent($event)"
                (change)="onChangeEvent($event)">
-        </div>
-          <div class="col-md-1">
-            <p> {{jednotek}}</p>
-          </div>
-        <div class="col-md-1">
-        </div>
+             {{jednotek}}
+          </td>
+        </tr>
+        </table>
+      </div>
     </div>
     
     <div class="row">
