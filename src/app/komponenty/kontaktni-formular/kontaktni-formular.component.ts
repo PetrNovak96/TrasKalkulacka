@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { emailValidator } from '../../shared/email.validator';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -58,6 +59,13 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
                       'd-none': !(emailControl.errors?.required)
                 }">
                 Vyplňte prosím toto pole.
+              </small>
+
+              <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': !(emailControl.errors?.nespravnyEmail)
+                }">
+                Zadejte prosím email ve správném formátu.
               </small>
 
             </small>
@@ -195,8 +203,8 @@ export class KontaktniFormularComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
-      email: ['', Validators.required],
-      prijmeni: ['', [Validators.required, this.emailValidator]],
+      email: ['', [Validators.required, emailValidator]],
+      prijmeni: ['', [Validators.required, ]],
       telCislo: ['', Validators.required],
       doplnInfo: ['', Validators.required]
     });
@@ -207,6 +215,8 @@ export class KontaktniFormularComponent implements OnInit {
     this.telCislo = "";
     this.doplnujiciInfo = "";
   }
+
+  //Validators.pattern('([a-zA-Z0-9_.-]+)@([a-zA-Z0-9_.-]+)\\.([a-zA-Z]{2,5})')
 
   EmailOnClickEvent(){
 
@@ -250,15 +260,6 @@ export class KontaktniFormularComponent implements OnInit {
 
   get doplnInfoControl(){
     return this.kontaktniUdaje.get('doplnInfo');
-  }
-
-  emailValidator(control: AbstractControl)
-    // :{[key: string] : any} | null
-  {
-
-    // const forbidden = /admin/.test(control.value)
-    return true;
-    //TODO: Custom validation https://www.youtube.com/watch?v=nm-x8gsqB2E&index=54&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ
   }
 
 }
