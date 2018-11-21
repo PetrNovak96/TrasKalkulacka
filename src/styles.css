@@ -1,6 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+/* Components*/
+
+.rightSide{
+  text-align: center;
+  font-weight: bold;
+}
+
+.leftSide{
+  text-align: center;
+  font-weight: bold;
+}
+
+.pojisteni {
+  margin-top: 50px
+}
+
+
+/* tags */
 h2 {
   font-size: 30px;
   font-weight: bold;
@@ -32,16 +50,6 @@ table {
 
 .tableInput {
   text-align: right;
-}
-
-.rightSide{
-  text-align: center;
-  font-weight: bold;
-}
-
-.leftSide{
-  text-align: center;
-  font-weight: bold;
 }
 
 .txtWhite {

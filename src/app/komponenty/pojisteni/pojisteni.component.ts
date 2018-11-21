@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   template: `
     
     <div class="row">
-      <div class="col-md-12" style="margin-top: 35px">
+      <div class="col-md-12 pojisteni">
         <p>
           <input type="checkbox" 
                  [(ngModel)]="odskrkle" (change)="fireEvent($event)" />
