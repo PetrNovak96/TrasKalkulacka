@@ -60,7 +60,6 @@ table {
 
 td {
   vertical-align: bottom;
-  padding: 5px;
 }
 
 .tableNazev {
@@ -69,15 +68,16 @@ td {
   font-weight: normal;
 }
 
+.tableInput {
+  width: 200px;
+  padding-left: 50px;
+}
+
 .tableJednotka {
   text-align: left;
   width: 60px;
   font-weight: normal;
-}
-
-.tableInput {
-  width: 200px;
-  padding-left: 50px;
+  padding-left: 10px;
 }
 
 .posuvnikJednotkyLeft{
@@ -113,7 +113,8 @@ input[type=button] {
 
 input[type=range] {
   -webkit-appearance: none;
-  width: 98%;
+  min-width: 98%;
+  max-width: 415px;
   margin: 13.8px 0;
 }
 input[type=range]:focus {
