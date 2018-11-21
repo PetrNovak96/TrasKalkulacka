@@ -73,7 +73,7 @@ export class VyseUveruComponent implements OnInit {
     this.vyseUveru = this.default;
     this.min = 30000;
     this.max = 3300000;
-    this.krok = 10000;
+    this.krok = 1000;
     this.jednotek = "Kč";
   }
 
