@@ -5,14 +5,17 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
   selector: 'kontaktni-formular',
   template: `
     <div class="row">
-      <div class="col-md-10">
-        <h2 style="color:#0B5499">
+      <div class="col-md-12">
+        <h2 style="color:#0B5499; text-align: center">
           Kontaktní údaje
         </h2>
       </div>
     </div>
+    
     <form [formGroup]="this.kontaktniUdaje">
       <div class="row">
+        <div class="col-md-1">
+        </div>
         <div class="col-md-4">
           <p>
             Jméno
@@ -111,13 +114,28 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
             </small>
           </p>
         </div>
+        <div class="col-md-1">
+        </div>
       </div>
+      
       <div class="row">
-        <div class="col-md-10" style="margin-top: 20px">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
           <p>
             Doplňující informace
           </p>
+        </div>
+          <div class="col-md-1">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-1">
+          </div>
+          <div class="col-md-10">
           <textarea maxlength="1000"
+                    class="doplnujiciInfo"
                     [(ngModel)]="this.doplnujiciInfo"
                     [ngClass]="{
                      'doplnInfo': true,
@@ -127,21 +145,35 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
                     formControlName="doplnInfo"
           ></textarea>
           <p *ngIf="doplnInfoControl.invalid && doplnInfoControl.touched">
-
             <small [ngClass]="{
                       'text-danger': true,
                       'd-none': !(doplnInfoControl.errors?.required)
                 }">
               Vyplňte prosím toto pole.
             </small>
-
           </p>
+          </div>
+          <div class="col-md-1">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-1">
+          </div>
+          <div class="col-md-10">
           <p style="font-weight: bolder; margin-top: 15px; text-align: center">Náš bankéř Vás bude kontaktovat do 24 hodin.</p>
+          </div>
+        <div class="col-md-1">
         </div>
       </div>
+      
       <div class="row">
+        <div class="col-md-1">
+        </div>
         <div class="col-md-10" style="text-align: center">
           <input type="button" class="btn btn-success btn-lg" value="Odeslat">
+        </div>
+        <div class="col-md-1">
         </div>
       </div>
     </form>

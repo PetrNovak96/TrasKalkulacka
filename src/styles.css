@@ -23,7 +23,8 @@
 
 .formular {
   padding-left: 50px;
-  background-color: ghostwhite
+  background-color: ghostwhite;
+  text-align: left;
 }
 
 .pojisteni {
@@ -35,6 +36,7 @@
 .prepocetDoba{
   margin-top: -20px;
 }
+
 
 
 /* tags */
@@ -57,6 +59,10 @@ hr {
   border-style: inset;
   border-width: 1px;
   width: 365px;
+}
+
+.doplnujiciInfo{
+  min-width: 100%;
 }
 
 table {
