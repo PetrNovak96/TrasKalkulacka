@@ -4,16 +4,16 @@ import { Component, Input, OnInit } from '@angular/core';
   selector: 'RPSN',
   template: `
     <div class="row">
-      <div class="col-md-1" *ngIf="(vysledek != undefined)">
+      <div class="col-md-1" *ngIf="(vysledek != undefined)" style="text-align: right">
       </div>
-      <div class="col-md-3" style="text-align: left">
+      <div class="col-md-5" style="text-align: left">
         <p class="txtWhite">RPSN
           <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
       </div>
-      <div class="col-md-6" style="text-align: right">
+      <div class="col-md-5" style="text-align: right">
         <p class="txtWhite" >{{upravCislo(vysledek) + " %"}}</p>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-1" style="text-align: right">
       </div>
     </div>
   `,

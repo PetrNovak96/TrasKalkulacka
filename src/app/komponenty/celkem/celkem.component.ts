@@ -14,7 +14,7 @@ import { Component, Input, OnInit } from '@angular/core';
       <div class="col-md-5" style="text-align: right">
        <p class="txtWhite" style="text-align: right" >{{numberToString(vysledek) + " Kč"}}</p>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1" style="text-align: right">
       </div>
     </div>
   `,
