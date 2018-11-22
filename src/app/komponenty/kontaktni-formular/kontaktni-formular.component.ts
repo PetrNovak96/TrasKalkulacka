@@ -51,7 +51,8 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
                    }"
                    placeholder="@"
                    (click)="this.EmailOnClickEvent()"
-                   formControlName="email">
+                   formControlName="email"
+                   maxlength="30">
             
             <small *ngIf="emailControl.invalid && emailControl.touched">
 
@@ -109,7 +110,8 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
                    (click)="telOnClickEvent($event)"
                    [(ngModel)]="this.telCislo"
                    (input)="telOnInputEvent($event)"
-                   formControlName="telCislo">
+                   formControlName="telCislo"
+                   maxlength="16">
 
             <small *ngIf="telCisloControl.invalid && telCisloControl.touched">
 
