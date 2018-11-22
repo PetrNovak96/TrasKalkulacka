@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/email.validator';
 import { telCisloValidator } from '../../shared/telCislo.validator';
 
@@ -187,11 +187,12 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
         <div class="col-md-1">
         </div>
         <div class="col-md-10" style="text-align: center">
-          <input type="button" class="btn btn-success btn-lg" value="Odeslat">
+          <button (click)="onSubmit()" type="submit" class="btn btn-success btn-lg" value="Odeslat">Odeslat</button>
         </div>
         <div class="col-md-1">
         </div>
       </div>
+      
     </form>
   `,
   styleUrls: ['./kontaktni-formular.component.css']
@@ -230,7 +231,7 @@ export class KontaktniFormularComponent implements OnInit {
     if(this.email.length==0){
       let el = this.emailInput.nativeElement;
       el.value = "@";
-      el.setSelectionRange(0,0)
+      el.setSelectionRange(0,0);
     }
   }
 
@@ -247,6 +248,27 @@ export class KontaktniFormularComponent implements OnInit {
   telOnInputEvent(){
     let el = this.telInput.nativeElement;
     el.value = el.value.replace(/(\d{3})(\d)/g, "$1 $2");
+  }
+
+  onSubmit(){
+    console.log(this.kontaktniUdaje.value);
+    if (this.kontaktniUdaje.valid) {
+      console.log('form submitted');
+    } else {
+      this.validateAllFormFields(this.kontaktniUdaje);
+    }
+  }
+
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      console.log(field);
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
   }
 
   get jmenoControl(){
