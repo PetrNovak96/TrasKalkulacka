@@ -187,7 +187,7 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
         <div class="col-md-1">
         </div>
         <div class="col-md-10" style="text-align: center">
-          <button (click)="onSubmit()" type="submit" class="btn btn-success btn-lg" value="Odeslat">Odeslat</button>
+          <input (click)="onSubmit()" type="button" class="btn btn-success btn-lg" value="Odeslat"/>
         </div>
         <div class="col-md-1">
         </div>
