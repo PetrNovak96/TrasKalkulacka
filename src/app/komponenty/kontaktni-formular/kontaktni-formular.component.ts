@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/email.validator';
 import { telCisloValidator } from '../../shared/telCislo.validator';
+import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -201,6 +202,8 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
 })
 export class KontaktniFormularComponent implements OnInit {
 
+  @Input('rodic') hlavniKomponenta;
+
   public email: string;
   @ViewChild('emailTextField') emailInput;
 
@@ -211,7 +214,10 @@ export class KontaktniFormularComponent implements OnInit {
 
   public kontaktniUdaje: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  public udajeKOdeslani: object;
+
+  constructor(private fb: FormBuilder, private _odeslaniUdaju: OdeslaniUdajuService) {
+
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
       email: ['', [Validators.required, emailValidator]],
@@ -219,13 +225,15 @@ export class KontaktniFormularComponent implements OnInit {
       telCislo: ['', [Validators.required, telCisloValidator]],
       doplnInfo: ['', Validators.required]
     });
-    //TODO: submitting form data https://www.youtube.com/watch?v=bHcQx4hCF_0&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ&index=58
+
+
   }
 
   ngOnInit() {
     this.email = "";
     this.telCislo = "";
     this.doplnujiciInfo = "";
+
   }
 
   EmailOnClickEvent(){
@@ -253,9 +261,20 @@ export class KontaktniFormularComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.kontaktniUdaje.value);
+
     if (this.kontaktniUdaje.valid) {
-      console.log('form submitted');
+
+      this.udajeKOdeslani = {
+        "parametryKalkulacky": this.hlavniKomponenta.parametryKalkulacky,
+        "kontaktniUdaje": this.kontaktniUdaje.value
+      }
+
+      this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
+        .subscribe(
+          response => console.log('Success!', response),
+          error => console.error('Error!', error)
+        );
+
     } else {
       this.validateAllFormFields(this.kontaktniUdaje);
     }
