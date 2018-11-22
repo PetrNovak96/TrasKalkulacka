@@ -85,22 +85,54 @@ export class VyseUveruComponent implements OnInit {
 
   onInputEvent(){
 
-    this.vyseUveru = Number(
-        this.
-        input.
-        nativeElement.
-        value.
-        toString().
-        replace(/\s/g, ""));
+    // @ts-ignore
+    if (event.data != null){
+      // @ts-ignore
+      if(event.data.match('^[0-9]+$')){
+
+        this.vyseUveru = Number(
+          this.
+          input.
+          nativeElement.
+          value.
+          toString().
+          replace(/\s/g, ""));
+      } else {
+
+        this.input.nativeElement.value =
+          // @ts-ignore
+          this.input.nativeElement.value.toString().replace(new RegExp(event.data.toString()),"");
+      }
+    }
   }
 
   onChangeEvent(){
 
-    this.vyseUveru =  Math.round(
-      this.vyseUveru/1000
-    )*1000;
+    if(this.input.nativeElement.value == "" ||
+      this.stringToNumber(this.input.nativeElement.value) < this.min){
 
+      this.vyseUveru = this.zaokrouhli(this.min);
+
+    } else if (this.stringToNumber(this.input.nativeElement.value) > this.max){
+
+      this.vyseUveru = this.zaokrouhli(this.max);
+
+    } else {
+
+      this.vyseUveru = this.zaokrouhli(this.vyseUveru);
+    }
     this.zmenaVyseUveruEvent.emit(this.vyseUveru);
+  }
+
+  zaokrouhli(cislo: number)
+    : number
+  {
+      return Math.round(cislo/1000)*1000;
+  }
+
+  stringToNumber(neco: string)
+  {
+    return Number(neco.replace(/\D/g, ""));
   }
 
   onRangeChangeEvent(){

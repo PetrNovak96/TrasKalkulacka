@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'doba-splaceni',
@@ -12,10 +12,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
               <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda></p>
             </td>
             <td class="tableInput">
-             <input type="text" 
+             <input #textDobaSplaceni
+               type="text" 
                class="form-control"
                id="doba-splaceni"
-               [(ngModel)]="dobaSplaceni" (change)="fireEvent($event)">
+               [(ngModel)]="dobaSplaceni"
+               (change)="fireEvent($event)" 
+               (input)="onInputEvent($event)">
             </td>
             <td class="tableJednotka">
               <p> {{jednotek}}</p>
@@ -48,7 +51,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
            [step]="krok"
            [min]="min"
            [max]="max"  
-           (change)="fireEvent($event)"
+           (change)="fireEvent($event)" 
         >
         <div class="row">
           <div class="col-md-6 posuvnikJednotkyLeft">
@@ -74,6 +77,7 @@ export class DobaSplaceniComponent implements OnInit {
   @Input('defaultDobaSplaceni') public default: number;
   public dobaSplaceni: number;
   @Output() zmenaDobySplaceniEvent = new EventEmitter();
+  @ViewChild('textDobaSplaceni') input;
 
   constructor() { }
 
@@ -122,6 +126,29 @@ export class DobaSplaceniComponent implements OnInit {
   }
 
   fireEvent(){
+
+    if(this.dobaSplaceni < this.min){
+
+      this.dobaSplaceni = this.min;
+
+    } else if (this.dobaSplaceni > this.max){
+
+      this.dobaSplaceni = this.max;
+
+    }
     this.zmenaDobySplaceniEvent.emit(this.dobaSplaceni);
+  }
+
+  onInputEvent(){
+    // @ts-ignore
+    if (event.data != null){
+      // @ts-ignore
+      if(!event.data.match('^[0-9]+$')){
+
+        this.input.nativeElement.value =
+          // @ts-ignore
+          this.input.nativeElement.value.toString().replace(new RegExp(event.data.toString()),"");
+      }
+    }
   }
 }
