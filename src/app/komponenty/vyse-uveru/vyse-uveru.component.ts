@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { numberToString, stringToNumber } from '../../shared/convertor';
 
 @Component({
   selector: 'vyse-uveru',
@@ -78,9 +79,7 @@ export class VyseUveruComponent implements OnInit {
   }
 
   numberToString(neco: number){
-    return  neco.
-    toString().
-    replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+    return numberToString(neco);
   }
 
   onInputEvent(){
@@ -90,30 +89,34 @@ export class VyseUveruComponent implements OnInit {
       // @ts-ignore
       if(event.data.match('^[0-9]+$')){
 
-        this.vyseUveru = Number(
-          this.
+        this.vyseUveru = stringToNumber(this.
           input.
           nativeElement.
-          value.
-          toString().
-          replace(/\s/g, ""));
+          value);
+
       } else {
 
         this.input.nativeElement.value =
           // @ts-ignore
           this.input.nativeElement.value.toString().replace(new RegExp(event.data.toString()),"");
       }
+    } else {
+
+      this.vyseUveru = stringToNumber(this.
+        input.
+        nativeElement.
+        value);
     }
   }
 
   onChangeEvent(){
 
     if(this.input.nativeElement.value == "" ||
-      this.stringToNumber(this.input.nativeElement.value) < this.min){
+      stringToNumber(this.input.nativeElement.value) < this.min){
 
       this.vyseUveru = this.zaokrouhli(this.min);
 
-    } else if (this.stringToNumber(this.input.nativeElement.value) > this.max){
+    } else if (stringToNumber(this.input.nativeElement.value) > this.max){
 
       this.vyseUveru = this.zaokrouhli(this.max);
 
@@ -128,12 +131,6 @@ export class VyseUveruComponent implements OnInit {
     : number
   {
       return Math.round(cislo/1000)*1000;
-  }
-
-  stringToNumber(neco: string)
-    : number
-  {
-    return Number(neco.replace(/\D/g, ""));
   }
 
   onRangeChangeEvent(){

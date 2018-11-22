@@ -68,6 +68,7 @@ export class AppComponent {
     this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
       this.urokovaMira = data.interestRate;
     });
+    // this.urokovaMira = 0.08;
 
     this.defaultDobaSplaceni = 66;
     this.defaultVyseUveru = 1500000;

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { numberToString } from '../../shared/convertor';
 
 @Component({
   selector: 'celkem',
@@ -33,10 +34,11 @@ export class CelkemComponent implements OnInit {
     this.barvaNapovedy = "bila";
   }
 
-  numberToString(neco: number){
-    return  neco.
-    toString().
-    replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+  numberToString(vysledek: number){
+
+    return numberToString(vysledek);
   }
+
+
 
 }

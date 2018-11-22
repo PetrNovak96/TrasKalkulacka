@@ -274,6 +274,7 @@ export class KontaktniFormularComponent implements OnInit {
           response => console.log('Success!', response),
           error => console.error('Error!', error)
         );
+      // console.log("Data odeslána na server.", this.udajeKOdeslani);
 
     } else {
       this.validateAllFormFields(this.kontaktniUdaje);
