@@ -131,6 +131,7 @@ export class VyseUveruComponent implements OnInit {
   }
 
   stringToNumber(neco: string)
+    : number
   {
     return Number(neco.replace(/\D/g, ""));
   }
