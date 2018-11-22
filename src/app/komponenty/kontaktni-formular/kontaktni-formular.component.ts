@@ -33,7 +33,7 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
 
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(jmenoControl.errors?.required)
+                      'd-none': !(jmenoControl.errors.required)
                 }">
                 Vyplňte prosím toto pole.
               </small>
@@ -57,14 +57,14 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
 
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(emailControl.errors?.required)
+                      'd-none': !(emailControl.errors.required)
                 }">
                 Vyplňte prosím toto pole.
               </small>
 
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(emailControl.errors?.nespravnyEmail)
+                      'd-none': !(emailControl.errors.nespravnyEmail) || emailControl.errors.required
                 }">
                 Zadejte prosím email ve správném formátu.
               </small>
@@ -90,7 +90,7 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
               
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(prijmeniControl.errors?.required)
+                      'd-none': !(prijmeniControl.errors.required)
                 }">
                 Vyplňte prosím toto pole. 
               </small>
@@ -115,14 +115,14 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
 
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(telCisloControl.errors?.required)
+                      'd-none': !(telCisloControl.errors.required)
                 }">
                 Vyplňte prosím toto pole.
               </small>
 
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(telCisloControl.errors?.nespravneCislo)
+                      'd-none': !(telCisloControl.errors.nespravneCislo) || telCisloControl.errors.required
                 }">
                 Zadejte prosím telefonní číslo ve správném formátu.
               </small>
