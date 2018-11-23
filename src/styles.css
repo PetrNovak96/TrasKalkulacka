@@ -9,12 +9,13 @@
   background-color: #0B5499;
   padding-left: 30px;
   padding-right: 30px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, .5);
 }
 
 .leftSide{
   text-align: center;
   font-weight: bold;
-  background-color: ghostwhite;
+  background-color: white;
   padding-bottom: 30px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, .5);
   padding-left: 30px;
