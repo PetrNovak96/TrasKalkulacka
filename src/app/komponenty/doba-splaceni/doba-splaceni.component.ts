@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'doba-splaceni',
@@ -9,13 +9,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
           <tr>
             <td class="tableNazev">
               <p>Doba splácení
-              <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+              <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda></p>
             </td>
             <td class="tableInput">
-             <input type="text" 
+             <input #textDobaSplaceni
+               type="text" 
                class="form-control"
                id="doba-splaceni"
-               [(ngModel)]="dobaSplaceni" (change)="fireEvent($event)">
+               [(ngModel)]="dobaSplaceni"
+               (change)="fireEvent($event)" 
+               (input)="onInputEvent($event)">
             </td>
             <td class="tableJednotka">
               <p> {{jednotek}}</p>
@@ -48,7 +51,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
            [step]="krok"
            [min]="min"
            [max]="max"  
-           (change)="fireEvent($event)"
+           (change)="fireEvent($event)" 
         >
         <div class="row">
           <div class="col-md-6 posuvnikJednotkyLeft">
@@ -66,6 +69,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class DobaSplaceniComponent implements OnInit {
 
   public napoveda: string;
+  public barvaNapovedy: string;
   public jednotek: string;
   public min: number;
   public max: number;
@@ -73,11 +77,13 @@ export class DobaSplaceniComponent implements OnInit {
   @Input('defaultDobaSplaceni') public default: number;
   public dobaSplaceni: number;
   @Output() zmenaDobySplaceniEvent = new EventEmitter();
+  @ViewChild('textDobaSplaceni') input;
 
   constructor() { }
 
   ngOnInit() {
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
+    this.barvaNapovedy = "cerna";
     this.dobaSplaceni = this.default;
     this.min = 24;
     this.max = 120;
@@ -120,6 +126,29 @@ export class DobaSplaceniComponent implements OnInit {
   }
 
   fireEvent(){
+
+    if(this.dobaSplaceni < this.min){
+
+      this.dobaSplaceni = this.min;
+
+    } else if (this.dobaSplaceni > this.max){
+
+      this.dobaSplaceni = this.max;
+
+    }
     this.zmenaDobySplaceniEvent.emit(this.dobaSplaceni);
+  }
+
+  onInputEvent(){
+    // @ts-ignore
+    if (event.data != null){
+      // @ts-ignore
+      if(!event.data.match('^[0-9]+$')){
+
+        this.input.nativeElement.value =
+          // @ts-ignore
+          this.input.nativeElement.value.toString().replace(new RegExp(event.data.toString()),"");
+      }
+    }
   }
 }

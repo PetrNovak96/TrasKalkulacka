@@ -1,5 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { emailValidator } from '../../shared/email.validator';
+import { telCisloValidator } from '../../shared/telCislo.validator';
+import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -31,7 +34,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(jmenoControl.errors?.required)
+                      'd-none': !(jmenoControl.errors.required)
                 }">
                 Vyplňte prosím toto pole.
               </small>
@@ -49,15 +52,23 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
                    }"
                    placeholder="@"
                    (click)="this.EmailOnClickEvent()"
-                   formControlName="email">
+                   formControlName="email"
+                   maxlength="30">
             
             <small *ngIf="emailControl.invalid && emailControl.touched">
 
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(emailControl.errors?.required)
+                      'd-none': !(emailControl.errors.required)
                 }">
                 Vyplňte prosím toto pole.
+              </small>
+
+              <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': !(emailControl.errors.nespravnyEmail) || emailControl.errors.required
+                }">
+                Zadejte prosím email ve správném formátu.
               </small>
 
             </small>
@@ -81,7 +92,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
               
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(prijmeniControl.errors?.required)
+                      'd-none': !(prijmeniControl.errors.required)
                 }">
                 Vyplňte prosím toto pole. 
               </small>
@@ -100,15 +111,23 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
                    (click)="telOnClickEvent($event)"
                    [(ngModel)]="this.telCislo"
                    (input)="telOnInputEvent($event)"
-                   formControlName="telCislo">
+                   formControlName="telCislo"
+                   maxlength="16">
 
             <small *ngIf="telCisloControl.invalid && telCisloControl.touched">
 
               <small [ngClass]="{
                       'text-danger': true,
-                      'd-none': !(telCisloControl.errors?.required)
+                      'd-none': !(telCisloControl.errors.required)
                 }">
                 Vyplňte prosím toto pole.
+              </small>
+
+              <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': !(telCisloControl.errors.nespravneCislo) || telCisloControl.errors.required
+                }">
+                Zadejte prosím telefonní číslo ve správném formátu.
               </small>
 
             </small>
@@ -171,16 +190,19 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
         <div class="col-md-1">
         </div>
         <div class="col-md-10" style="text-align: center">
-          <input type="button" class="btn btn-success btn-lg" value="Odeslat">
+          <input (click)="onSubmit()" type="button" class="btn btn-success btn-lg" value="Odeslat"/>
         </div>
         <div class="col-md-1">
         </div>
       </div>
+      
     </form>
   `,
   styleUrls: ['./kontaktni-formular.component.css']
 })
 export class KontaktniFormularComponent implements OnInit {
+
+  @Input('rodic') hlavniKomponenta;
 
   public email: string;
   @ViewChild('emailTextField') emailInput;
@@ -192,20 +214,26 @@ export class KontaktniFormularComponent implements OnInit {
 
   public kontaktniUdaje: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  public udajeKOdeslani: object;
+
+  constructor(private fb: FormBuilder, private _odeslaniUdaju: OdeslaniUdajuService) {
+
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
-      email: ['', Validators.required],
-      prijmeni: ['', [Validators.required, this.emailValidator]],
-      telCislo: ['', Validators.required],
+      email: ['', [Validators.required, emailValidator]],
+      prijmeni: ['', [Validators.required, ]],
+      telCislo: ['', [Validators.required, telCisloValidator]],
       doplnInfo: ['', Validators.required]
     });
+
+
   }
 
   ngOnInit() {
     this.email = "";
     this.telCislo = "";
     this.doplnujiciInfo = "";
+
   }
 
   EmailOnClickEvent(){
@@ -213,7 +241,7 @@ export class KontaktniFormularComponent implements OnInit {
     if(this.email.length==0){
       let el = this.emailInput.nativeElement;
       el.value = "@";
-      el.setSelectionRange(0,0)
+      el.setSelectionRange(0,0);
     }
   }
 
@@ -230,6 +258,39 @@ export class KontaktniFormularComponent implements OnInit {
   telOnInputEvent(){
     let el = this.telInput.nativeElement;
     el.value = el.value.replace(/(\d{3})(\d)/g, "$1 $2");
+  }
+
+  onSubmit(){
+
+    if (this.kontaktniUdaje.valid) {
+
+      this.udajeKOdeslani = {
+        "parametryKalkulacky": this.hlavniKomponenta.parametryKalkulacky,
+        "kontaktniUdaje": this.kontaktniUdaje.value
+      }
+
+      this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
+        .subscribe(
+          response => console.log('Success!', response),
+          error => console.error('Error!', error)
+        );
+      // console.log("Data odeslána na server.", this.udajeKOdeslani);
+
+    } else {
+      this.validateAllFormFields(this.kontaktniUdaje);
+    }
+  }
+
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      console.log(field);
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
   }
 
   get jmenoControl(){
@@ -250,15 +311,6 @@ export class KontaktniFormularComponent implements OnInit {
 
   get doplnInfoControl(){
     return this.kontaktniUdaje.get('doplnInfo');
-  }
-
-  emailValidator(control: AbstractControl)
-    // :{[key: string] : any} | null
-  {
-
-    // const forbidden = /admin/.test(control.value)
-    return true;
-    //TODO: Custom validation https://www.youtube.com/watch?v=nm-x8gsqB2E&index=54&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ
   }
 
 }

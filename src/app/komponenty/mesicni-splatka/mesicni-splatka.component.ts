@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { numberToString } from '../../shared/convertor';
 
 @ Component({
   selector: 'mesicni-splatka',
@@ -29,9 +30,7 @@ export class MesicniSplatkaComponent implements OnInit {
   }
 
   numberToString(neco: number){
-    return  neco.
-    toString().
-    replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+    return  numberToString(neco);
   }
 
 }

@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
       </div>
       <div class="col-md-5" style="text-align: left">
         <p class="txtWhite">RPSN
-          <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+          <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda></p>
       </div>
       <div class="col-md-5" style="text-align: right">
         <p class="txtWhite" >{{upravCislo(vysledek) + " %"}}</p>
@@ -22,12 +22,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RPSNComponent implements OnInit {
 
   public napoveda: string;
+  public barvaNapovedy: string;
   @Input('rpsn')public vysledek: number;
 
   constructor() { }
 
   ngOnInit() {
     this.napoveda = "Tady se musíme dohodnout co přesně tam napsat.";
+    this.barvaNapovedy = "bila";
   }
 
   upravCislo(neco: number) {

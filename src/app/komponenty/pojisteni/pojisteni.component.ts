@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     
     <div class="row">
       <div class="col-md-12 pojisteni">
-        <p>
+        <p (click)="klikMimoCheckBox()">
           <input type="checkbox" 
                  [(ngModel)]="odskrkle" (change)="fireEvent($event)" />
           {{vysvetleni}}</p>
@@ -31,6 +31,11 @@ export class PojisteniComponent implements OnInit {
 
   fireEvent(){
     this.zmenaOdskrknutiEvent.emit(this.odskrkle);
+  }
+
+  klikMimoCheckBox(){
+    this.odskrkle = !this.odskrkle;
+    this.fireEvent();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { numberToString, stringToNumber } from '../../shared/convertor';
 
 @Component({
   selector: 'vyse-uveru',
@@ -9,7 +10,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
         <tr>
           <td class="tableNazev">
             <p>Výše úvěru
-            <napoveda pozice="right" [tooltip]="napoveda"></napoveda></p>
+            <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda></p>
           </td>
           <td class="tableInput">
             <input #textVyseUveru
@@ -53,7 +54,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 export class VyseUveruComponent implements OnInit {
 
   public napoveda: string;
-
+  public barvaNapovedy: string;
   public vyseUveru: number;
   @Output() zmenaVyseUveruEvent = new EventEmitter();
   public min: number;
@@ -69,37 +70,67 @@ export class VyseUveruComponent implements OnInit {
 
   ngOnInit() {
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
+    this.barvaNapovedy = "cerna";
     this.vyseUveru = this.default;
     this.min = 30000;
     this.max = 3300000;
-    this.krok = 10000;
+    this.krok = 1000;
     this.jednotek = "Kč";
   }
 
   numberToString(neco: number){
-    return  neco.
-    toString().
-    replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+    return numberToString(neco);
   }
 
   onInputEvent(){
 
-    this.vyseUveru = Number(
-        this.
+    // @ts-ignore
+    if (event.data != null){
+      // @ts-ignore
+      if(event.data.match('^[0-9]+$')){
+
+        this.vyseUveru = stringToNumber(this.
+          input.
+          nativeElement.
+          value);
+
+      } else {
+
+        this.input.nativeElement.value =
+          // @ts-ignore
+          this.input.nativeElement.value.toString().replace(new RegExp(event.data.toString()),"");
+      }
+    } else {
+
+      this.vyseUveru = stringToNumber(this.
         input.
         nativeElement.
-        value.
-        toString().
-        replace(/\s/g, ""));
+        value);
+    }
   }
 
   onChangeEvent(){
 
-    this.vyseUveru =  Math.round(
-      this.vyseUveru/1000
-    )*1000;
+    if(this.input.nativeElement.value == "" ||
+      stringToNumber(this.input.nativeElement.value) < this.min){
 
+      this.vyseUveru = this.zaokrouhli(this.min);
+
+    } else if (stringToNumber(this.input.nativeElement.value) > this.max){
+
+      this.vyseUveru = this.zaokrouhli(this.max);
+
+    } else {
+
+      this.vyseUveru = this.zaokrouhli(this.vyseUveru);
+    }
     this.zmenaVyseUveruEvent.emit(this.vyseUveru);
+  }
+
+  zaokrouhli(cislo: number)
+    : number
+  {
+      return Math.round(cislo/1000)*1000;
   }
 
   onRangeChangeEvent(){

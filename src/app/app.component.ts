@@ -39,7 +39,7 @@ import { GatewayService } from './services/gateway.service';
         <div class="col-md-1">
         </div>
         <div class="col-md-10 formular">
-          <kontaktni-formular *ngIf="this.zobrazFormular"></kontaktni-formular>
+          <kontaktni-formular [rodic]="this" *ngIf="this.zobrazFormular"></kontaktni-formular>
         </div>
         <div class="col-md-1">
         </div>
@@ -68,7 +68,7 @@ export class AppComponent {
     this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
       this.urokovaMira = data.interestRate;
     });
-
+    // this.urokovaMira = 0.08;
 
     this.defaultDobaSplaceni = 66;
     this.defaultVyseUveru = 1500000;
@@ -78,6 +78,19 @@ export class AppComponent {
     this.vyseUveru = this.defaultVyseUveru;
     this.jePojisteni = this.defaultJePojisteni;
     this.poplatky = 490;
+
+
+  }
+
+  get parametryKalkulacky()
+    : object
+  {
+    let parametry = {
+      "vyseUveru": this.vyseUveru,
+      "dobaSplaceni": this.dobaSplaceni,
+      "jePojisteni": this.jePojisteni
+    }
+    return parametry
   }
 
   getMesicniSplatku(){
