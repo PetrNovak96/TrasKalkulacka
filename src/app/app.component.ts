@@ -8,7 +8,7 @@ import { Time } from '@angular/common';
   template: `
     
     <div class="container">
-      <div class="row">
+      <div class="row" style="margin-top: 50px;">
         <div class="col-md-1">
          </div>
         <div class="col-md-5 leftSide">
@@ -37,7 +37,7 @@ import { Time } from '@angular/common';
           </div>
         </div>
       
-      <div class="row">
+      <div class="row" style="margin-top: 8px">
         <div class="col-md-1">
         </div>
         <div class="col-md-10 formular">

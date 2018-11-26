@@ -179,16 +179,6 @@ import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
           <div class="col-md-1">
           </div>
         </div>
-        
-        <div class="row">
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-10">
-          <p style="font-weight: bolder; margin-top: 15px; text-align: center">Náš bankéř Vás bude kontaktovat do 24 hodin.</p>
-          </div>
-        <div class="col-md-1">
-        </div>
-      </div>
       
       <div class="row">
         <div class="col-md-1">
