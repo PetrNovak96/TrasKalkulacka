@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { emailValidator } from '../../shared/email.validator';
 import { telCisloValidator } from '../../shared/telCislo.validator';
 import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
+import { MatDialog } from '@angular/material';
+import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -198,6 +200,8 @@ import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
         </div>
       </div>
       
+      
+      
     </form>
   `,
   styleUrls: ['./kontaktni-formular.component.css']
@@ -225,7 +229,9 @@ export class KontaktniFormularComponent implements OnInit {
 
   public udajeKOdeslani: object;
 
-  constructor(private fb: FormBuilder, private _odeslaniUdaju: OdeslaniUdajuService) {
+  public odeslaniStatus: string;
+
+  constructor(private fb: FormBuilder, private _odeslaniUdaju: OdeslaniUdajuService, public dialog: MatDialog) {
 
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
@@ -235,8 +241,9 @@ export class KontaktniFormularComponent implements OnInit {
       doplnInfo: ['']
     });
 
-
   }
+
+
 
   ngOnInit() {
     this.email = "";
@@ -244,6 +251,7 @@ export class KontaktniFormularComponent implements OnInit {
     this.doplnujiciInfo = "";
     this.maxdelka = 1000;
     this.zobrazitCounterPo = 900;
+    this.odeslaniStatus = "";
   }
 
   EmailOnClickEvent(){
@@ -281,14 +289,33 @@ export class KontaktniFormularComponent implements OnInit {
 
       this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
         .subscribe(
-          response => console.log('Success!', response),
-          error => console.error('Error!', error)
+          response => {
+            console.log('Success!', response);
+            this.odeslaniStatus = "OK";
+            this.otevriPopUp();
+            },
+          error => {
+            console.log('Error!', error);
+            this.odeslaniStatus = "NOK";
+            this.otevriPopUp();
+          }
         );
       // console.log("Data odeslána na server.", this.udajeKOdeslani);
 
     } else {
       this.validateAllFormFields(this.kontaktniUdaje);
     }
+  }
+
+  otevriPopUp(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '500px',
+      data: {status: this.odeslaniStatus}
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+
+    });
   }
 
   validateAllFormFields(formGroup: FormGroup) {
