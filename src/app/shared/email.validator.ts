@@ -1,4 +1,4 @@
-import { AbstractControl, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 export function emailValidator(control: FormControl)
 :{[key: string] : any} | null

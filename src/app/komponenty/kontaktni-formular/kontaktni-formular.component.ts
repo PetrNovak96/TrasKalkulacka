@@ -305,6 +305,8 @@ export class KontaktniFormularComponent implements OnInit {
         );
 
       // console.log("Data odeslána na server.", this.udajeKOdeslani);
+      // this.odeslaniStatus = "OK";
+      // this.otevriPopUp();
 
     } else {
       this.validateAllFormFields(this.kontaktniUdaje);
@@ -326,7 +328,6 @@ export class KontaktniFormularComponent implements OnInit {
 
   validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
-      console.log(field);
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
         control.markAsTouched({ onlySelf: true });
