@@ -41,10 +41,10 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
         >
         <div class="row">
           <div class="col-md-6 posuvnikJednotkyLeft">
-            <p>{{min + " " + jednotek}}</p>
+            <p>{{numberToString(min) + " " + jednotek}}</p>
           </div>
           <div class="col-md-6 posuvnikJednotkyRight">
-            <p>{{max + " " + jednotek}}</p>
+            <p>{{numberToString(max) + " " + jednotek}}</p>
           </div>
         </div>
       </div>
