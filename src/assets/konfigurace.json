@@ -1,0 +1,21 @@
+{
+  "uver": {
+    "max": 3300000,
+    "min": 30000,
+    "default": 1500000
+  },
+  "dobaSplaceni": {
+    "max": 120,
+    "min": 24,
+    "default": 66
+  },
+  "pojisteni": {
+    "default": false,
+    "koeficitent": 0.01
+  },
+  "kontaktniFormular": {
+    "jmenoPlaceholder": "Petr",
+    "prijmeniPlaceholder": "Novák",
+    "telefonniCisloPlaceholder": "+420 "
+  }
+}

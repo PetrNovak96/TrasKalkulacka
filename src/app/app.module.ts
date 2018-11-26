@@ -20,7 +20,6 @@ import { NapovedaComponent } from './komponenty/napoveda/napoveda.component';
 import { DialogOverviewExampleDialog } from './komponenty/dialog/dialog.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
