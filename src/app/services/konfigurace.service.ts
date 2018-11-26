@@ -29,7 +29,7 @@ export class KonfiguraceService {
 
   constructor() {
 
-    const konfigurace = require("../../assets/konfigurace.json");
+    const konfigurace = require("../../../konfigurace.json");
 
     this._minUver = konfigurace.uver.min;
     this._maxUver = konfigurace.uver.max;
