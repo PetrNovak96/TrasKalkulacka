@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GatewayService } from './services/gateway.service';
+import { KonfiguraceService } from './services/konfigurace.service';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -48,27 +50,38 @@ import { GatewayService } from './services/gateway.service';
   `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   public defaultVyseUveru: number;
   public defaultDobaSplaceni: number;
   public defaultJePojisteni: boolean;
 
+  public minVyseUveru: number;
+  public minDobaSplaceni: number;
+
+  public maxVyseUveru: number;
+  public maxDobaSplaceni: number;
+
   public urokovaMira: number;
   public vyseUveru: number;
   public dobaSplaceni: number;
-  public poplatky: number;
   public jePojisteni: boolean;
+
+  public poplatky: number;
+
 
   public zobrazFormular: boolean = false;
 
-  constructor(public gateway: GatewayService) {
+  constructor(public gateway: GatewayService, private ctecka: KonfiguraceService) {
 
     //Mock server vrací úrokovou míru per anum
     this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
       this.urokovaMira = data.interestRate;
     });
+    console.log(new Date().getTime())
     // this.urokovaMira = 0.08;
+
+    this.poplatky = 490;
 
     this.defaultDobaSplaceni = 66;
     this.defaultVyseUveru = 1500000;
@@ -78,8 +91,23 @@ export class AppComponent {
     this.vyseUveru = this.defaultVyseUveru;
     this.jePojisteni = this.defaultJePojisteni;
     this.poplatky = 490;
+  }
 
-
+  ngOnInit() {
+    // this.ctecka.getJSON().subscribe( (data) => {
+    //   this.defaultVyseUveru = data.uver.default;
+    //   this.defaultDobaSplaceni = data.dobaSplaceni.default;
+    //   this.defaultJePojisteni = data.pojisteni.default;
+    //
+    //   this.minVyseUveru = data.uver.min;
+    //   this.minDobaSplaceni = data.dobaSplaceni.min;
+    //
+    //   this.maxVyseUveru = data.uver.max;
+    //   this.maxDobaSplaceni = data.dobaSplaceni.max;
+    //   this.dobaSplaceni = this.defaultDobaSplaceni;
+    //   this.vyseUveru = 1500000;
+    //   this.jePojisteni = Boolean(this.defaultJePojisteni);
+    // })
   }
 
   get parametryKalkulacky()
