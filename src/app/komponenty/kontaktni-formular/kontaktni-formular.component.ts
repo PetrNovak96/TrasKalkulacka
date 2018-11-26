@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/email.validator';
 import { telCisloValidator } from '../../shared/telCislo.validator';
 import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
@@ -153,24 +153,19 @@ import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
           <div class="col-md-1">
           </div>
           <div class="col-md-10">
-          <textarea maxlength="1000"
-                    class="doplnujiciInfo"
-                    [(ngModel)]="this.doplnujiciInfo"
-                    [ngClass]="{
+            
+              <textarea #doplnInfoTextArea 
+                        maxlength="1000"
+                        class="doplnujiciInfo"
+                        onKeyUp="count_it()"
+                        [(ngModel)]="this.doplnujiciInfo"
+                        [ngClass]="{
                      'doplnInfo': true,
                      'form-control': true,
                      'is-invalid': doplnInfoControl.invalid && doplnInfoControl.touched
                     }"
-                    formControlName="doplnInfo"
-          ></textarea>
-          <p *ngIf="doplnInfoControl.invalid && doplnInfoControl.touched">
-            <small [ngClass]="{
-                      'text-danger': true,
-                      'd-none': !(doplnInfoControl.errors?.required)
-                }">
-              Vyplňte prosím toto pole.
-            </small>
-          </p>
+                        formControlName="doplnInfo"
+              ></textarea>
           </div>
           <div class="col-md-1">
           </div>
@@ -210,6 +205,10 @@ export class KontaktniFormularComponent implements OnInit {
   public telCislo: string;
   @ViewChild('telCisloTextField') telInput;
 
+  @ViewChild('doplnInfoTextArea') doplnInfoInput;
+
+  @ViewChild('counter') counter;
+
   public doplnujiciInfo: string;
 
   public kontaktniUdaje: FormGroup;
@@ -223,7 +222,7 @@ export class KontaktniFormularComponent implements OnInit {
       email: ['', [Validators.required, emailValidator]],
       prijmeni: ['', [Validators.required, ]],
       telCislo: ['', [Validators.required, telCisloValidator]],
-      doplnInfo: ['', Validators.required]
+      doplnInfo: ['']
     });
 
 
