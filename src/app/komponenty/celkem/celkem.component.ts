@@ -24,6 +24,7 @@ export class CelkemComponent implements OnInit {
 
   public napoveda: string;
   public barvaNapovedy: string;
+
   @Input('zaplatiteCelkem')public vysledek: number;
 
   constructor() { }
