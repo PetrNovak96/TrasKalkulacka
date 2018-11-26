@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { numberToString, stringToNumber } from '../../shared/convertor';
+import { KonfiguraceService } from '../../services/konfigurace.service';
 
 @Component({
   selector: 'vyse-uveru',
@@ -64,7 +65,7 @@ export class VyseUveruComponent implements OnInit {
   public jednotek: string;
   @ViewChild('textVyseUveru') input;
 
-  constructor() {
+  constructor(private konfigurace: KonfiguraceService) {
 
   }
 
@@ -72,9 +73,9 @@ export class VyseUveruComponent implements OnInit {
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
     this.barvaNapovedy = "cerna";
     this.vyseUveru = this.default;
-    this.min = 30000;
-    this.max = 3300000;
-    this.krok = 1000;
+    this.min = this.konfigurace.minUver;
+    this.max = this.konfigurace.maxUver;
+    this.krok = this.konfigurace.krokUver;
     this.jednotek = "Kč";
   }
 
@@ -130,7 +131,7 @@ export class VyseUveruComponent implements OnInit {
   zaokrouhli(cislo: number)
     : number
   {
-      return Math.round(cislo/1000)*1000;
+      return Math.round(cislo/this.krok)*this.krok;
   }
 
   onRangeChangeEvent(){

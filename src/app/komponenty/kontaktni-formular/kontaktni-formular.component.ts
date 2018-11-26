@@ -5,6 +5,7 @@ import { telCisloValidator } from '../../shared/telCislo.validator';
 import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
 import { MatDialog } from '@angular/material';
 import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
+import { KonfiguraceService } from '../../services/konfigurace.service';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -29,7 +30,7 @@ import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
                      'form-control': true,
                      'is-invalid': jmenoControl.invalid && jmenoControl.touched
                    }"
-                   placeholder="Petr"
+                   [placeholder]="this.jmenoPlaceholder"
                    formControlName="jmeno">
             
             <small *ngIf="jmenoControl.invalid && jmenoControl.touched">
@@ -87,7 +88,7 @@ import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
                      'form-control': true,
                      'is-invalid': prijmeniControl.invalid && prijmeniControl.touched
                    }"
-                   placeholder="Novák"
+                   [placeholder]="this.prijmeniPlaceholder"
                    formControlName="prijmeni">
             
             <small *ngIf="prijmeniControl.invalid && prijmeniControl.touched">
@@ -109,7 +110,7 @@ import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
                      'form-control': true,
                      'is-invalid': telCisloControl.invalid && telCisloControl.touched
                    }"
-                   placeholder="+420 602 123 456"
+                   [placeholder]="this.telPlaceholder"
                    (click)="telOnClickEvent($event)"
                    [(ngModel)]="this.telCislo"
                    (input)="telOnInputEvent($event)"
@@ -221,7 +222,16 @@ export class KontaktniFormularComponent implements OnInit {
 
   public odeslaniStatus: string;
 
-  constructor(private fb: FormBuilder, private _odeslaniUdaju: OdeslaniUdajuService, public dialog: MatDialog) {
+  public jmenoPlaceholder: string;
+
+  public prijmeniPlaceholder: string;
+
+  public telPlaceholder: string;
+
+  constructor(private fb: FormBuilder,
+              private _odeslaniUdaju: OdeslaniUdajuService,
+              public dialog: MatDialog,
+              private konfigurace: KonfiguraceService) {
 
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
@@ -242,6 +252,9 @@ export class KontaktniFormularComponent implements OnInit {
     this.maxdelka = 1000;
     this.zobrazitCounterPo = 900;
     this.odeslaniStatus = "";
+    this.jmenoPlaceholder = this.konfigurace.jmenoPlaceholder;
+    this.prijmeniPlaceholder = this.konfigurace.prijmeniPlaceholder;
+    this.telPlaceholder = this.konfigurace.telPlaceholder;
   }
 
   EmailOnClickEvent(){
@@ -257,7 +270,7 @@ export class KontaktniFormularComponent implements OnInit {
 
     if(this.telCislo.length==0){
       let el = this.telInput.nativeElement;
-      let newVal = "+420 ";
+      let newVal = this.telPlaceholder;
       el.value = newVal;
       el.setSelectionRange(newVal.length, newVal.length);
     }
@@ -290,11 +303,14 @@ export class KontaktniFormularComponent implements OnInit {
             this.otevriPopUp();
           }
         );
+
       // console.log("Data odeslána na server.", this.udajeKOdeslani);
 
     } else {
       this.validateAllFormFields(this.kontaktniUdaje);
     }
+
+
   }
 
   otevriPopUp(): void {

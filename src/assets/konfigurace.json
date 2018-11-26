@@ -2,12 +2,14 @@
   "uver": {
     "max": 3300000,
     "min": 30000,
-    "default": 1500000
+    "default": 1500000,
+    "krok": 1000
   },
   "dobaSplaceni": {
     "max": 120,
     "min": 24,
-    "default": 66
+    "default": 66,
+    "krok": 1
   },
   "pojisteni": {
     "default": false,
@@ -17,5 +19,8 @@
     "jmenoPlaceholder": "Petr",
     "prijmeniPlaceholder": "Novák",
     "telefonniCisloPlaceholder": "+420 "
-  }
+  },
+  "poplatek": 490,
+  "kontaktHelpdesk": "+420 123 789 456",
+  "postUrl": "http://localhost:3000/kontaktniUdaje"
 }
