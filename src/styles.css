@@ -151,7 +151,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 43px;
   width: 43px;
   -webkit-appearance: none;
-  margin-top: -14px;
+  margin-top: -18px;
   background:url(assets/posuvnik34.png) center no-repeat;
   background-image: url('assets/posuvnik34.png');
 }
