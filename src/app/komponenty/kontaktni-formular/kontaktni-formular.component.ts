@@ -156,7 +156,7 @@ import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
           </div>
           <div class="col-md-10">
             
-              <textarea #doplnInfoTextArea 
+              <textarea rows="0" #doplnInfoTextArea 
                         [maxlength]="this.maxdelka"
                         class="doplnujiciInfo"
                         (input)="onInputDopln()"
