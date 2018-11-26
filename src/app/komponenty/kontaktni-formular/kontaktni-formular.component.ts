@@ -155,9 +155,9 @@ import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
           <div class="col-md-10">
             
               <textarea #doplnInfoTextArea 
-                        maxlength="1000"
+                        [maxlength]="this.maxdelka"
                         class="doplnujiciInfo"
-                        onKeyUp="count_it()"
+                        (input)="onInputDopln()"
                         [(ngModel)]="this.doplnujiciInfo"
                         [ngClass]="{
                      'doplnInfo': true,
@@ -166,6 +166,13 @@ import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
                     }"
                         formControlName="doplnInfo"
               ></textarea>
+            <p *ngIf="this.zobrazitCounter">
+              
+              <small class="text-primary">
+                {{this.doplnInfoInput.nativeElement.value.length + "/" + this.maxdelka}}
+              </small>
+              
+            </p>
           </div>
           <div class="col-md-1">
           </div>
@@ -206,6 +213,9 @@ export class KontaktniFormularComponent implements OnInit {
   @ViewChild('telCisloTextField') telInput;
 
   @ViewChild('doplnInfoTextArea') doplnInfoInput;
+  public zobrazitCounter: boolean;
+  public maxdelka: number;
+  public zobrazitCounterPo: number;
 
   @ViewChild('counter') counter;
 
@@ -232,7 +242,8 @@ export class KontaktniFormularComponent implements OnInit {
     this.email = "";
     this.telCislo = "";
     this.doplnujiciInfo = "";
-
+    this.maxdelka = 1000;
+    this.zobrazitCounterPo = 900;
   }
 
   EmailOnClickEvent(){
@@ -290,6 +301,15 @@ export class KontaktniFormularComponent implements OnInit {
         this.validateAllFormFields(control);
       }
     });
+  }
+
+  onInputDopln(){
+    let vepsanoZnaku = this.doplnInfoInput.nativeElement.value.length
+    if(vepsanoZnaku >= this.zobrazitCounterPo){
+      this.zobrazitCounter = true;
+    } else {
+      this.zobrazitCounter = false;
+    }
   }
 
   get jmenoControl(){
