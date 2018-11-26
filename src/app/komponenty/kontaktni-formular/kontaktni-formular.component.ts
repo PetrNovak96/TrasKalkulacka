@@ -157,7 +157,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
           </div>
           <div class="col-md-10">
             
-              <textarea #doplnInfoTextArea 
+              <textarea rows="0" #doplnInfoTextArea 
                         [maxlength]="this.maxdelka"
                         class="doplnujiciInfo"
                         (input)="onInputDopln()"
