@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { KonfiguraceService } from '../../services/konfigurace.service';
 
 @Component({
   selector: 'doba-splaceni',
@@ -79,15 +80,15 @@ export class DobaSplaceniComponent implements OnInit {
   @Output() zmenaDobySplaceniEvent = new EventEmitter();
   @ViewChild('textDobaSplaceni') input;
 
-  constructor() { }
+  constructor(private konfigurace: KonfiguraceService) { }
 
   ngOnInit() {
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
     this.barvaNapovedy = "cerna";
     this.dobaSplaceni = this.default;
-    this.min = 24;
-    this.max = 120;
-    this.krok = 1;
+    this.min = this.konfigurace.minDoba;
+    this.max = this.konfigurace.maxDoba;
+    this.krok = this.konfigurace.krokDoba;
     this.jednotek = "Měsíců";
     this.fireEvent();
   }
