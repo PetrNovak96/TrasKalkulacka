@@ -1,8 +1,10 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/email.validator';
 import { telCisloValidator } from '../../shared/telCislo.validator';
 import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
+import { MatDialog } from '@angular/material';
+import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -153,24 +155,26 @@ import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
           <div class="col-md-1">
           </div>
           <div class="col-md-10">
-          <textarea maxlength="1000"
-                    class="doplnujiciInfo"
-                    [(ngModel)]="this.doplnujiciInfo"
-                    [ngClass]="{
+            
+              <textarea #doplnInfoTextArea 
+                        [maxlength]="this.maxdelka"
+                        class="doplnujiciInfo"
+                        (input)="onInputDopln()"
+                        [(ngModel)]="this.doplnujiciInfo"
+                        [ngClass]="{
                      'doplnInfo': true,
                      'form-control': true,
                      'is-invalid': doplnInfoControl.invalid && doplnInfoControl.touched
                     }"
-                    formControlName="doplnInfo"
-          ></textarea>
-          <p *ngIf="doplnInfoControl.invalid && doplnInfoControl.touched">
-            <small [ngClass]="{
-                      'text-danger': true,
-                      'd-none': !(doplnInfoControl.errors?.required)
-                }">
-              Vyplňte prosím toto pole.
-            </small>
-          </p>
+                        formControlName="doplnInfo"
+              ></textarea>
+            <p *ngIf="this.zobrazitCounter">
+              
+              <small class="text-primary">
+                {{this.doplnInfoInput.nativeElement.value.length + "/" + this.maxdelka}}
+              </small>
+              
+            </p>
           </div>
           <div class="col-md-1">
           </div>
@@ -196,6 +200,8 @@ import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
         </div>
       </div>
       
+      
+      
     </form>
   `,
   styleUrls: ['./kontaktni-formular.component.css']
@@ -210,30 +216,42 @@ export class KontaktniFormularComponent implements OnInit {
   public telCislo: string;
   @ViewChild('telCisloTextField') telInput;
 
+  @ViewChild('doplnInfoTextArea') doplnInfoInput;
+  public zobrazitCounter: boolean;
+  public maxdelka: number;
+  public zobrazitCounterPo: number;
+
+  @ViewChild('counter') counter;
+
   public doplnujiciInfo: string;
 
   public kontaktniUdaje: FormGroup;
 
   public udajeKOdeslani: object;
 
-  constructor(private fb: FormBuilder, private _odeslaniUdaju: OdeslaniUdajuService) {
+  public odeslaniStatus: string;
+
+  constructor(private fb: FormBuilder, private _odeslaniUdaju: OdeslaniUdajuService, public dialog: MatDialog) {
 
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
       email: ['', [Validators.required, emailValidator]],
       prijmeni: ['', [Validators.required, ]],
       telCislo: ['', [Validators.required, telCisloValidator]],
-      doplnInfo: ['', Validators.required]
+      doplnInfo: ['']
     });
 
-
   }
+
+
 
   ngOnInit() {
     this.email = "";
     this.telCislo = "";
     this.doplnujiciInfo = "";
-
+    this.maxdelka = 1000;
+    this.zobrazitCounterPo = 900;
+    this.odeslaniStatus = "";
   }
 
   EmailOnClickEvent(){
@@ -271,14 +289,33 @@ export class KontaktniFormularComponent implements OnInit {
 
       this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
         .subscribe(
-          response => console.log('Success!', response),
-          error => console.error('Error!', error)
+          response => {
+            console.log('Success!', response);
+            this.odeslaniStatus = "OK";
+            this.otevriPopUp();
+            },
+          error => {
+            console.log('Error!', error);
+            this.odeslaniStatus = "NOK";
+            this.otevriPopUp();
+          }
         );
       // console.log("Data odeslána na server.", this.udajeKOdeslani);
 
     } else {
       this.validateAllFormFields(this.kontaktniUdaje);
     }
+  }
+
+  otevriPopUp(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '500px',
+      data: {status: this.odeslaniStatus}
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+
+    });
   }
 
   validateAllFormFields(formGroup: FormGroup) {
@@ -291,6 +328,15 @@ export class KontaktniFormularComponent implements OnInit {
         this.validateAllFormFields(control);
       }
     });
+  }
+
+  onInputDopln(){
+    let vepsanoZnaku = this.doplnInfoInput.nativeElement.value.length
+    if(vepsanoZnaku >= this.zobrazitCounterPo){
+      this.zobrazitCounter = true;
+    } else {
+      this.zobrazitCounter = false;
+    }
   }
 
   get jmenoControl(){

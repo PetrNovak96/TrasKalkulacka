@@ -108,21 +108,8 @@ export class AppComponent {
   getRPSN(){
 
     let r = this.urokovaMira;
-    if(this.jePojisteni){
-      r = r - 0.01;
-    }
-    let U = this.vyseUveru;
 
-    if(this.jePojisteni){
-      let pojisteni = U * 0.001;
-      U += pojisteni;
-    }
-    let F = this.poplatky;
-    let roky = this.dobaSplaceni/12;
-
-    let APR = ((U*r*roky)+F)
-                    /
-                (U*roky);
+    let APR = (Math.pow(1+(r/12), 12)) - 1;
 
     return APR;
   }
