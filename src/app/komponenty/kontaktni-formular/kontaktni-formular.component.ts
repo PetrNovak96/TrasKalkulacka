@@ -289,8 +289,20 @@ export class KontaktniFormularComponent implements OnInit {
   }
 
   telOnInputEvent(){
+
     let el = this.telInput.nativeElement;
-    el.value = el.value.replace(/(\d{3})(\d)/g, "$1 $2");
+    let novy = "";
+
+    for (var x = 0; x < el.value.length; x++)
+    {
+      var c = el.value.charAt(x);
+
+      if(c.match(/\s|\d|\+/)) {
+        novy = novy + c;
+      }
+
+    }
+    el.value = novy.replace(/(\d{3})(\d)/g, "$1 $2");
   }
 
   onSubmit(){
