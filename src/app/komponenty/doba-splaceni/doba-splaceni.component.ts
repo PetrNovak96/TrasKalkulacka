@@ -6,7 +6,7 @@ import { formatujCislo } from '../../shared/formaty';
 @Component({
   selector: 'doba-splaceni',
   template: `
-    <div class="row" style="margin-bottom: 20px; margin-top: 10px">
+    <div class="row dobaSplaceniRow">
       <div class="col-md-12">
         <table>
           <tr>

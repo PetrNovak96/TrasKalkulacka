@@ -6,12 +6,12 @@ import { Component, Input, OnInit } from '@angular/core';
     <div *ngIf="(vysledek != undefined)" class="row">
       <div class="col-md-1">
       </div>
-      <div class="col-md-5" style="text-align: left">
+      <div class="col-md-5 rpsnCol" style="text-align: left">
         <p class="txtWhite">
           Zaplatíte celkem
           <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda> </p>
       </div>
-      <div class="col-md-5" style="text-align: right">
+      <div class="col-md-5 rpsnCol" style="text-align: right">
         <p class="txtWhite" style="text-align: right" >{{numberToString(vysledek) + " Kč"}}</p>
       </div>
       <div class="col-md-1">

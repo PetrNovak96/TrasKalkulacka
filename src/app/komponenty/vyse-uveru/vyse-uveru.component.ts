@@ -5,7 +5,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
 @Component({
   selector: 'vyse-uveru',
   template: `    
-    <div class="row" style="margin-bottom: 20px">
+    <div class="row vyseUveruRow">
       <div class="col-md-12">
        <table>
         <tr>

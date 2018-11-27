@@ -110,11 +110,22 @@
   text-align: left;
   font-weight: 100;
 }
+  @media screen and (max-width: 768px){
+    .posuvnikJednotkyLeft {
+      max-width: 220px;
+    }
+  }
 
 .posuvnikJednotkyRight{
   text-align: right;
   font-weight: 100;
 }
+  @media screen and (max-width: 768px){
+    .posuvnikJednotkyRight {
+      max-width: 220px;
+    }
+  }
+
 .txtWhite {
   color:white;
 }
@@ -127,8 +138,36 @@
   .mesicniSplatkaValue {
     margin-top: -10px;
   }
-
 }
+
+.vyseUveruRow{
+  margin-bottom: 20px
+}
+  @media screen and (max-width: 768px){
+    .vyseUveruRow {
+      margin-bottom: 10px
+    }
+
+  }
+
+.dobaSplaceniRow{
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 768px){
+  .dobaSplaceniRow {
+    margin-bottom: 20px;
+    margin-top: 5px;
+  }
+}
+
+.rpsnCol{
+}
+  @media screen and (max-width: 768px){
+    .rpsnCol {
+      max-width: 222px;
+    }
+  }
 
 /* tags */
 h2 {
@@ -211,7 +250,7 @@ input[type=button] {
 
 input[type=range] {
   -webkit-appearance: none;
-  min-width: 98%;
+  min-width: 100%;
   max-width: 415px;
   margin: 13.8px 0;
 }
