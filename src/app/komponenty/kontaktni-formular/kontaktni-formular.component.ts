@@ -12,7 +12,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
   template: `
     <div class="row">
       <div class="col-md-12">
-        <h2 style="color:#0B5499; text-align: center">
+        <h2 class="formularH2">
           Kontaktní údaje
         </h2>
       </div>
@@ -22,7 +22,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 formularCol">
           <p>
             Jméno
             <input type="text"
@@ -48,7 +48,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
         </div>
           <div class="col-md-2">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 formularCol">
             <p>
               Příjmení
               <input type="text"
@@ -80,7 +80,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
           <div class="row">
             <div class="col-md-1">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 formularCol">
           <p>
             Email
             <input #emailTextField
@@ -118,7 +118,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
         </div>
         <div class="col-md-2">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 formularCol">
           <p>
             Telefonní číslo
             <input #telCisloTextField

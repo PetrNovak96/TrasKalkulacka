@@ -59,6 +59,20 @@
     min-width: 475px;}
 }
 
+.formularRow{
+  margin-top: 15px;
+}
+
+.formularCol{
+
+}
+
+.formularH2{
+  text-align: center;
+  color:#0B5499;
+  margin-top:3px;
+}
+
 .pojisteni {
   margin-top: 20px;
   font-weight: normal;
@@ -98,14 +112,14 @@ hr {
   width: 365px;
 }
 
-
 .doplnujiciInfo{
-  min-width: 100%;
+  min-width: 85%;
+  max-width: 95%;
   resize: none;
 }
 @media screen and (max-width: 768px){
   .doplnujiciInfo {
-    max-width: 20%;
+    max-width: 85%;
     resize: none;}
 
 }
@@ -183,20 +197,20 @@ input[type=range] {
 input[type=range]:focus {
   outline: none;
 }
-input[type=range]::-webkit-slider-runnable-track {
+input[type=range]::-webkit-slider-runnable-track {   /* čára */
   width: 100%;
   height: 8.4px;
   background: #3071a9;
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
-input[type=range]::-webkit-slider-thumb {
-  height: 43px;
-  width: 43px;
+input[type=range]::-webkit-slider-thumb {   /* ukazatel */
+  height: 39px;
+  width: 36px;
+  border-style: none;
   -webkit-appearance: none;
   margin-top: -18px;
   background:url(assets/posuvnik34.png) center no-repeat;
-  background-image: url('assets/posuvnik34.png');
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #367ebd;

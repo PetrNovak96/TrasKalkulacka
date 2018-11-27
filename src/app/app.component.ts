@@ -38,7 +38,7 @@ import { ModAplikaceService } from './services/mod-aplikace-service';
           </div>
         </div>
       
-      <div class="row" style="margin-top: 8px">
+      <div class="row formularRow">
         <div class="col-md-1">
         </div>
         <div class="col-md-10 formular">
