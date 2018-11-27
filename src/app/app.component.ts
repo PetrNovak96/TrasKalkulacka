@@ -75,7 +75,7 @@ export class AppComponent{
     this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
       this.urokovaMira = data.interestRate;
     });
-    this.urokovaMira = 0.08;
+    // this.urokovaMira = 0.08;
 
     this.poplatky = konfigurace.poplatek;
 
