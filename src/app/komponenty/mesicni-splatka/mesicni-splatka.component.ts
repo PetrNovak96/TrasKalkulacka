@@ -7,12 +7,11 @@ import { numberToString } from '../../shared/convertor';
     <p class="txtWhite txtWeightNorm">
       Měsíční splátka
     </p>
-    <p class="txtWhite"  style="font-size: 28px; margin-bottom: 25px" *ngIf="(vysledek != undefined)">
+    <p class="txtWhite"  style="font-size: 28px" *ngIf="(vysledek != undefined)">
       {{this.numberToString(vysledek) + " Kč"}}
     </p>
-    <p *ngIf="jePojisteni" class="txtWhite txtWeightNorm">{{this.pojisteniInfo}}</p>
-    <p class="txtWhite txtWeightNorm">U tohoto úvěru <b style="color: #00CC33">nepožadujeme</b> uvést jeho účel </p>
-    <p class="txtWhite txtWeightNorm">a můžete ho kdykoliv předčasně splatit.</p>
+    <div class="pojisteniZajem"><p *ngIf="jePojisteni" class="txtWhite txtWeightNorm">{{this.pojisteniInfo}}</p></div>
+    <p class="txtWhite txtWeightNorm">U tohoto úvěru <b style="color: #00CC33">nepožadujeme</b> uvést jeho účel a můžete ho kdykoliv předčasně splatit.</p>
     <hr color="white">
   `,
   styleUrls: ['./mesicni-splatka.component.css']
