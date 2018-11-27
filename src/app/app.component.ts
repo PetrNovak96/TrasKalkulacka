@@ -7,7 +7,7 @@ import { KonfiguraceService } from './services/konfigurace.service';
   template: `
     
     <div class="container">
-      <div class="row" style="margin-top: 50px;">
+      <div class="row leftRightSideRow">
         <div class="col-md-1">
          </div>
         <div class="col-md-5 leftSide">

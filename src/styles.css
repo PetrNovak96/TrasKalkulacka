@@ -2,6 +2,13 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /* Components*/
+.leftRightSideRow {
+  margin-top: 50px;
+}
+  @media screen and (max-width: 768px){
+    .leftRightSideRow {
+      margin-top: 0px;}
+  }
 
 .rightSide{
   text-align: center;
@@ -10,6 +17,13 @@
   padding-left: 30px;
   padding-right: 30px;
   box-shadow: 2px 0px 20px -2px rgba(0, 0, 0, .5);
+  max-width: 475px;
+  min-width: 475px;
+}
+@media screen and (max-width: 768px){
+  .rightSide {
+    max-width: 475px;
+    min-width: 475px;}
 }
 
 .leftSide{
@@ -20,12 +34,24 @@
   box-shadow: -2px 0px 20px -2px rgba(0, 0, 0, .5);
   padding-left: 30px;
   padding-right: 30px;
+  max-width: 475px;
+  min-width: 475px;
+}
+@media screen and (max-width: 768px){
+  .leftSide {
+    max-width: 475px;
+    min-width: 475px;}
 }
 
 .formular {
   padding-left: 50px;
   background-color: white;
   text-align: left;
+}
+@media screen and (max-width: 768px){
+  .formular {
+    max-width: 475px;
+    min-width: 475px;}
 }
 
 .pojisteni {
@@ -61,10 +87,18 @@ hr {
   width: 365px;
 }
 
+
 .doplnujiciInfo{
   min-width: 100%;
   resize: none;
 }
+@media screen and (max-width: 768px){
+  .doplnujiciInfo {
+    max-width: 20%;
+    resize: none;}
+
+}
+
 
 table {
   max-width: 410px;
@@ -86,7 +120,7 @@ td {
 }
 
 .tablePrepocetDoba{
-  width: 200px;
+  max-width: 250px;
   padding-left: 50px;
   text-align: left;
   font-size: 13px;
