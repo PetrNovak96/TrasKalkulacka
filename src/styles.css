@@ -179,10 +179,10 @@ h2 {
   font-weight: bold;
   text-align: center;
 }
-@media screen and (max-width: 768px){
-  h2 {
-    padding-bottom: 10px;}
-}
+  @media screen and (max-width: 768px){
+    h2 {
+      padding-bottom: 10px;}
+  }
 
 
 hr {
@@ -194,11 +194,11 @@ hr {
   border-top: 1px solid white;
   width: 365px;
 }
-@media screen and (max-width: 768px){
-  hr {
-    margin-top: 15px;
-    margin-bottom: 15px;}
-}
+  @media screen and (max-width: 768px){
+    hr {
+      margin-top: 15px;
+      margin-bottom: 15px;}
+  }
 
 
 table {
@@ -214,6 +214,10 @@ td {
   width: 150px;
   font-weight: normal;
 }
+  @media screen and (max-width: 768px){
+    .tableNazev {
+      max-width: 150px;}
+  }
 
 .tableInput {
   width: 200px;
@@ -226,6 +230,10 @@ td {
   text-align: left;
   font-size: 13px;
 }
+  @media screen and (max-width: 768px){
+    .tablePrepocetDoba {
+      max-width: 200px;}
+  }
 
 .tableJednotka {
   text-align: left;
