@@ -26,6 +26,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
           <p>
             Jméno
             <input type="text"
+                   style="margin-bottom: -5px"
                    [ngClass]="{
                      'form-control': true,
                      'is-invalid': jmenoControl.invalid && jmenoControl.touched
@@ -51,13 +52,14 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
             <p>
               Příjmení
               <input type="text"
+                     style="margin-bottom: -5px"
                      [ngClass]="{
                      'form-control': true,
                      'is-invalid': prijmeniControl.invalid && prijmeniControl.touched
                    }"
                      [placeholder]="this.prijmeniPlaceholder"
                      formControlName="prijmeni">
-
+            
               <small *ngIf="prijmeniControl.invalid && prijmeniControl.touched">
 
                 <small [ngClass]="{
@@ -83,6 +85,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
             Email
             <input #emailTextField
                    type="text"
+                   style="margin-bottom: -5px"
                    [(ngModel)]="this.email"
                    [ngClass]="{
                      'form-control': true,
@@ -120,6 +123,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
             Telefonní číslo
             <input #telCisloTextField
                    type="text"
+                   style="margin-bottom: -5px"
                    [ngClass]="{
                      'form-control': true,
                      'is-invalid': telCisloControl.invalid && telCisloControl.touched
