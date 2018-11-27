@@ -3,6 +3,7 @@ import { GatewayService } from './services/gateway.service';
 import { KonfiguraceService } from './services/konfigurace.service';
 import { ModAplikaceService } from './services/mod-aplikace-service';
 
+
 @Component({
   selector: 'app-root',
   template: `
