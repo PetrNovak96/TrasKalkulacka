@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { GatewayService } from './services/gateway.service';
 import { KonfiguraceService } from './services/konfigurace.service';
+import { ModAplikaceService } from './services/mod-aplikace-service';
 
 @Component({
   selector: 'app-root',
@@ -67,7 +68,8 @@ export class AppComponent{
   public zobrazFormular: boolean = false;
 
   constructor(public gateway: GatewayService,
-              private konfigurace: KonfiguraceService) {
+              private konfigurace: KonfiguraceService,
+              private modAplikace: ModAplikaceService) {
 
     //Mock server vrací úrokovou míru per anum
     this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
