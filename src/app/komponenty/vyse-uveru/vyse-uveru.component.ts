@@ -65,9 +65,7 @@ export class VyseUveruComponent implements OnInit {
   public jednotek: string;
   @ViewChild('textVyseUveru') input;
 
-  constructor(private konfigurace: KonfiguraceService) {
-
-  }
+  constructor(private konfigurace: KonfiguraceService){}
 
   ngOnInit() {
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";
@@ -84,30 +82,9 @@ export class VyseUveruComponent implements OnInit {
   }
 
   onInputEvent(){
-
-    // @ts-ignore
-    if (event.data != null){
-      // @ts-ignore
-      if(event.data.match('^[0-9]+$')){
-
-        this.vyseUveru = stringToNumber(this.
-          input.
-          nativeElement.
-          value);
-
-      } else {
-
-        this.input.nativeElement.value =
-          // @ts-ignore
-          this.input.nativeElement.value.toString().replace(new RegExp(event.data.toString()),"");
-      }
-    } else {
-
-      this.vyseUveru = stringToNumber(this.
-        input.
-        nativeElement.
-        value);
-    }
+    let cislo = Number(this.input.nativeElement.value.replace(/\D|\./g, ""));
+    this.input.nativeElement.value = numberToString(cislo);
+    this.vyseUveru = cislo;
   }
 
   onChangeEvent(){

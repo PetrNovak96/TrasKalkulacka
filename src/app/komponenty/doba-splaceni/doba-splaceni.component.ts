@@ -19,7 +19,7 @@ import { numberToString } from '../../shared/convertor';
                type="text" 
                class="form-control"
                id="doba-splaceni"
-               [(ngModel)]="dobaSplaceni"
+               [value]="numberToString(this.dobaSplaceni)"
                (change)="fireEvent($event)" 
                (input)="onInputEvent($event)">
             </td>
@@ -143,16 +143,10 @@ export class DobaSplaceniComponent implements OnInit {
   }
 
   onInputEvent(){
-    // @ts-ignore
-    if (event.data != null){
-      // @ts-ignore
-      if(!event.data.match('^[0-9]+$')){
 
-        this.input.nativeElement.value =
-          // @ts-ignore
-          this.input.nativeElement.value.toString().replace(new RegExp(event.data.toString()),"");
-      }
-    }
+    let cislo = Number(this.input.nativeElement.value.replace(/\D|\./g, ""));
+    this.input.nativeElement.value = numberToString(cislo);
+    this.dobaSplaceni = cislo;
   }
 
   numberToString(neco: number){
