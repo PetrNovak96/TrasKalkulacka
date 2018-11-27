@@ -44,6 +44,41 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
 
             </small>
           </p>
+        </div>
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-4">
+            <p>
+              Příjmení
+              <input type="text"
+                     [ngClass]="{
+                     'form-control': true,
+                     'is-invalid': prijmeniControl.invalid && prijmeniControl.touched
+                   }"
+                     [placeholder]="this.prijmeniPlaceholder"
+                     formControlName="prijmeni">
+
+              <small *ngIf="prijmeniControl.invalid && prijmeniControl.touched">
+
+                <small [ngClass]="{
+                      'text-danger': true,
+                      'd-none': !(prijmeniControl.errors.required)
+                }">
+                  Vyplňte prosím toto pole.
+                </small>
+
+              </small>
+            </p>
+          </div>
+          <div class="col-md-1">
+          </div>
+      </div>
+      
+      
+          <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-4">
           <p>
             Email
             <input #emailTextField
@@ -81,27 +116,6 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
         <div class="col-md-2">
         </div>
         <div class="col-md-4">
-          <p>
-            Příjmení
-            <input type="text"
-                   [ngClass]="{
-                     'form-control': true,
-                     'is-invalid': prijmeniControl.invalid && prijmeniControl.touched
-                   }"
-                   [placeholder]="this.prijmeniPlaceholder"
-                   formControlName="prijmeni">
-            
-            <small *ngIf="prijmeniControl.invalid && prijmeniControl.touched">
-              
-              <small [ngClass]="{
-                      'text-danger': true,
-                      'd-none': !(prijmeniControl.errors.required)
-                }">
-                Vyplňte prosím toto pole. 
-              </small>
-              
-            </small>
-          </p>
           <p>
             Telefonní číslo
             <input #telCisloTextField
