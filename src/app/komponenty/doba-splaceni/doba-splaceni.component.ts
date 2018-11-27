@@ -19,7 +19,7 @@ import { numberToString } from '../../shared/convertor';
                type="text" 
                class="form-control"
                id="doba-splaceni"
-               [(ngModel)]="dobaSplaceni"
+               [value]="numberToString(this.dobaSplaceni)"
                (change)="fireEvent($event)" 
                (input)="onInputEvent($event)">
             </td>
