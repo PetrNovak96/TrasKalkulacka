@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
     <div *ngIf="(vysledek != undefined)" class="row">
       <div class="col-md-1">
       </div>
-      <div class="col-md-5" style="text-align: right">
+      <div class="col-md-5" style="text-align: left">
         <p class="txtWhite">
           Zaplatíte celkem
           <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda> </p>
