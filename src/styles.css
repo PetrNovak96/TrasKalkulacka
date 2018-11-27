@@ -78,6 +78,10 @@
   font-weight: normal;
   text-align: left;
 }
+@media screen and (max-width: 768px){
+  .pojisteni {
+    margin-top: 5px;}
+}
 
 .pojisteniZajem {
   width: 415px;
@@ -101,6 +105,11 @@ h2 {
   font-weight: bold;
   text-align: center;
 }
+@media screen and (max-width: 768px){
+  h2 {
+    padding-bottom: 10px;}
+}
+
 
 hr {
   display: block;
