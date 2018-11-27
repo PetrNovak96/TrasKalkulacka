@@ -65,9 +65,7 @@ export class VyseUveruComponent implements OnInit {
   public jednotek: string;
   @ViewChild('textVyseUveru') input;
 
-  constructor(private konfigurace: KonfiguraceService) {
-
-  }
+  constructor(private konfigurace: KonfiguraceService){}
 
   ngOnInit() {
     this.napoveda = "Vyplňte prosím toto pole, nebo vyberte na posuvníku.";

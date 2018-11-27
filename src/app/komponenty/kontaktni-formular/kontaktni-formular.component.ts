@@ -243,8 +243,6 @@ export class KontaktniFormularComponent implements OnInit {
 
   }
 
-
-
   ngOnInit() {
     this.email = "";
     this.telCislo = "";
