@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { KonfiguraceService } from '../../services/konfigurace.service';
-import { numberToString } from '../../shared/convertor';
+import { formatujCislo } from '../../shared/formaty';
 
 
 @Component({
@@ -145,11 +145,11 @@ export class DobaSplaceniComponent implements OnInit {
   onInputEvent(){
 
     let cislo = Number(this.input.nativeElement.value.replace(/\D|\./g, ""));
-    this.input.nativeElement.value = numberToString(cislo);
+    this.input.nativeElement.value = formatujCislo(cislo);
     this.dobaSplaceni = cislo;
   }
 
   numberToString(neco: number){
-    return numberToString(neco);
+    return formatujCislo(neco);
   }
 }

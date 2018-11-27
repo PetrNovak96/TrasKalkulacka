@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { numberToString, stringToNumber } from '../../shared/convertor';
+import { formatujCislo, formatujString } from '../../shared/formaty';
 import { KonfiguraceService } from '../../services/konfigurace.service';
 
 @Component({
@@ -78,23 +78,23 @@ export class VyseUveruComponent implements OnInit {
   }
 
   numberToString(neco: number){
-    return numberToString(neco);
+    return formatujCislo(neco);
   }
 
   onInputEvent(){
     let cislo = Number(this.input.nativeElement.value.replace(/\D|\./g, ""));
-    this.input.nativeElement.value = numberToString(cislo);
+    this.input.nativeElement.value = formatujCislo(cislo);
     this.vyseUveru = cislo;
   }
 
   onChangeEvent(){
 
     if(this.input.nativeElement.value == "" ||
-      stringToNumber(this.input.nativeElement.value) < this.min){
+      formatujString(this.input.nativeElement.value) < this.min){
 
       this.vyseUveru = this.zaokrouhli(this.min);
 
-    } else if (stringToNumber(this.input.nativeElement.value) > this.max){
+    } else if (formatujString(this.input.nativeElement.value) > this.max){
 
       this.vyseUveru = this.zaokrouhli(this.max);
 

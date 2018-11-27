@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { numberToString } from '../../shared/convertor';
+import { formatujCislo } from '../../shared/formaty';
 
 @ Component({
   selector: 'mesicni-splatka',
@@ -29,7 +29,7 @@ export class MesicniSplatkaComponent implements OnInit {
   }
 
   numberToString(neco: number){
-    return  numberToString(neco);
+    return  formatujCislo(neco);
   }
 
 }
