@@ -7,7 +7,7 @@ import { formatujCislo } from '../../shared/formaty';
     <p class="txtWhite txtWeightNorm">
       Měsíční splátka
     </p>
-    <p class="txtWhite"  style="font-size: 28px" *ngIf="(vysledek != undefined)">
+    <p class="txtWhite mesicniSplatkaValue"  style="font-size: 28px" *ngIf="(vysledek != undefined)">
       {{this.numberToString(vysledek) + " Kč"}}
     </p>
     <div class="pojisteniZajem"><p *ngIf="jePojisteni" class="txtWhite txtWeightNorm">{{this.pojisteniInfo}}</p></div>
