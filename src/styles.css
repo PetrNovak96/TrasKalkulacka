@@ -281,7 +281,7 @@ input[type=range]::-webkit-slider-thumb {   /* ukazatel */
   border-style: none;
   -webkit-appearance: none;
   margin-top: -18px;
-  background:url(assets/posuvnik34.png) center no-repeat;
+  background:url(assets/posuvnik36.png) center no-repeat;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #367ebd;
