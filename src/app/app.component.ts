@@ -75,10 +75,10 @@ export class AppComponent{
               private modAplikace: ModAplikaceService) {
 
     //Mock server vrací úrokovou míru per anum
-   this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
-     this._urokovaMira = data.interestRate;
-   });
-     // this._urokovaMira = 0.08;
+   // this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
+   //   this._urokovaMira = data.interestRate;
+   // });
+     this._urokovaMira = 0.08;
 
     this.poplatky = konfigurace.poplatek;
 

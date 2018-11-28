@@ -18,6 +18,8 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
                type="text"
                id="vyse-uveru"
                class="form-control"
+                   inputmode="numeric"
+                   pattern="[0-9]*"
                [value]="this.numberToString(this.vyseUveru)"
                (input)="onInputEvent($event)"
                (change)="onChangeEvent($event)">

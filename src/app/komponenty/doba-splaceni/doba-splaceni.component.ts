@@ -19,6 +19,8 @@ import { formatujCislo } from '../../shared/formaty';
                type="text" 
                class="form-control"
                id="doba-splaceni"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
                [value]="numberToString(this.dobaSplaceni)"
                (change)="fireEvent($event)" 
                (input)="onInputEvent($event)">
