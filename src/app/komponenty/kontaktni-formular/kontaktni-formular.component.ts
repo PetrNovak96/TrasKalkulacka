@@ -161,7 +161,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10 doplnujiciInfoCol">
           <p>
             Doplňující informace
           </p>
@@ -173,7 +173,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
         <div class="row">
           <div class="col-md-1">
           </div>
-          <div class="col-md-10">
+          <div class="col-md-10 doplnujiciInfoCol">
             
               <textarea rows="4" #doplnInfoTextArea 
                         [maxlength]="this.maxdelka"

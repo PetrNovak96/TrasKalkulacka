@@ -49,7 +49,8 @@
 }
 
 .formular {
-  padding-left: 50px;
+  padding-left: 55px;
+  padding-right: 55px;
   background-color: white;
   text-align: left;
 }
@@ -64,7 +65,11 @@
 }
 
 .formularCol{
-
+  padding-left: 46px;
+}
+@media screen and (max-width: 768px){
+  .formularCol {
+    padding-left: 60px;}
 }
 
 .formularH2{
@@ -103,7 +108,14 @@
   .doplnujiciInfo {
     max-width: 85%;
     resize: none;}
+}
 
+.doplnujiciInfoCol{
+  padding-left: 46px;
+}
+@media screen and (max-width: 768px){
+  .doplnujiciInfoCol {
+    padding-left: 60px;}
 }
 
 .posuvnikJednotkyLeft{
