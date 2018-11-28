@@ -138,7 +138,7 @@ export class AppComponent{
 
   get urokovaMira(){
     return (this.jePojisteni)?
-      (this._urokovaMira - this._urokovaMira*this.koeficientUrokovaSazba) : this._urokovaMira;
+      (this._urokovaMira - this.koeficientUrokovaSazba) : this._urokovaMira;
   }
 
   get vyseUveru(){
