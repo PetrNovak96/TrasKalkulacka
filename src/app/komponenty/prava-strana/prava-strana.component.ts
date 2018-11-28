@@ -11,6 +11,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
              value="Kontaktujte mě"
              [disabled]="zobrazFormular"
              (click)="fireEvent($event);">
+      <p class="txtWhite orientacni" >Výsledné hodnoty jsou orientační. Přesná čísla se dozvíte od obchodníka.</p>
     </div>
 
   `,
