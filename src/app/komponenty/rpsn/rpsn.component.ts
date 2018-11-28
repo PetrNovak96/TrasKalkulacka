@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { naProcenta } from '../../shared/formaty';
 
 @Component({
   selector: 'RPSN',
@@ -8,10 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
       </div>
       <div class="col-md-5 rpsnCol" style="text-align: left">
         <p class="txtWhite">RPSN
-          <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda></p>
+          <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda>
+        </p>
       </div>
       <div class="col-md-5 rpsnCol" style="text-align: right">
-        <p class="txtWhite" >{{upravCislo(vysledek) + " %"}}</p>
+        <p class="txtWhite">{{naProcenta(vysledek)}}</p>
       </div>
       <div class="col-md-1">
       </div>
@@ -32,11 +34,8 @@ export class RPSNComponent implements OnInit {
     this.barvaNapovedy = "bila";
   }
 
-  upravCislo(neco: number) {
-    return  (neco * 100).
-            toFixed(2).
-            toString().
-            replace(/\./g, ",");
+  naProcenta(neco: number) {
+    return naProcenta(neco);
   }
 
 }

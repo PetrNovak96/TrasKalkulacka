@@ -30,6 +30,7 @@ import { ModAplikaceService } from './services/mod-aplikace-service';
             <mesicni-splatka [mesicniSplatka]="getMesicniSplatku()"  
                              [jePojisteni]="this.jePojisteni">
             </mesicni-splatka>
+            <sazba [urokovaMira]="this.urokovaMira"></sazba>
             <RPSN [rpsn]="getRPSN()"></RPSN>
             <celkem [zaplatiteCelkem]="getZaplatiteCelkem()"></celkem>
           </prava-strana>
@@ -73,10 +74,10 @@ export class AppComponent{
               private modAplikace: ModAplikaceService) {
 
     //Mock server vrací úrokovou míru per anum
-   // this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
-   //   this.urokovaMira = data.interestRate;
-   // });
-     this.urokovaMira = 0.08;
+   this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
+     this.urokovaMira = data.interestRate;
+   });
+     // this.urokovaMira = 0.08;
 
     this.poplatky = konfigurace.poplatek;
 

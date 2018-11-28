@@ -13,7 +13,8 @@
   },
   "pojisteni": {
     "default": false,
-    "koeficitent": 0.01
+    "koeficitentVyseUveru": 0.001,
+    "koeficientUrokovaSazba": 0.01
   },
   "kontaktniFormular": {
     "jmenoPlaceholder": "Petr",
