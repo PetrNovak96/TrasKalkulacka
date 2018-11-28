@@ -6,6 +6,14 @@
     max-width:475px; }
 }
 
+@media screen and (min-width: 750px)
+and (max-width: 1200px){
+  body {
+    max-width:1220px;
+    min-width:1220px;
+    overflow-x: auto;
+    overflow-y: auto;}
+}
 
 /* Components*/
 .leftRightSideRow {
@@ -31,6 +39,22 @@
      max-width: 475px;
      min-width: 475px;}
   }
+  @media screen and (min-width: 750px)
+  and (max-width: 1200px){
+   .rightSide {
+     max-width: 475px;
+     min-width: 475px;
+   margin-left: 555px;
+   margin-top: -525px;}
+  }
+  @media screen and (min-width: 760px)
+  and (max-width: 995px){
+    .rightSide {
+      max-width: 475px;
+      min-width: 475px;
+      margin-left: 535px;
+      margin-top: -525px;}
+  }
 
 .leftSide{
  text-align: center;
@@ -48,7 +72,12 @@
     max-width: 475px;
     min-width: 475px;}
   }
-
+  @media screen and (min-width: 750px)
+  and (max-width: 1200px){
+    .leftSide {
+      max-width: 475px;
+      min-width: 475px;}
+  }
 
 .formular {
   padding-left: 55px;
@@ -63,7 +92,12 @@
     max-width: 475px;
     min-width: 475px;}
   }
-
+  @media screen and (min-width: 750px)
+  and (max-width: 1200px){
+    .formular {
+      max-width: 800px;
+      min-width: 800px; }
+  }
 
 
 .formularRow{
@@ -150,6 +184,10 @@ color:white;
 
 .txtWeightNorm {
 font-weight: normal;
+}
+
+.celkemRow{
+  margin-bottom: -10px;
 }
 
 @media screen and (max-width: 768px){

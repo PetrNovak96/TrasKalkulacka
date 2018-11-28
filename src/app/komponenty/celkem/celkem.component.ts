@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'celkem',
   template: `
-    <div *ngIf="(vysledek != undefined)" class="row">
+    <div *ngIf="(vysledek != undefined)" class="row celkemRow">
       <div class="col-md-1">
       </div>
       <div class="col-md-5 rpsnCol" style="text-align: left">
