@@ -235,7 +235,8 @@ td {
 }
   @media screen and (max-width: 768px){
     .tablePrepocetDoba {
-      max-width: 200px;}
+      max-width: 200px;
+      font-size: 12px;}
   }
 
 .tableJednotka {
