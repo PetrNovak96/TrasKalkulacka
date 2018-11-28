@@ -22,30 +22,28 @@
   padding-left: 30px;
   padding-right: 30px;
   box-shadow: 2px 0px 20px -2px rgba(0, 0, 0, .5);
-  max-width: 475px;
-  min-width: 475px;
+  min-width: 400px;
 }
 @media screen and (max-width: 768px){
-  .rightSide {
-    max-width: 475px;
-    min-width: 475px;}
+ .rightSide {
+   max-width: 475px;
+   min-width: 475px;}
 }
 
 .leftSide{
-  text-align: center;
-  font-weight: bold;
-  background-color: white;
-  padding-bottom: 30px;
-  box-shadow: -2px 0px 20px -2px rgba(0, 0, 0, .5);
-  padding-left: 30px;
-  padding-right: 30px;
-  max-width: 475px;
-  min-width: 475px;
+ text-align: center;
+ font-weight: bold;
+ background-color: white;
+ padding-bottom: 30px;
+ box-shadow: -2px 0px 20px -2px rgba(0, 0, 0, .5);
+ padding-left: 30px;
+ padding-right: 30px;
+  min-width: 400px;
 }
 @media screen and (max-width: 768px){
-  .leftSide {
-    max-width: 475px;
-    min-width: 475px;}
+.leftSide {
+  max-width: 475px;
+  min-width: 475px;}
 }
 
 .formular {
@@ -53,135 +51,136 @@
   padding-right: 55px;
   background-color: white;
   text-align: left;
+  min-width: 800px;
 }
 @media screen and (max-width: 768px){
-  .formular {
-    max-width: 475px;
-    min-width: 475px;}
+.formular {
+  max-width: 475px;
+  min-width: 475px;}
 }
 
 .formularRow{
-  margin-top: 15px;
+margin-top: 15px;
 }
 
 .formularCol{
-  padding-left: 46px;
+padding-left: 46px;
 }
 @media screen and (max-width: 768px){
-  .formularCol {
-    padding-left: 60px;}
+.formularCol {
+  padding-left: 60px;}
 }
 
 .formularH2{
-  text-align: center;
-  color:#0B5499;
-  margin-top:3px;
+text-align: center;
+color:#0B5499;
+margin-top:3px;
 }
 
 .pojisteni {
-  margin-top: 20px;
-  font-weight: normal;
-  text-align: left;
+margin-top: 20px;
+font-weight: normal;
+text-align: left;
 }
 @media screen and (max-width: 768px){
-  .pojisteni {
-    margin-top: 5px;}
+.pojisteni {
+  margin-top: 5px;}
 }
 
 .pojisteniZajem {
-  width: 415px;
-  height: 10px;
-  margin-bottom: 15px;
-  margin-top: -12px;
+width: 415px;
+height: 10px;
+margin-bottom: 15px;
+margin-top: -12px;
 }
 
 .prepocetDoba{
-  margin-top: -20px;
+margin-top: -20px;
 }
 
 .doplnujiciInfo{
-  min-width: 85%;
-  max-width: 95%;
-  resize: none;
+min-width: 85%;
+max-width: 95%;
+resize: none;
 }
 @media screen and (max-width: 768px){
-  .doplnujiciInfo {
-    max-width: 85%;
-    resize: none;}
+.doplnujiciInfo {
+  max-width: 85%;
+  resize: none;}
 }
 
 .doplnujiciInfoCol{
-  padding-left: 46px;
+padding-left: 46px;
 }
 @media screen and (max-width: 768px){
-  .doplnujiciInfoCol {
-    padding-left: 60px;}
+.doplnujiciInfoCol {
+  padding-left: 60px;}
 }
 
 .posuvnikJednotkyLeft{
-  text-align: left;
-  font-weight: 100;
+text-align: left;
+font-weight: 100;
 }
-  @media screen and (max-width: 768px){
-    .posuvnikJednotkyLeft {
-      max-width: 220px;
-    }
+@media screen and (max-width: 768px){
+  .posuvnikJednotkyLeft {
+    max-width: 220px;
   }
+}
 
 .posuvnikJednotkyRight{
-  text-align: right;
-  font-weight: 100;
+text-align: right;
+font-weight: 100;
 }
-  @media screen and (max-width: 768px){
-    .posuvnikJednotkyRight {
-      max-width: 220px;
-    }
+@media screen and (max-width: 768px){
+  .posuvnikJednotkyRight {
+    max-width: 220px;
   }
+}
 
 .txtWhite {
-  color:white;
+color:white;
 }
 
 .txtWeightNorm {
-  font-weight: normal;
+font-weight: normal;
 }
 
 @media screen and (max-width: 768px){
-  .mesicniSplatkaValue {
-    margin-top: -10px;
-  }
+.mesicniSplatkaValue {
+  margin-top: -10px;
+}
 }
 
 .vyseUveruRow{
-  margin-bottom: 20px
-}
-  @media screen and (max-width: 768px){
-    .vyseUveruRow {
-      margin-bottom: 10px
-    }
-
-  }
-
-.dobaSplaceniRow{
-  margin-bottom: 20px;
-  margin-top: 10px;
+margin-bottom: 20px
 }
 @media screen and (max-width: 768px){
-  .dobaSplaceniRow {
-    margin-bottom: 20px;
-    margin-top: 5px;
+  .vyseUveruRow {
+    margin-bottom: 10px
   }
+
+}
+
+.dobaSplaceniRow{
+margin-bottom: 20px;
+margin-top: 10px;
+}
+@media screen and (max-width: 768px){
+.dobaSplaceniRow {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
 }
 
 .rpsnCol{
 }
-  @media screen and (max-width: 768px){
-    .rpsnCol {
-      max-width: 222px;
-      padding-left: 35px;
-      padding-right: 35px;
-    }
+@media screen and (max-width: 768px){
+  .rpsnCol {
+    max-width: 222px;
+    padding-left: 35px;
+    padding-right: 35px;
   }
+}
 
 /* tags */
 h2 {
