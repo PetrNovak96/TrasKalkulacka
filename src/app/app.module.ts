@@ -18,6 +18,7 @@ import { MatDialogModule, MatTooltipModule } from '@angular/material';
 import {MatSliderModule} from '@angular/material/slider';
 import { NapovedaComponent } from './komponenty/napoveda/napoveda.component';
 import { DialogOverviewExampleDialog } from './komponenty/dialog/dialog.component';
+import { SazbaComponent } from './komponenty/sazba/sazba.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DialogOverviewExampleDialog } from './komponenty/dialog/dialog.componen
     RPSNComponent,
     CelkemComponent,
     NapovedaComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    SazbaComponent
   ],
   imports: [
     BrowserModule,

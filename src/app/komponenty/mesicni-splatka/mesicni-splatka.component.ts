@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { formatujCislo } from '../../shared/formaty';
+import { formatujCislo, naProcenta } from '../../shared/formaty';
 
 @ Component({
   selector: 'mesicni-splatka',
@@ -22,14 +22,15 @@ export class MesicniSplatkaComponent implements OnInit {
   @Input() public jePojisteni: boolean;
   public pojisteniInfo: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.pojisteniInfo = "+ 150 Kč/ měsíčně pojištění proti neschopnosti splácet";
   }
 
-  numberToString(neco: number){
-    return  formatujCislo(neco);
+  numberToString(neco: number) {
+    return formatujCislo(neco);
   }
 
 }
+

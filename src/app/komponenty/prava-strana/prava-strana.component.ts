@@ -6,8 +6,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
     <div>
       <h2 class="txtWhite">{{this.nabizimeVam}}</h2>
       <ng-content></ng-content>
-      
-      
       <input type="button" 
              class="btn btn-success btn-lg" 
              value="Kontaktujte mě"

@@ -11,3 +11,10 @@ export function formatujString(neco: string)
 {
   return Number(neco.replace(/\D/g, ""));
 }
+
+export function naProcenta(neco: number) {
+  return  (neco * 100).
+  toFixed(2).
+  toString().
+  replace(/\./g, ",") + " %";
+}
