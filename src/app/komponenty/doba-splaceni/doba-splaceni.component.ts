@@ -37,10 +37,8 @@ import { formatujCislo } from '../../shared/formaty';
           <tr>
             <td class="tableNazev">
             </td>
-            <td class="tablePrepocetDoba">
+            <td colspan="2" class="tablePrepocetDoba" style="border-style: solid;">
               <p>tedy <b class="modre">{{thesRoku()}}</b>{{thesA()}}<b class="modre">{{thesMesicu()}}</b></p>
-            </td>
-            <td class="tableJednotka">
             </td>
           </tr>
         </table>
