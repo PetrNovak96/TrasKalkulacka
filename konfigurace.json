@@ -13,7 +13,7 @@
   },
   "pojisteni": {
     "default": false,
-    "koeficitentVyseUveru": 0.001,
+    "koeficientVyseUveru": 0.001,
     "koeficientUrokovaSazba": 0.01
   },
   "kontaktniFormular": {
