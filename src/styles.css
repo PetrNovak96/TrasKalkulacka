@@ -186,6 +186,10 @@ color:white;
 font-weight: normal;
 }
 
+.celkemRow{
+  margin-bottom: -10px;
+}
+
 @media screen and (max-width: 768px){
 .mesicniSplatkaValue {
   margin-top: -10px;
