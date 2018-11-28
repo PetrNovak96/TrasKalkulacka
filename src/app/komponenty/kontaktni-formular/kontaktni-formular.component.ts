@@ -6,6 +6,7 @@ import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
 import { MatDialog } from '@angular/material';
 import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
 import { KonfiguraceService } from '../../services/konfigurace.service';
+import { bezCislic, telefonFiltr } from '../../shared/formaty';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -25,13 +26,15 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
         <div class="col-md-4 formularCol">
           <p>
             Jméno
-            <input type="text"
+            <input #jmenoTextField 
+                   type="text"
                    style="margin-bottom: -5px"
                    [ngClass]="{
                      'form-control': true,
                      'is-invalid': jmenoControl.invalid && jmenoControl.touched
                    }"
-                   [placeholder]="this.jmenoPlaceholder"
+                   [placeholder]="this.jmenoPlaceholder" 
+                   (input)="jmenoOnInputEvent($event)"
                    formControlName="jmeno">
             
             <small *ngIf="jmenoControl.invalid && jmenoControl.touched">
@@ -51,13 +54,15 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
           <div class="col-md-4 formularCol">
             <p>
               Příjmení
-              <input type="text"
+              <input #prijmeniTextField
+                     type="text"
                      style="margin-bottom: -5px"
                      [ngClass]="{
                      'form-control': true,
                      'is-invalid': prijmeniControl.invalid && prijmeniControl.touched
                    }"
-                     [placeholder]="this.prijmeniPlaceholder"
+                     [placeholder]="this.prijmeniPlaceholder" 
+                     (input)="prijmeniOnInputEvent($event)"
                      formControlName="prijmeni">
             
               <small *ngIf="prijmeniControl.invalid && prijmeniControl.touched">
@@ -224,6 +229,8 @@ export class KontaktniFormularComponent implements OnInit {
 
   public telCislo: string;
   @ViewChild('telCisloTextField') telInput;
+  @ViewChild('jmenoTextField') jmenoInput;
+  @ViewChild('prijmeniTextField') prijmeniInput;
 
   @ViewChild('doplnInfoTextArea') doplnInfoInput;
   public zobrazitCounter: boolean;
@@ -293,20 +300,18 @@ export class KontaktniFormularComponent implements OnInit {
   }
 
   telOnInputEvent(){
+    let pom = this.telInput.nativeElement.value;
+    this.telInput.nativeElement.value = telefonFiltr(pom);
+  }
 
-    let el = this.telInput.nativeElement;
-    let novy = "";
+  jmenoOnInputEvent(){
+    let pom = this.jmenoInput.nativeElement.value;
+    this.jmenoInput.nativeElement.value = bezCislic(pom);
+  }
 
-    for (var x = 0; x < el.value.length; x++)
-    {
-      var c = el.value.charAt(x);
-
-      if(c.match(/\s|\d|\+/)) {
-        novy = novy + c;
-      }
-
-    }
-    el.value = novy.replace(/(\d{3})(\d)/g, "$1 $2");
+  prijmeniOnInputEvent(){
+    let pom = this.prijmeniInput.nativeElement.value;
+    this.prijmeniInput.nativeElement.value = bezCislic(pom);
   }
 
   onSubmit(){
