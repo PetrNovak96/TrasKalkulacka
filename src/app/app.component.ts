@@ -66,7 +66,7 @@ export class AppComponent{
   public koeficientVyseUveru: number;
 
 
-  public poplatky: number;
+  public poplatkyVyrizeni: number;
 
 
   public zobrazFormular: boolean = false;
@@ -81,7 +81,7 @@ export class AppComponent{
     });
      //this._urokovaMira = 0.08;
 
-    this.poplatky = konfigurace.poplatek;
+    this.poplatkyVyrizeni = konfigurace.poplatek;
 
     this.defaultDobaSplaceni = konfigurace.defaultDoba;
     this.defaultVyseUveru = konfigurace.defaultUver;
@@ -130,7 +130,7 @@ export class AppComponent{
 
     let S = this.mesicniSplatka;
     let n = this.dobaSplaceni;
-    let F = this.poplatky;
+    let F = this.poplatkyVyrizeni + this.dobaSplaceni*this.mesicniPriplatek;
 
     let SUMA = S*n + F;
 
