@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/email.validator';
 import { telCisloValidator } from '../../shared/telCislo.validator';
@@ -221,7 +221,7 @@ import { OknoService } from '../../services/okno.service';
   `,
   styleUrls: ['./kontaktni-formular.component.css']
 })
-export class KontaktniFormularComponent implements OnInit, AfterViewChecked {
+export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   @Input('rodic') hlavniKomponenta;
 
@@ -258,7 +258,7 @@ export class KontaktniFormularComponent implements OnInit, AfterViewChecked {
   constructor(private fb: FormBuilder,
               private _odeslaniUdaju: OdeslaniUdajuService,
               public dialog: MatDialog,
-              private konfigurace: KonfiguraceService, private modAplikace: OknoService) {
+              private konfigurace: KonfiguraceService, private oknoServisa: OknoService) {
 
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
@@ -317,7 +317,6 @@ export class KontaktniFormularComponent implements OnInit, AfterViewChecked {
   }
 
   onSubmit(){
-
     if (this.kontaktniUdaje.valid) {
 
       this.udajeKOdeslani = {
@@ -401,11 +400,9 @@ export class KontaktniFormularComponent implements OnInit, AfterViewChecked {
     return this.kontaktniUdaje.get('doplnInfo');
   }
 
-  ngAfterViewChecked(): void {
-    if(!this.sjeto) {
-      this.modAplikace.skrolujDolu()
-    }
-    this.sjeto = true;
+  ngAfterViewInit(): void {
+    this.oknoServisa.skrolujDolu();
+    this.jmenoInput.nativeElement.focus();
   }
 
 }

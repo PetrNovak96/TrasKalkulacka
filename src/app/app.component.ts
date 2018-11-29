@@ -71,7 +71,7 @@ export class AppComponent{
 
   constructor(public gateway: GatewayService,
               private konfigurace: KonfiguraceService,
-              private modAplikace: OknoService) {
+              private oknoServisa: OknoService) {
 
     //Mock server vrací úrokovou míru per anum
    this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
