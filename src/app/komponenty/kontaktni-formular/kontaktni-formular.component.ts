@@ -235,6 +235,7 @@ export class KontaktniFormularComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('doplnInfoTextArea') doplnInfoInput;
   public zobrazitCounter: boolean;
+  private sjeto: boolean;
   public maxdelka: number;
   public zobrazitCounterPo: number;
 
@@ -278,6 +279,7 @@ export class KontaktniFormularComponent implements OnInit, AfterViewChecked {
     this.jmenoPlaceholder = this.konfigurace.jmenoPlaceholder;
     this.prijmeniPlaceholder = this.konfigurace.prijmeniPlaceholder;
     this.telPlaceholder = this.konfigurace.telPlaceholder;
+    this.sjeto = false;
   }
 
   EmailOnClickEvent(){
@@ -400,8 +402,10 @@ export class KontaktniFormularComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    console.log(new Date().getTime())
-    this.modAplikace.skrolujDolu()
+    if(!this.sjeto) {
+      this.modAplikace.skrolujDolu()
+    }
+    this.sjeto = true;
   }
 
 }

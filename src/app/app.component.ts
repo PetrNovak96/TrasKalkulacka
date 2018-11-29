@@ -42,9 +42,7 @@ import { ModAplikaceService } from './services/mod-aplikace-service';
       <div class="row formularRow">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10 formular">
-          <kontaktni-formular [rodic]="this" *ngIf="this.zobrazFormular"></kontaktni-formular>
-        </div>
+        <div class="col-md-10 formular"><kontaktni-formular [rodic]="this" *ngIf="this.zobrazFormular"></kontaktni-formular></div>
         <div class="col-md-1">
         </div>
       </div>

@@ -21,8 +21,6 @@ import { ModAplikaceService } from '../../services/mod-aplikace-service';
 export class PravaStranaComponent implements OnInit {
 
   public nabizimeVam: string;
-  public pojisteniInfo: string;
-  public jePojisteni: boolean;
   public zobrazFormular: boolean;
   @Output() kontaktujteMeEvent = new EventEmitter();
 
@@ -32,12 +30,9 @@ export class PravaStranaComponent implements OnInit {
 
   ngOnInit() {
     this.nabizimeVam = "Nabízíme Vám";
-    this.pojisteniInfo = "+ 150 Kč/ měsíčně pojištění proti neschopnosti splácet";
-    this.jePojisteni = true;
   }
 
   fireEvent(){
-    console.log(new Date().getTime())
     this.zobrazFormular = true;
     this.kontaktujteMeEvent.emit(true);
   }
