@@ -16,7 +16,9 @@ export interface DialogData {
     <h1 *ngIf="data.status=='NOK'">
       Něco se asi pokazilo, kontaktujte nás prosím na telefonním čísle {{this.kontakt}}
     </h1>
-    <button class="btn btn-success btn-lg" [mat-dialog-close] (click)="onClick()">
+    <button class="btn btn-success btn-lg" 
+            [mat-dialog-close] 
+            (click)="onClick()">
       Ok
     </button>
   `,
@@ -28,14 +30,14 @@ export class DialogOverviewExampleDialog{
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private konfigurace: KonfiguraceService, private oknoServisa: OknoService) {
+    private konfigurace: KonfiguraceService,
+    private oknoServisa: OknoService) {
 
     this.kontakt = this.konfigurace.kontaktHelpdesk;
   }
 
   onClick(): void {
     this.dialogRef.close();
-    this.oknoServisa.skrolujNahoru();
   }
 
 }
