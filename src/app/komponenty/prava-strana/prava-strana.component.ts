@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { OknoService } from '../../services/okno.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { OknoService } from '../../services/okno.service';
       <input type="button" 
              class="btn btn-success btn-lg" 
              value="Kontaktujte mě"
-             [disabled]="zobrazFormular"
+             [disabled]="this.zobrazFormular"
              (click)="fireEvent($event);">
       <p class="txtWhite orientacni" >Výsledné hodnoty jsou orientační. Přesná čísla se dozvíte od obchodníka.</p>
     </div>
@@ -21,7 +21,7 @@ import { OknoService } from '../../services/okno.service';
 export class PravaStranaComponent implements OnInit {
 
   public nabizimeVam: string;
-  public zobrazFormular: boolean;
+  @Input() public zobrazFormular: boolean;
   @Output() kontaktujteMeEvent = new EventEmitter();
 
   constructor() {
@@ -33,7 +33,6 @@ export class PravaStranaComponent implements OnInit {
   }
 
   fireEvent(){
-    this.zobrazFormular = true;
     this.kontaktujteMeEvent.emit(true);
   }
 

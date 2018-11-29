@@ -26,7 +26,8 @@ import { OknoService } from './services/okno.service';
           </leva-strana>
         </div>
         <div class="col-md-5 rightSide">
-          <prava-strana (kontaktujteMeEvent)="kontaktujteMeEvent($event)">
+          <prava-strana (kontaktujteMeEvent)="kontaktujteMeEvent($event)" 
+                        [zobrazFormular]="this.zobrazFormular">
             <mesicni-splatka [mesicniSplatka]="mesicniSplatka"
                              [jePojisteni]="this.jePojisteni" [mesicniPriplatek]="this.mesicniPriplatek">
             </mesicni-splatka>

@@ -356,7 +356,8 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      this.oknoServisa.skrolujNahoru()
+      this.oknoServisa.skrolujNahoru();
+      this.hlavniKomponenta.zobrazFormular = false;
     });
   }
 

@@ -29,7 +29,7 @@ export class OknoService {
 
   public skrolujNahoru(){
     window.scroll({
-      top: -document.body.scrollHeight,
+      top: - (window.screenY),
       left: 0,
       behavior: 'smooth'
     });
