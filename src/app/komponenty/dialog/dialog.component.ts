@@ -10,17 +10,19 @@ export interface DialogData {
 @Component({
   selector: 'dialog-overview-example-dialog',
   template: `
-    <h1 *ngIf="data.status=='OK'">
+    <div class="VyskakovaciOkno">
+      <p *ngIf="data.status=='OK'">
       Náš bankéř Vás bude kontaktovat do 24 hodin.
-    </h1>
-    <h1 *ngIf="data.status=='NOK'">
+    </p>
+    <p *ngIf="data.status=='NOK'">
       Něco se asi pokazilo, kontaktujte nás prosím na telefonním čísle {{this.kontakt}}
-    </h1>
+    </p>
     <button class="btn btn-success btn-lg" 
             [mat-dialog-close] 
             (click)="onClick()">
       Ok
-    </button>
+    </button> 
+    </div>
   `,
 })
 export class DialogOverviewExampleDialog{
