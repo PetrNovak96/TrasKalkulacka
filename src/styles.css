@@ -70,7 +70,7 @@ and (max-width: 995px){
       margin-top: -525px;}
   }
 @media screen and (min-width: 768px)
-and (max-width: 767px){
+and (max-width: 768px){
   .rightSide {
     max-width: 475px;
     min-width: 475px;
