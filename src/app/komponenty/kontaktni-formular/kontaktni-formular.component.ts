@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/email.validator';
 import { telCisloValidator } from '../../shared/telCislo.validator';
@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material';
 import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
 import { KonfiguraceService } from '../../services/konfigurace.service';
 import { bezCislic, telefonFiltr } from '../../shared/formaty';
+import { OknoService } from '../../services/okno.service';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -220,7 +221,7 @@ import { bezCislic, telefonFiltr } from '../../shared/formaty';
   `,
   styleUrls: ['./kontaktni-formular.component.css']
 })
-export class KontaktniFormularComponent implements OnInit {
+export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   @Input('rodic') hlavniKomponenta;
 
@@ -234,6 +235,7 @@ export class KontaktniFormularComponent implements OnInit {
 
   @ViewChild('doplnInfoTextArea') doplnInfoInput;
   public zobrazitCounter: boolean;
+  private sjeto: boolean;
   public maxdelka: number;
   public zobrazitCounterPo: number;
 
@@ -256,7 +258,7 @@ export class KontaktniFormularComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private _odeslaniUdaju: OdeslaniUdajuService,
               public dialog: MatDialog,
-              private konfigurace: KonfiguraceService) {
+              private konfigurace: KonfiguraceService, private oknoServisa: OknoService) {
 
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
@@ -265,7 +267,6 @@ export class KontaktniFormularComponent implements OnInit {
       telCislo: ['', [Validators.required, telCisloValidator]],
       doplnInfo: ['']
     });
-
   }
 
   ngOnInit() {
@@ -278,6 +279,7 @@ export class KontaktniFormularComponent implements OnInit {
     this.jmenoPlaceholder = this.konfigurace.jmenoPlaceholder;
     this.prijmeniPlaceholder = this.konfigurace.prijmeniPlaceholder;
     this.telPlaceholder = this.konfigurace.telPlaceholder;
+    this.sjeto = false;
   }
 
   EmailOnClickEvent(){
@@ -315,7 +317,6 @@ export class KontaktniFormularComponent implements OnInit {
   }
 
   onSubmit(){
-
     if (this.kontaktniUdaje.valid) {
 
       this.udajeKOdeslani = {
@@ -355,7 +356,8 @@ export class KontaktniFormularComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-
+      this.oknoServisa.skrolujNahoru();
+      this.hlavniKomponenta.zobrazFormular = false;
     });
   }
 
@@ -397,6 +399,11 @@ export class KontaktniFormularComponent implements OnInit {
 
   get doplnInfoControl(){
     return this.kontaktniUdaje.get('doplnInfo');
+  }
+
+  ngAfterViewInit(): void {
+    this.oknoServisa.skrolujDolu();
+    this.jmenoInput.nativeElement.focus();
   }
 
 }

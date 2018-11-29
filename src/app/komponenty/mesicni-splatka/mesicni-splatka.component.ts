@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { formatujCislo, naProcenta } from '../../shared/formaty';
+import { Component, Input} from '@angular/core';
+import { formatujCislo } from '../../shared/formaty';
 
 @ Component({
   selector: 'mesicni-splatka',
@@ -16,21 +16,22 @@ import { formatujCislo, naProcenta } from '../../shared/formaty';
   `,
   styleUrls: ['./mesicni-splatka.component.css']
 })
-export class MesicniSplatkaComponent implements OnInit {
+export class MesicniSplatkaComponent{
 
   @Input('mesicniSplatka') public vysledek: number;
   @Input() public jePojisteni: boolean;
-  public pojisteniInfo: string;
+  @Input() public mesicniPriplatek: number;
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit() {
-    this.pojisteniInfo = "+ 150 Kč/ měsíčně pojištění proti neschopnosti splácet";
+  get pojisteniInfo() {
+    return "+ " + this.mesicniPriplatek + " Kč/ měsíčně pojištění proti neschopnosti splácet";
   }
 
   numberToString(neco: number) {
     return formatujCislo(neco);
   }
-
 }
+
 

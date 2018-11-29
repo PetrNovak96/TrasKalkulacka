@@ -45,7 +45,6 @@ export function bezCislic(neco: string) {
     if(c.match(/\D/)) {
       novy = novy + c;
     }
-
   }
 
   return novy;
