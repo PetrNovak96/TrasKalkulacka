@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { GatewayService } from './services/gateway.service';
 import { KonfiguraceService } from './services/konfigurace.service';
-import { ModAplikaceService } from './services/mod-aplikace-service';
+import { OknoService } from './services/okno.service';
 
 
 @Component({
@@ -71,7 +71,7 @@ export class AppComponent{
 
   constructor(public gateway: GatewayService,
               private konfigurace: KonfiguraceService,
-              private modAplikace: ModAplikaceService) {
+              private modAplikace: OknoService) {
 
     //Mock server vrací úrokovou míru per anum
    this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {

@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material';
 import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
 import { KonfiguraceService } from '../../services/konfigurace.service';
 import { bezCislic, telefonFiltr } from '../../shared/formaty';
-import { ModAplikaceService } from '../../services/mod-aplikace-service';
+import { OknoService } from '../../services/okno.service';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -258,7 +258,7 @@ export class KontaktniFormularComponent implements OnInit, AfterViewChecked {
   constructor(private fb: FormBuilder,
               private _odeslaniUdaju: OdeslaniUdajuService,
               public dialog: MatDialog,
-              private konfigurace: KonfiguraceService, private modAplikace: ModAplikaceService) {
+              private konfigurace: KonfiguraceService, private modAplikace: OknoService) {
 
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
