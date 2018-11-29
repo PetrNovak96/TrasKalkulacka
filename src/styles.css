@@ -54,10 +54,9 @@ and (max-width: 995px){
    .rightSide {
      max-width: 475px;
      min-width: 475px;
-
-   margin-left: 555px;
-   margin-top: -525px;
-   min-height: 526px;
+     margin-left: 555px;
+     margin-top: -525px;
+     min-height: 526px;
      max-height: 526px;}
   }
   @media screen and (min-width: 768px)
@@ -73,8 +72,10 @@ and (max-width: 768px){
   .rightSide {
     max-width: 475px;
     min-width: 475px;
+    max-height:503px;
+    min-height:503px;
     margin-left: 475px;
-    margin-top: -420px;}
+    margin-top: -503px;}
 }
 
 .leftSide{
@@ -99,7 +100,16 @@ and (max-width: 768px){
       max-width: 475px;
       min-width: 475px;}
   }
-
+  @media screen and (min-width: 768px)
+  and (max-width: 768px){
+    .leftSide {
+      max-width: 475px;
+      min-width: 475px;
+      max-height:503px;
+      min-height:503px;
+      margin-left: -60px;
+      margin-top: 50px;}
+  }
 
 .formular {
   padding-left: 55px;
@@ -128,6 +138,13 @@ and (max-width: 768px){
       max-width: 800px;
       min-width: 800px;
       margin-left: 135px;}
+  }
+  @media screen and (min-width: 768px)
+  and (max-width: 768px){
+    .formular {
+      max-width: 800px;
+      min-width: 800px;
+      margin-left: 70px;}
   }
 
 .formularRow{
