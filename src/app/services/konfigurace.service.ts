@@ -17,8 +17,8 @@ export class KonfiguraceService {
   private _krokDoba: number;
 
   private _defaultPojisteni: boolean;
-  private _pojisteniKoeficientVyseUveru: number;
   private _pojisteniKoeficientUrokovaSazba: number;
+  private _pojisteniKoeficientVyseUveru: number;
 
   private _jmenoPlaceholder: string;
   private _prijmeniPlaceholder: string;
@@ -43,8 +43,8 @@ export class KonfiguraceService {
     this._krokDoba = konfigurace.dobaSplaceni.krok;
 
     this._defaultPojisteni = konfigurace.pojisteni.default;
-    this._pojisteniKoeficientVyseUveru = konfigurace.pojisteni.koeficientVyseUveru;
     this._pojisteniKoeficientUrokovaSazba = konfigurace.pojisteni.koeficientUrokovaSazba;
+    this._pojisteniKoeficientVyseUveru = konfigurace.pojisteni.koeficientVyseUveru;
 
     this._jmenoPlaceholder = konfigurace.kontaktniFormular.jmenoPlaceholder;
     this._prijmeniPlaceholder = konfigurace.kontaktniFormular.prijmeniPlaceholder;
@@ -91,12 +91,12 @@ export class KonfiguraceService {
     return this._defaultPojisteni;
   }
 
-  get pojisteniKoeficientVyseUveru(): number {
-    return this._pojisteniKoeficientVyseUveru;
-  }
-
   get pojisteniKoeficientUrokovaSazba(): number {
     return this._pojisteniKoeficientUrokovaSazba;
+  }
+
+  get koeficientVyseUveru(): number {
+    return this._pojisteniKoeficientVyseUveru;
   }
 
   get jmenoPlaceholder(): string {

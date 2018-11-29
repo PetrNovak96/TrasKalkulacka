@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { GatewayService } from './services/gateway.service';
 import { KonfiguraceService } from './services/konfigurace.service';
 import { ModAplikaceService } from './services/mod-aplikace-service';
@@ -28,7 +28,7 @@ import { ModAplikaceService } from './services/mod-aplikace-service';
         <div class="col-md-5 rightSide">
           <prava-strana (kontaktujteMeEvent)="kontaktujteMeEvent($event)">
             <mesicni-splatka [mesicniSplatka]="mesicniSplatka"
-                             [jePojisteni]="this.jePojisteni">
+                             [jePojisteni]="this.jePojisteni" [mesicniPriplatek]="this.mesicniPriplatek">
             </mesicni-splatka>
             <sazba [urokovaMira]="urokovaMira"></sazba>
             <RPSN [rpsn]="RPSN"></RPSN>
@@ -62,8 +62,9 @@ export class AppComponent{
   private _vyseUveru: number;
   public dobaSplaceni: number;
   public jePojisteni: boolean;
-  public koeficientVyseUveru: number;
   public koeficientUrokovaSazba: number;
+  public koeficientVyseUveru: number;
+
 
   public poplatky: number;
 
@@ -75,18 +76,18 @@ export class AppComponent{
               private modAplikace: ModAplikaceService) {
 
     //Mock server vrací úrokovou míru per anum
-   // this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
-   //   this._urokovaMira = data.interestRate;
-   // });
-     this._urokovaMira = 0.08;
+   this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
+     this._urokovaMira = data.interestRate;
+    });
+     //this._urokovaMira = 0.08;
 
     this.poplatky = konfigurace.poplatek;
 
     this.defaultDobaSplaceni = konfigurace.defaultDoba;
     this.defaultVyseUveru = konfigurace.defaultUver;
     this.defaultJePojisteni = konfigurace.defaultPojisteni;
-    this.koeficientVyseUveru = konfigurace.pojisteniKoeficientVyseUveru;
     this.koeficientUrokovaSazba = konfigurace.pojisteniKoeficientUrokovaSazba;
+    this.koeficientVyseUveru = konfigurace.koeficientVyseUveru;
 
     this.dobaSplaceni = this.defaultDobaSplaceni;
     this._vyseUveru = this.defaultVyseUveru;
@@ -142,8 +143,11 @@ export class AppComponent{
   }
 
   get vyseUveru(){
-    return (this.jePojisteni)?
-      (this._vyseUveru + this._vyseUveru*this.koeficientVyseUveru) : this._vyseUveru;
+    return this._vyseUveru;
+  }
+
+  get mesicniPriplatek(){
+    return Math.round(this._vyseUveru*this.koeficientVyseUveru);
   }
 
   kontaktujteMeEvent(event){

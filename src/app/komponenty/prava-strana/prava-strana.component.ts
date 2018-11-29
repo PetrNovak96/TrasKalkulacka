@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ModAplikaceService } from '../../services/mod-aplikace-service';
 
 @Component({
   selector: 'prava-strana',

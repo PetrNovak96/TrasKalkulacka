@@ -18,4 +18,12 @@ export class ModAplikaceService {
   public jeMobilniVerze(): boolean {
     return this.mobil;
   }
+
+  public skrolujDolu(){
+    window.scroll({
+      top: window.innerHeight,
+      left: window.innerWidth,
+      behavior: 'smooth'
+    });
+  }
 }

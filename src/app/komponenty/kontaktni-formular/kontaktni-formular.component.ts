@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material';
 import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
 import { KonfiguraceService } from '../../services/konfigurace.service';
 import { bezCislic, telefonFiltr } from '../../shared/formaty';
+import { ModAplikaceService } from '../../services/mod-aplikace-service';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -256,7 +257,7 @@ export class KontaktniFormularComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private _odeslaniUdaju: OdeslaniUdajuService,
               public dialog: MatDialog,
-              private konfigurace: KonfiguraceService) {
+              private konfigurace: KonfiguraceService, private modAplikace: ModAplikaceService) {
 
     this.kontaktniUdaje = this.fb.group({
       jmeno: ['', Validators.required],
@@ -265,7 +266,8 @@ export class KontaktniFormularComponent implements OnInit {
       telCislo: ['', [Validators.required, telCisloValidator]],
       doplnInfo: ['']
     });
-
+  modAplikace.skrolujDolu();
+  console.log("Skroluju")
   }
 
   ngOnInit() {
@@ -323,23 +325,23 @@ export class KontaktniFormularComponent implements OnInit {
         "kontaktniUdaje": this.kontaktniUdaje.value
       }
 
-     // this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
-     //   .subscribe(
-     //     response => {
-     //       console.log('Success!', response);
-     //       this.odeslaniStatus = "OK";
-     //       this.otevriPopUp();
-     //       },
-     //    error => {
-     //       console.log('Error!', error);
-     //       this.odeslaniStatus = "NOK";
-     //       this.otevriPopUp();
-     //     }
-     //   );
+     this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
+       .subscribe(
+         response => {
+           console.log('Success!', response);
+           this.odeslaniStatus = "OK";
+           this.otevriPopUp();
+           },
+        error => {
+           console.log('Error!', error);
+           this.odeslaniStatus = "NOK";
+           this.otevriPopUp();
+         }
+       );
 
-       console.log("Data odeslána na server.", this.udajeKOdeslani);
-       this.odeslaniStatus = "OK";
-       this.otevriPopUp();
+       // console.log("Data odeslána na server.", this.udajeKOdeslani);
+       // this.odeslaniStatus = "OK";
+       // this.otevriPopUp();
 
     } else {
       this.validateAllFormFields(this.kontaktniUdaje);
