@@ -1,14 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-body {
-  zoom:100%;
-}
-
 @media screen and (max-width: 768px){
   body {
-    max-width:475px;}
+    max-width:475px;
+    zoom: 100%}
 }
+
+@media screen and (min-width: 768px)
+and (max-width: 1200px){
+  body {
+    max-width:1220px;
+    min-width:1220px;
+    overflow-x: auto;
+    overflow-y: auto;
+    text-align: center}
+}
+
+@media screen and (min-width: 768px)
+and (max-width: 995px){
+  body {
+    text-align: center;
+
+}
+}
+
 
 /* Components*/
 .leftRightSideRow {
@@ -34,6 +50,33 @@ body {
      max-width: 475px;
      min-width: 475px;}
   }
+  @media screen and (min-width: 768px)
+  and (max-width: 1200px){
+   .rightSide {
+     max-width: 475px;
+     min-width: 475px;
+
+   margin-left: 555px;
+   margin-top: -525px;
+   min-height: 526px;
+     max-height: 526px;}
+  }
+  @media screen and (min-width: 768px)
+  and (max-width: 995px){
+    .rightSide {
+      max-width: 475px;
+      min-width: 475px;
+      margin-left: 535px;
+      margin-top: -525px;}
+  }
+@media screen and (min-width: 768px)
+and (max-width: 767px){
+  .rightSide {
+    max-width: 475px;
+    min-width: 475px;
+    margin-left: 475px;
+    margin-top: -420px;}
+}
 
 .leftSide{
  text-align: center;
@@ -51,6 +94,13 @@ body {
     max-width: 475px;
     min-width: 475px;}
   }
+  @media screen and (min-width: 768px)
+  and (max-width: 1200px){
+    .leftSide {
+      max-width: 475px;
+      min-width: 475px;}
+  }
+
 
 .formular {
   padding-left: 55px;
@@ -65,7 +115,21 @@ body {
     max-width: 475px;
     min-width: 475px;}
   }
+  @media screen and (min-width: 768px)
+  and (max-width: 1200px){
+    .formular {
+      max-width: 800px;
+      min-width: 800px;
+      margin-left: 155px;}
+  }
 
+  @media screen and (min-width: 768px)
+  and (max-width: 995px){
+    .formular {
+      max-width: 800px;
+      min-width: 800px;
+      margin-left: 135px;}
+  }
 
 .formularRow{
 margin-top: 15px;
@@ -309,7 +373,7 @@ input[type=range]::-webkit-slider-thumb {   /* ukazatel */
   border-style: none;
   -webkit-appearance: none;
   margin-top: -18px;
-  background:url(assets/posuvnik36.png) center no-repeat;
+  background:url(assets/posuvnik34.png) center no-repeat;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #367ebd;
