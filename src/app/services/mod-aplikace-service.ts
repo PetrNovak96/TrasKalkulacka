@@ -21,8 +21,8 @@ export class ModAplikaceService {
 
   public skrolujDolu(){
     window.scroll({
-      top: window.innerHeight,
-      left: window.innerWidth,
+      top: document.body.scrollHeight,
+      left: 0,
       behavior: 'smooth'
     });
   }

@@ -37,6 +37,7 @@ export class PravaStranaComponent implements OnInit {
   }
 
   fireEvent(){
+    console.log(new Date().getTime())
     this.zobrazFormular = true;
     this.kontaktujteMeEvent.emit(true);
   }

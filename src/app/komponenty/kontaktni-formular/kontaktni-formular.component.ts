@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/email.validator';
 import { telCisloValidator } from '../../shared/telCislo.validator';
@@ -221,7 +221,7 @@ import { ModAplikaceService } from '../../services/mod-aplikace-service';
   `,
   styleUrls: ['./kontaktni-formular.component.css']
 })
-export class KontaktniFormularComponent implements OnInit {
+export class KontaktniFormularComponent implements OnInit, AfterViewChecked {
 
   @Input('rodic') hlavniKomponenta;
 
@@ -266,8 +266,6 @@ export class KontaktniFormularComponent implements OnInit {
       telCislo: ['', [Validators.required, telCisloValidator]],
       doplnInfo: ['']
     });
-  modAplikace.skrolujDolu();
-  console.log("Skroluju")
   }
 
   ngOnInit() {
@@ -399,6 +397,11 @@ export class KontaktniFormularComponent implements OnInit {
 
   get doplnInfoControl(){
     return this.kontaktniUdaje.get('doplnInfo');
+  }
+
+  ngAfterViewChecked(): void {
+    console.log(new Date().getTime())
+    this.modAplikace.skrolujDolu()
   }
 
 }
