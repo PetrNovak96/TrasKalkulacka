@@ -10,6 +10,7 @@ export interface DialogData {
 @Component({
   selector: 'dialog-overview-example-dialog',
   template: `
+    <div class="vyskakovaciOknoImage"></div>
     <div class="VyskakovaciOkno">
       <p *ngIf="data.status=='OK'">
       Náš bankéř Vás bude kontaktovat do 24 hodin.
