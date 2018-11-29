@@ -161,7 +161,6 @@ export class AppComponent{
   }
 
   zmenaDobySplaceniEvent(event){
-
     this.dobaSplaceni = event;
   }
 
