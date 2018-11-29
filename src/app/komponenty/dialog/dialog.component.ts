@@ -21,7 +21,7 @@ export interface DialogData {
     <button class="btn btn-success btn-lg" 
             [mat-dialog-close] 
             (click)="onClick()">
-      Ok
+      OK
     </button> 
     </div>
   `,
