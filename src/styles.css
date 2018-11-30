@@ -4,7 +4,7 @@
 @media screen and (max-width: 768px){
   body {
     width:475px;
-    transform: scale(2);
+    transform: scale(0);
   }
 }
 
