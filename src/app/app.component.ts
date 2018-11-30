@@ -129,7 +129,7 @@ export class AppComponent{
 
     let S = this.mesicniSplatka;
     let n = this.dobaSplaceni;
-    let F = this.poplatkyVyrizeni + this.dobaSplaceni*this.mesicniPriplatek;
+    let F = this.poplatkyVyrizeni + (this.dobaSplaceni*this.mesicniPriplatek);
 
     let SUMA = S*n + F;
 
