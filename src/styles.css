@@ -3,10 +3,7 @@
 
 @media screen and (max-width: 768px){
   body {
-    max-width:475px;
-    zoom: normal;
-    overflow-x: hidden;
-    overflow: no-display;
+    width:475px;
   }
 }
 
