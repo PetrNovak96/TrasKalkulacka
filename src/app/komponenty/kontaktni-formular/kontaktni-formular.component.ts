@@ -19,7 +19,7 @@ import { OknoService } from '../../services/okno.service';
         </h2>
       </div>
     </div>
-    
+
     <form [formGroup]="this.kontaktniUdaje">
       <div class="row">
         <div class="col-md-1">
@@ -27,17 +27,17 @@ import { OknoService } from '../../services/okno.service';
         <div class="col-md-4 formularCol">
           <p>
             Jméno
-            <input #jmenoTextField 
+            <input #jmenoTextField
                    type="text"
                    style="margin-bottom: -5px"
                    [ngClass]="{
                      'form-control': true,
                      'is-invalid': jmenoControl.invalid && jmenoControl.touched
                    }"
-                   [placeholder]="this.jmenoPlaceholder" 
+                   [placeholder]="this.jmenoPlaceholder"
                    (input)="jmenoOnInputEvent($event)"
                    formControlName="jmeno">
-            
+
             <small *ngIf="jmenoControl.invalid && jmenoControl.touched">
 
               <small [ngClass]="{
@@ -50,43 +50,43 @@ import { OknoService } from '../../services/okno.service';
             </small>
           </p>
         </div>
-          <div class="col-md-2">
-          </div>
-          <div class="col-md-4 formularCol">
-            <p>
-              Příjmení
-              <input #prijmeniTextField
-                     type="text"
-                     style="margin-bottom: -5px"
-                     [ngClass]="{
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-4 formularCol">
+          <p>
+            Příjmení
+            <input #prijmeniTextField
+                   type="text"
+                   style="margin-bottom: -5px"
+                   [ngClass]="{
                      'form-control': true,
                      'is-invalid': prijmeniControl.invalid && prijmeniControl.touched
                    }"
-                     [placeholder]="this.prijmeniPlaceholder" 
-                     (input)="prijmeniOnInputEvent($event)"
-                     formControlName="prijmeni">
-            
-              <small *ngIf="prijmeniControl.invalid && prijmeniControl.touched">
+                   [placeholder]="this.prijmeniPlaceholder"
+                   (input)="prijmeniOnInputEvent($event)"
+                   formControlName="prijmeni">
 
-                <small [ngClass]="{
+            <small *ngIf="prijmeniControl.invalid && prijmeniControl.touched">
+
+              <small [ngClass]="{
                       'text-danger': true,
                       'd-none': !(prijmeniControl.errors.required)
                 }">
-                  Vyplňte prosím toto pole.
-                </small>
-
+                Vyplňte prosím toto pole.
               </small>
-            </p>
-          </div>
-          <div class="col-md-1">
-          </div>
+
+            </small>
+          </p>
+        </div>
+        <div class="col-md-1">
+        </div>
       </div>
-      
-      
-          <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-4 formularCol">
+
+
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4 formularCol">
           <p>
             Email
             <input #emailTextField
@@ -101,7 +101,7 @@ import { OknoService } from '../../services/okno.service';
                    (click)="this.EmailOnClickEvent()"
                    formControlName="email"
                    maxlength="30">
-            
+
             <small *ngIf="emailControl.invalid && emailControl.touched">
 
               <small [ngClass]="{
@@ -135,7 +135,7 @@ import { OknoService } from '../../services/okno.service';
                      'is-invalid': telCisloControl.invalid && telCisloControl.touched
                    }"
                    [placeholder]="this.telPlaceholder"
-                   (click)="telOnClickEvent($event)"
+                   (focus)="telOnFocusEvent($event)"
                    [(ngModel)]="this.telCislo"
                    (input)="telOnInputEvent($event)"
                    formControlName="telCislo"
@@ -163,7 +163,7 @@ import { OknoService } from '../../services/okno.service';
         <div class="col-md-1">
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col-md-1">
         </div>
@@ -172,16 +172,16 @@ import { OknoService } from '../../services/okno.service';
             Doplňující informace
           </p>
         </div>
-          <div class="col-md-1">
-          </div>
+        <div class="col-md-1">
         </div>
-        
-        <div class="row">
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-10 doplnujiciInfoCol">
+      </div>
+
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10 doplnujiciInfoCol">
             
-              <textarea rows="4" #doplnInfoTextArea 
+              <textarea rows="4" #doplnInfoTextArea
                         [maxlength]="this.maxdelka"
                         class="doplnujiciInfo"
                         (input)="onInputDopln()"
@@ -193,18 +193,18 @@ import { OknoService } from '../../services/okno.service';
                     }"
                         formControlName="doplnInfo"
               ></textarea>
-            <p *ngIf="this.zobrazitCounter">
-              
-              <small class="text-primary">
-                {{this.doplnInfoInput.nativeElement.value.length + "/" + this.maxdelka}}
-              </small>
-              
-            </p>
-          </div>
-          <div class="col-md-1">
-          </div>
+          <p *ngIf="this.zobrazitCounter">
+
+            <small class="text-primary">
+              {{this.doplnInfoInput.nativeElement.value.length + "/" + this.maxdelka}}
+            </small>
+
+          </p>
         </div>
-      
+        <div class="col-md-1">
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-md-1">
         </div>
@@ -214,9 +214,8 @@ import { OknoService } from '../../services/okno.service';
         <div class="col-md-1">
         </div>
       </div>
-      
-      
-      
+
+
     </form>
   `,
   styleUrls: ['./kontaktni-formular.component.css']
@@ -267,6 +266,7 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
       telCislo: ['', [Validators.required, telCisloValidator]],
       doplnInfo: ['']
     });
+
   }
 
   ngOnInit() {
@@ -291,10 +291,11 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
     }
   }
 
-  telOnClickEvent(){
+  telOnFocusEvent(){
 
     if(this.telCislo.length==0){
       let el = this.telInput.nativeElement;
+      el.value = "";
       let newVal = this.telPlaceholder;
       el.value = newVal;
       el.setSelectionRange(newVal.length, newVal.length);
@@ -324,23 +325,23 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
         "kontaktniUdaje": this.kontaktniUdaje.value
       }
 
-     // this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
-     //   .subscribe(
-     //     response => {
-     //       console.log('Success!', response);
-     //       this.odeslaniStatus = "OK";
-     //       this.otevriPopUp();
-     //       },
-     //    error => {
-     //       console.log('Error!', error);
-     //       this.odeslaniStatus = "NOK";
-     //       this.otevriPopUp();
-     //     }
-     //   );
+     this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
+       .subscribe(
+         response => {
+           console.log('Success!', response);
+           this.odeslaniStatus = "OK";
+           this.otevriPopUp();
+           },
+        error => {
+           console.log('Error!', error);
+           this.odeslaniStatus = "NOK";
+           this.otevriPopUp();
+         }
+       );
 
-       console.log("Data odeslána na server.", this.udajeKOdeslani);
-       this.odeslaniStatus = "OK";
-       this.otevriPopUp();
+       // console.log("Data odeslána na server.", this.udajeKOdeslani);
+       // this.odeslaniStatus = "OK";
+       // this.otevriPopUp();
 
     } else {
       this.validateAllFormFields(this.kontaktniUdaje);
