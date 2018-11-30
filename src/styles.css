@@ -6,6 +6,7 @@
     max-width:475px;
     zoom: normal;
     overflow-x: hidden;
+    overflow: no-display;
   }
 }
 
