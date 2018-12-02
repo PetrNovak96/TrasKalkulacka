@@ -21,6 +21,17 @@ mkdir api_code_generator
 ```
 * do této složky rozbal obsah [zipu](https://drive.google.com/drive/folders/1eGnRHV7FwzU6C6XqZkEYgUcT7lAFdLIy).
 
+* vytvoř složku bankovni_server
+```
+mkdir bankovni_server
+```
+* do této složky rozbal obsah [zipu](https://drive.google.com/file/d/1c_RWQvoZanvMAvI2HrbwX6NzZZkI5GV6/view).
+
+* na příkazové řádce ve složce **bankovni_server** spusť a nech běžet:
+```
+npm start
+```
+
 * na příkazové řádce v této složce napiš
 ```
 git clone https://github.com/PetrNovak96/TrasKalkulacka

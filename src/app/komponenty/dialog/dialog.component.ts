@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { KonfiguraceService } from '../../services/konfigurace.service';
-import { OknoService } from '../../services/okno.service';
 
 export interface DialogData {
   status: string
@@ -33,8 +32,7 @@ export class DialogOverviewExampleDialog{
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private konfigurace: KonfiguraceService,
-    private oknoServisa: OknoService) {
+    private konfigurace: KonfiguraceService) {
 
     this.kontakt = this.konfigurace.kontaktHelpdesk;
   }

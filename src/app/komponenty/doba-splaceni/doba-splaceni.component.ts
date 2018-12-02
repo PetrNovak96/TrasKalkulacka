@@ -23,6 +23,7 @@ import { formatujCislo } from '../../shared/formaty';
                     pattern="[0-9]*"
                [value]="numberToString(this.dobaSplaceni)"
                (change)="fireEvent($event)" 
+               (blur)="fireEvent($event)"
                (input)="onInputEvent($event)">
             </td>
             <td class="tableJednotka">
