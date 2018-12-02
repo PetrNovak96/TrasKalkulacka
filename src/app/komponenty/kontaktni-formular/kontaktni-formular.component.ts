@@ -208,8 +208,20 @@ import { OknoService } from '../../services/okno.service';
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10" style="text-align: center">
-          <input (click)="onSubmit()" type="button" class="btn btn-success btn-lg" value="Odeslat"/>
+        <div class="col-md-10 doplnujiciInfoCol">
+          <p (click)="this.onSouhlasim()">
+            <input formControlName="souhlas" #checkboxSouhlasim [(ngModel)]="this.souhlasim" type="checkbox">Souhlasím se zpracováním osobních údajů za účelem kontaktování bankéřem.
+          </p>
+        </div>
+        <div class="col-md-1">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10 doplnujiciInfoCol" style="text-align: center">
+          <input [disabled]="!this.souhlasim" (click)="onSubmit()" type="button" class="btn btn-success btn-lg" value="Odeslat"/>
         </div>
         <div class="col-md-1">
         </div>
@@ -233,6 +245,9 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
   @ViewChild('prijmeniTextField') prijmeniInput;
 
   @ViewChild('doplnInfoTextArea') doplnInfoInput;
+  @ViewChild('checkboxSouhlasim') checkboxInput;
+
+
   public zobrazitCounter: boolean;
   private sjeto: boolean;
   public maxdelka: number;
@@ -241,18 +256,13 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
   @ViewChild('counter') counter;
 
   public doplnujiciInfo: string;
-
   public kontaktniUdaje: FormGroup;
-
   public udajeKOdeslani: object;
-
   public odeslaniStatus: string;
-
   public jmenoPlaceholder: string;
-
   public prijmeniPlaceholder: string;
-
   public telPlaceholder: string;
+  public souhlasim: boolean;
 
   constructor(private fb: FormBuilder,
               private _odeslaniUdaju: OdeslaniUdajuService,
@@ -264,7 +274,8 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
       email: ['', [Validators.required, emailValidator]],
       prijmeni: ['', [Validators.required, ]],
       telCislo: ['', [Validators.required, telCisloValidator]],
-      doplnInfo: ['']
+      doplnInfo: [''],
+      souhlas: []
     });
 
   }
@@ -280,6 +291,7 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
     this.prijmeniPlaceholder = this.konfigurace.prijmeniPlaceholder;
     this.telPlaceholder = this.konfigurace.telPlaceholder;
     this.sjeto = false;
+    this.souhlasim = false;
   }
 
   EmailOnClickEvent(){
@@ -375,6 +387,7 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
   }
 
   onInputDopln(){
+
     let vepsanoZnaku = this.doplnInfoInput.nativeElement.value.length
     if(vepsanoZnaku >= this.zobrazitCounterPo){
       this.zobrazitCounter = true;
@@ -405,11 +418,15 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.oknoServisa.skrolujDolu();
-    console.log(this.emailInput.nativeElement.width)
 
     if (!this.oknoServisa.jeMobilniVerze()) {
       this.jmenoInput.nativeElement.focus();
     }
+  }
+
+  onSouhlasim(){
+    this.souhlasim = !this.souhlasim;
+    this.checkboxInput.nativeElement.value = this.souhlasim
   }
 
 }
