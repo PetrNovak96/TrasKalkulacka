@@ -6,7 +6,7 @@ import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
 import { MatDialog } from '@angular/material';
 import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
 import { KonfiguraceService } from '../../services/konfigurace.service';
-import { bezCislic, telefonFiltr } from '../../shared/formaty';
+import { filtrNepovoleneZnaky, telefonFiltr } from '../../shared/formaty';
 import { OknoService } from '../../services/okno.service';
 
 @Component({
@@ -326,12 +326,13 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   jmenoOnInputEvent(){
     let pom = this.jmenoInput.nativeElement.value;
-    this.jmenoInput.nativeElement.value = bezCislic(pom);
+    console.log(filtrNepovoleneZnaky(pom));
+    this.jmenoInput.nativeElement.value = filtrNepovoleneZnaky(pom);
   }
 
   prijmeniOnInputEvent(){
     let pom = this.prijmeniInput.nativeElement.value;
-    this.prijmeniInput.nativeElement.value = bezCislic(pom);
+    this.prijmeniInput.nativeElement.value = filtrNepovoleneZnaky(pom);
   }
 
   onSubmit(){
