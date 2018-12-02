@@ -8,12 +8,13 @@ export interface DialogData {
 
 @Component({
   selector: 'dialog-overview-example-dialog',
-  template: `
-    <div class="vyskakovaciOknoImage"></div>
+  template: `    
     <div class="VyskakovaciOkno">
+      <div *ngIf="data.status=='OK'" class="vyskakovaciOknoImageOK"></div>
       <p *ngIf="data.status=='OK'">
       Náš bankéř Vás bude kontaktovat do 24 hodin.
     </p>
+      <div *ngIf="data.status=='NOK'" class="vyskakovaciOknoImageNOK"></div>
     <p *ngIf="data.status=='NOK'">
       Něco se asi pokazilo, kontaktujte nás prosím na telefonním čísle {{this.kontakt}}
     </p>
