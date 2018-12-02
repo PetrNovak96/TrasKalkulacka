@@ -23,7 +23,7 @@ import { KonfiguraceService } from '../../services/konfigurace.service';
                [value]="this.numberToString(this.vyseUveru)"
                (input)="onInputEvent($event)"
                (change)="onChangeEvent($event)" 
-               (blur)="onChangeEvent($event)">
+               (blur)="onChangeEvent($event)" maxlength="10">
           </td>
           <td class="tableJednotka">
             <p> {{jednotek}}</p>
