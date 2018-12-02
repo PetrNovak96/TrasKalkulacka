@@ -39,11 +39,10 @@ import { OknoService } from './services/okno.service';
         <div class="col-md-1">
         </div>
       </div>
-
-      <div class="row formularRow" *ngIf="this.zobrazFormular">
+      <div  [ngClass]="{'row': true, 'formularRow': !this.oknoServisa.jeMobilniVerze()}" *ngIf="this.zobrazFormular">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10 formular"><kontaktni-formular [rodic]="this"></kontaktni-formular></div>
+        <div class="col-md-10 formular"><kontaktni-formular  [rodic]="this"></kontaktni-formular></div>
         <div class="col-md-1">
         </div>
       </div>
@@ -75,10 +74,10 @@ export class AppComponent{
               private oknoServisa: OknoService) {
 
     //Mock server vrací úrokovou míru per anum
-   // this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
-   //   this._urokovaMira = data.interestRate;
-   //  });
-   this._urokovaMira = 0.08;
+   this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
+     this._urokovaMira = data.interestRate;
+    });
+   //this._urokovaMira = 0.08;
 
     this.poplatkyVyrizeni = konfigurace.poplatek;
 
