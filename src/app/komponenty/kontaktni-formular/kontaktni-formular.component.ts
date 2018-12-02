@@ -209,7 +209,7 @@ import { OknoService } from '../../services/okno.service';
         <div class="col-md-1">
         </div>
         <div class="col-md-10 doplnujiciInfoCol">
-          <p (click)="this.onSouhlasim()">
+          <p style="margin-top: 1em" (click)="this.onSouhlasim()">
             <input formControlName="souhlas" #checkboxSouhlasim [(ngModel)]="this.souhlasim" type="checkbox">Souhlasím se zpracováním osobních údajů za účelem kontaktování bankéřem.
           </p>
         </div>
