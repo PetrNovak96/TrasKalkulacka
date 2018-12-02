@@ -242,14 +242,26 @@ font-weight: 100;
   color: grey;
 }
 
-.vyskakovaciOknoImage
-{
+.vyskakovaciOknoImageOK {
   text-align: center;
   max-width: 60px;
   min-height: 60px;
   max-height: 60px;
   margin-bottom: 10px;
   margin-left: 195px;
+  background:url(assets/OK.png);
+  background-size: 100%;
+}
+
+.vyskakovaciOknoImageNOK{
+  text-align: center;
+  max-width: 60px;
+  min-height: 60px;
+  max-height: 60px;
+  margin-bottom: 10px;
+  margin-left: 195px;
+  background:url(assets/NOK.png);
+  background-size: 100%;
 }
 
 .txtWeightNorm {
@@ -406,12 +418,13 @@ input[type=range]::-webkit-slider-runnable-track {   /* čára */
   border: 0.2px solid #010101;
 }
 input[type=range]::-webkit-slider-thumb {   /* ukazatel */
-  height: 39px;
-  width: 36px;
+  height: 40px;
+  width: 40px;
   border-style: none;
   -webkit-appearance: none;
   margin-top: -18px;
-  background:url(assets/posuvnik34.png) center no-repeat;
+  background:url(assets/posuvnik.png) center no-repeat;
+  background-size: 100%;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #367ebd;
