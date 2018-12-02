@@ -30,7 +30,8 @@ export class CelkemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.napoveda = "Tady se musíme dohodnout co přesně tam napsat.";
+    this.napoveda = "Součet celkové výše spotřebitelského úvěru a " +
+      "celkových nákladů spotřebitelského úvěru pro spotřebitele (úrok, poplatky).";
     this.barvaNapovedy = "bila";
   }
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { naProcenta } from '../../shared/formaty';
 
 @Component({
@@ -8,7 +8,10 @@ import { naProcenta } from '../../shared/formaty';
       <div class="col-md-1" *ngIf="(urokovaMira != undefined)">
       </div>
       <div class="col-md-5 rpsnCol" style="text-align: left">
-        <p class="txtWhite">Úroková sazba</p>
+        <p class="txtWhite">Úroková sazba
+          <napoveda pozice="right" [barva]="barvaNapovedy" [tooltip]="napoveda"></napoveda>
+        </p>
+        
       </div>
       <div class="col-md-5 rpsnCol" style="text-align: right">
         <p class="txtWhite">{{naProcenta(urokovaMira)}}</p>
@@ -19,14 +22,23 @@ import { naProcenta } from '../../shared/formaty';
   `,
   styles: []
 })
-export class SazbaComponent {
+export class SazbaComponent implements OnInit{
 
   @Input() public urokovaMira: number;
+  public napoveda: string;
+  public barvaNapovedy: string;
 
   constructor() { }
+
+  ngOnInit(): void {
+    this.napoveda = "Úroková sazba per annum.";
+    this.barvaNapovedy = "bila";
+  }
 
   naProcenta(neco: number) {
     return naProcenta(neco);
   }
+
+
 
 }

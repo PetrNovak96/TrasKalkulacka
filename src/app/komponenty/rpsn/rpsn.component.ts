@@ -30,7 +30,8 @@ export class RPSNComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.napoveda = "Tady se musíme dohodnout co přesně tam napsat.";
+    this.napoveda = "Roční procentní sazba nákladů = procentuální podíl z dlužné částky, " +
+      "který musí zákazník zaplatit v souvislosti se splátkami, správou úvěru a dalšími poplatky.";
     this.barvaNapovedy = "bila";
   }
 
