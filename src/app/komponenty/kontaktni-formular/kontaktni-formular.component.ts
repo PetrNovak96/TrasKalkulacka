@@ -326,7 +326,6 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   jmenoOnInputEvent(){
     let pom = this.jmenoInput.nativeElement.value;
-    console.log(filtrNepovoleneZnaky(pom));
     this.jmenoInput.nativeElement.value = filtrNepovoleneZnaky(pom);
   }
 

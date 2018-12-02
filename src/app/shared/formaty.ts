@@ -61,6 +61,5 @@ export function filtrNepovoleneZnaky(neco: string) {
       }
     }
   }
-  console.log(novy)
   return novy;
 }
