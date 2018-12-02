@@ -23,5 +23,6 @@
   },
   "poplatek": 490,
   "kontaktHelpdesk": "+420 123 789 456",
-  "postUrl": "http://localhost:3000/kontaktniUdaje"
+  "postUrl": "http://localhost:3000/kontaktniUdaje",
+  "GDPRUrl": "http://www.hypnotoad.tv"
 }

@@ -210,7 +210,10 @@ import { OknoService } from '../../services/okno.service';
         </div>
         <div class="col-md-10 doplnujiciInfoCol">
           <p style="margin-top: 1em" (click)="this.onSouhlasim()">
-            <input formControlName="souhlas" #checkboxSouhlasim [(ngModel)]="this.souhlasim" type="checkbox">Souhlasím se zpracováním osobních údajů za účelem kontaktování bankéřem.
+            <input formControlName="souhlas" #checkboxSouhlasim [(ngModel)]="this.souhlasim" type="checkbox">
+            Souhlasím se zpracováním <a style="color: black; text-decoration: none;" [href]="this.odkazGDPR" target="_blank" >
+            <b>osobních údajů</b>
+          </a>.
           </p>
         </div>
         <div class="col-md-1">
@@ -235,6 +238,7 @@ import { OknoService } from '../../services/okno.service';
 export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   @Input('rodic') hlavniKomponenta;
+  public odkazGDPR: string;
 
   public email: string;
   @ViewChild('emailTextField') emailInput;
@@ -292,6 +296,7 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
     this.telPlaceholder = this.konfigurace.telPlaceholder;
     this.sjeto = false;
     this.souhlasim = false;
+    this.odkazGDPR = this.konfigurace.odkazGDPR;
   }
 
   EmailOnClickEvent(){
@@ -418,10 +423,6 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.oknoServisa.skrolujDolu();
-
-    if (!this.oknoServisa.jeMobilniVerze()) {
-      this.jmenoInput.nativeElement.focus();
-    }
   }
 
   onSouhlasim(){

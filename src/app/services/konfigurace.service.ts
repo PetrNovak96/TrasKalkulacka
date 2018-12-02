@@ -27,6 +27,7 @@ export class KonfiguraceService {
   private _poplatek: number;
   private _kontaktHelpdesk: string;
   private _postUrl: string;
+  private _odkazGDPR: string
 
   constructor() {
 
@@ -53,6 +54,7 @@ export class KonfiguraceService {
     this._poplatek = konfigurace.poplatek;
     this._kontaktHelpdesk = konfigurace.kontaktHelpdesk;
     this._postUrl = konfigurace.postUrl;
+    this._odkazGDPR = konfigurace.GDPRUrl;
   }
 
   get minUver(){
@@ -121,5 +123,9 @@ export class KonfiguraceService {
 
   get postUrl(): string {
     return this._postUrl;
+  }
+
+  get odkazGDPR(): string {
+    return this._odkazGDPR;
   }
 }
