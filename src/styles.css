@@ -3,7 +3,7 @@
 
 @media screen and (max-width: 768px){
   body {
-    max-width:368px;
+    max-width:768px;
   }
 }
 
@@ -319,8 +319,9 @@ hr {
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  border-top: 1px solid white;
+  border-top: 1px solid;
   width: 95%;
+  color: white;
 }
   @media screen and (max-width: 768px){
     hr {
