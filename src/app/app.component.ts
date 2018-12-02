@@ -35,14 +35,15 @@ import { OknoService } from './services/okno.service';
             <celkem [zaplatiteCelkem]="zaplatiteCelkem"></celkem>
           </prava-strana>
         </div>
+        
         <div class="col-md-1">
         </div>
       </div>
 
-      <div class="row formularRow">
+      <div class="row formularRow" *ngIf="this.zobrazFormular">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10 formular"><kontaktni-formular [rodic]="this" *ngIf="this.zobrazFormular"></kontaktni-formular></div>
+        <div class="col-md-10 formular"><kontaktni-formular [rodic]="this"></kontaktni-formular></div>
         <div class="col-md-1">
         </div>
       </div>
