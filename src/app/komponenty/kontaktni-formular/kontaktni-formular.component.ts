@@ -325,23 +325,24 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
         "kontaktniUdaje": this.kontaktniUdaje.value
       }
 
-     this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
-       .subscribe(
-         response => {
-           console.log('Success!', response);
-           this.odeslaniStatus = "OK";
-           this.otevriPopUp();
-           },
-        error => {
-           console.log('Error!', error);
-           this.odeslaniStatus = "NOK";
-           this.otevriPopUp();
-         }
-       );
+     // this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
+     //   .subscribe(
+     //     response => {
+     //       console.log('Success!', response);
+     //       this.odeslaniStatus = "OK";
+     //       this.otevriPopUp();
+     //       },
+     //    error => {
+     //       console.log('Error!', error);
+     //       this.odeslaniStatus = "NOK";
+     //       this.otevriPopUp();
+     //     }
+     //   );
 
-       // console.log("Data odeslána na server.", this.udajeKOdeslani);
-       // this.odeslaniStatus = "OK";
-       // this.otevriPopUp();
+       console.log("Data odeslána na server.", this.udajeKOdeslani);
+       this.odeslaniStatus = "OK";
+       this.otevriPopUp();
+
 
     } else {
       this.validateAllFormFields(this.kontaktniUdaje);
