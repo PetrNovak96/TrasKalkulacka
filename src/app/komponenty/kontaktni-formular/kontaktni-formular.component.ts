@@ -404,7 +404,10 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.oknoServisa.skrolujDolu();
-    this.jmenoInput.nativeElement.focus();
+
+    if (!this.oknoServisa.jeMobilniVerze()) {
+      this.jmenoInput.nativeElement.focus();
+    }
   }
 
 }

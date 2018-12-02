@@ -28,6 +28,7 @@ export class OknoService {
   }
 
   public skrolujNahoru(){
+
     window.scroll({
       top: - (window.screenY),
       left: 0,
