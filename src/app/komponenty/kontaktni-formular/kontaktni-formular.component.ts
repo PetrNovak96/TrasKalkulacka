@@ -128,7 +128,7 @@ import { OknoService } from '../../services/okno.service';
           <p>
             Telefonní číslo
             <input #telCisloTextField
-                   type="text"
+                   type="tel"
                    style="margin-bottom: -5px"
                    [ngClass]="{
                      'form-control': true,
@@ -405,6 +405,7 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.oknoServisa.skrolujDolu();
+    console.log(this.emailInput.nativeElement.width)
 
     if (!this.oknoServisa.jeMobilniVerze()) {
       this.jmenoInput.nativeElement.focus();

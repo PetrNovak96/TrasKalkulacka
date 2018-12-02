@@ -24,7 +24,8 @@ import { formatujCislo } from '../../shared/formaty';
                [value]="numberToString(this.dobaSplaceni)"
                (change)="fireEvent($event)" 
                (blur)="fireEvent($event)"
-               (input)="onInputEvent($event)" maxlength="10">
+               (input)="onInputEvent($event)"
+               maxlength="3">
             </td>
             <td class="tableJednotka">
               <p> {{jednotek}}</p>

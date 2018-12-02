@@ -6,8 +6,7 @@ import { OknoService } from './services/okno.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-
+  template: `    
     <div class="container">
       <div class="row leftRightSideRow">
         <div class="col-md-1">
