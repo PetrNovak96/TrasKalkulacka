@@ -1,13 +1,13 @@
-import { AfterViewChecked, AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { emailValidator } from '../../shared/email.validator';
-import { telCisloValidator } from '../../shared/telCislo.validator';
-import { OdeslaniUdajuService } from '../../services/odeslani-udaju.service';
-import { MatDialog } from '@angular/material';
-import { DialogOverviewExampleDialog } from '../dialog/dialog.component';
-import { KonfiguraceService } from '../../services/konfigurace.service';
-import { filtrNepovoleneZnaky, telefonFiltr } from '../../shared/formaty';
-import { OknoService } from '../../services/okno.service';
+import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {emailValidator} from '../../shared/email.validator';
+import {telCisloValidator} from '../../shared/telCislo.validator';
+import {OdeslaniUdajuService} from '../../services/odeslani-udaju.service';
+import {MatDialog} from '@angular/material';
+import {DialogOverviewExampleDialog} from '../dialog/dialog.component';
+import {KonfiguraceService} from '../../services/konfigurace.service';
+import {filtrNepovoleneZnaky, telefonFiltr} from '../../shared/formaty';
+import {OknoService} from '../../services/okno.service';
 
 @Component({
   selector: 'kontaktni-formular',
@@ -197,7 +197,7 @@ import { OknoService } from '../../services/okno.service';
           <p *ngIf="this.zobrazitCounter">
 
             <small class="text-primary">
-              {{this.doplnInfoInput.nativeElement.value.length + "/" + this.maxdelka}}
+              {{doplnInfoInput.nativeElement.value.length + "/" + maxdelka}}
             </small>
 
           </p>
@@ -205,7 +205,6 @@ import { OknoService } from '../../services/okno.service';
         <div class="col-md-1">
         </div>
       </div>
-
       <div class="row">
         <div class="col-md-1">
         </div>
@@ -219,19 +218,16 @@ import { OknoService } from '../../services/okno.service';
         </div>
         <div class="col-md-1">
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-1">
         </div>
-        <div class="col-md-10 doplnujiciInfoCol" style="text-align: center">
-          <input [disabled]="!this.souhlasim" (click)="onSubmit()" type="button" class="btn btn-success btn-lg" value="Odeslat"/>
+        <div class="row">
+          <div class="col-md-1">
+          </div>
+          <div class="col-md-10 doplnujiciInfoCol" style="text-align: center">
+            <input [disabled]="!this.souhlasim" (click)="onSubmit()" type="button" class="btn btn-success btn-lg moje" value="Odeslat"/>
+          </div>
+          <div class="col-md-1">
+          </div>
         </div>
-        <div class="col-md-1">
-        </div>
-      </div>
-
-
     </form>
   `,
   styleUrls: ['./kontaktni-formular.component.css']
@@ -341,25 +337,25 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
       this.udajeKOdeslani = {
         "parametryKalkulacky": this.hlavniKomponenta.parametryKalkulacky,
         "kontaktniUdaje": this.kontaktniUdaje.value
-      }
+      };
 
-     // this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
-     //   .subscribe(
-     //     response => {
-     //       console.log('Success!', response);
-     //       this.odeslaniStatus = "OK";
-     //       this.otevriPopUp();
-     //       },
-     //    error => {
-     //       console.log('Error!', error);
-     //       this.odeslaniStatus = "NOK";
-     //       this.otevriPopUp();
-     //     }
-     //   );
+     this._odeslaniUdaju.odeslaniUdaju(this.udajeKOdeslani)
+       .subscribe(
+         response => {
+           console.log('Success!', response);
+           this.odeslaniStatus = "OK";
+           this.otevriPopUp();
+           },
+        error => {
+           console.log('Error!', error);
+           this.odeslaniStatus = "NOK";
+           this.otevriPopUp();
+         }
+       );
 
-       console.log("Data odeslána na server.", this.udajeKOdeslani);
-       this.odeslaniStatus = "OK";
-       this.otevriPopUp();
+       // console.log("Data odeslána na server.", this.udajeKOdeslani);
+       // this.odeslaniStatus = "OK";
+       // this.otevriPopUp();
 
 
     } else {
@@ -394,12 +390,9 @@ export class KontaktniFormularComponent implements OnInit, AfterViewInit {
 
   onInputDopln(){
 
-    let vepsanoZnaku = this.doplnInfoInput.nativeElement.value.length
-    if(vepsanoZnaku >= this.zobrazitCounterPo){
-      this.zobrazitCounter = true;
-    } else {
-      this.zobrazitCounter = false;
-    }
+    let vepsanoZnaku = this.doplnInfoInput.nativeElement.value.length;
+
+    this.zobrazitCounter = (vepsanoZnaku >= this.zobrazitCounterPo);
   }
 
   get jmenoControl(){

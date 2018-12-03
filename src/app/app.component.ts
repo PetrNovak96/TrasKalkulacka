@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { GatewayService } from './services/gateway.service';
-import { KonfiguraceService } from './services/konfigurace.service';
-import { OknoService } from './services/okno.service';
+import {Component} from '@angular/core';
+import {GatewayService} from './services/gateway.service';
+import {KonfiguraceService} from './services/konfigurace.service';
+import {OknoService} from './services/okno.service';
 
 
 @Component({
@@ -74,10 +74,10 @@ export class AppComponent{
               private oknoServisa: OknoService) {
 
     //Mock server vrací úrokovou míru per anum
-   // this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
-   //   this._urokovaMira = data.interestRate;
-   //  });
-   this._urokovaMira = 0.08;
+   this.gateway.getDemoPetrEndPoint({}).subscribe((data) => {
+     this._urokovaMira = data.interestRate;
+    });
+   // this._urokovaMira = 0.08;
 
     this.poplatkyVyrizeni = konfigurace.poplatek;
 
@@ -95,12 +95,11 @@ export class AppComponent{
   get parametryKalkulacky()
     : object
   {
-    let parametry = {
+    return {
       "vyseUveru": this.vyseUveru,
       "dobaSplaceni": this.dobaSplaceni,
       "jePojisteni": this.jePojisteni
-    }
-    return parametry
+    };
   }
 
   get mesicniSplatka(){
@@ -119,9 +118,7 @@ export class AppComponent{
 
     let r = this.urokovaMira;
 
-    let APR = (Math.pow(1+(r/12), 12)) - 1;
-
-    return APR;
+    return ((Math.pow(1+(r/12), 12)) - 1);
   }
 
   get zaplatiteCelkem(){
