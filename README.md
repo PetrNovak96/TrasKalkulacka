@@ -9,6 +9,8 @@ Nejlepší úvěrová kalkulačka na světě vyvíjená pro Tatrask banku
 [SD OneDrive](https://onedrive.live.com/?authkey=%21AOwb0pPkxexMT2Q&id=7D8ADDAA7DD1D2F2%21206754&cid=7D8ADDAA7DD1D2F2)
 
 [SD Google sheet](https://docs.google.com/spreadsheets/d/1VY2zbDqbavT3gcQdxqk1Drbregrhx6qyBpgRohd8NYE/edit#gid=1968327993)
+
+[SD Google Drive](https://drive.google.com/drive/folders/12UncPkR1gI0kd1vPT5OTzXAkHB4UOr1E?fbclid=IwAR0S2bmt5qMTp1WMNgDREhjAEsntr1DGweVr7Lm3tkgcC-EEe9thVo3kddU)
 ## Pokyny pro stáhnutí a zprovoznění
 _Předpokládá se, že máš nainstalovaný git, nodejs a npm._
 * na příkazové řádce přejdi do složky, ve které chceš mít projekt
